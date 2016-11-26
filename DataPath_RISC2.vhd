@@ -1,0 +1,259 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library work;
+use work.datapathComponents.all;
+
+entity Datapath_RISC is
+	port (
+        M2,M10,M11,M12,M13,M14,M15,M18,M19,M21,
+	PC_FD_En,T3_FD_En,T3_DR_En,PC_DR_En,IR_DR_En,Z1_En,T1_RE_En,T2_RE_En,T3_RE_En,T4_RE_En,IR_RE_En,PC_RE_En,PC_RE2_En,
+	T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,
+	PC_MW_En,IR_MW_En,PC_MW2_En,RegWr,PCWr,Alu_op,MemWr: in std_logic;
+        M3,M4,M5,M6,M7,M8,M9,M16,M17,M20: in std_logic_vector(1 downto 0);
+        C,Z,PE1_V,PE2_V,Z1: out std_logic;
+        IR_DR,IR_RE,IR_EM,IR_MW: out std_logic_vector(15 downto 0);
+        clk,reset: in std_logic);
+end entity;
+
+architecture Build of DataPath_RISC is
+    signal RF_pci,RF_pco,Mem_A,Mem_din,Mem_dout,RF_D1,RF_D2,RF_D3,RF_D4,
+            PE1_in,PE1_D,PE2_in,PE2_D,
+            T1_RE_in,T1_RE_out,
+	    T2_RE_in,T2_RE_out,T2_EM_in,T2_EM_out,T2_MW_in,T2_MW_out,
+	    T3_RE_in,T3_RE_out,T3_EM_in,T3_EM_out,T3_MW_in,T3_MW_out,T3_FD_in,T3_FD_out,T3_DR_in,T3_DR_out,
+	    T4_RE_in,T4_RE_out,T4_EM_in,T4_EM_out,T4_MW_in,T4_MW_out,
+	    PC_FD_in,PC_FD_out,PC_DR_in,PC_DR_out,PC_RE_in,PC_RE_out,PC_EM_in,PC_EM_out,PC_MW_in,PC_MW_out,
+	    PC_EM2_in,PC_EM2_out,PC_MW2_in,PC_MW2_out,
+	    Data_Mem_A,Data_Mem_Din,Data_Mem_dout,Instr_Mem_A,Instr_Mem_out,
+	    pc_alu1,pc_alu_out,op_alu1,op_alu2,op_alu_out,op2_alu1,op2_alu_out,
+	    Comp1_D1,Comp1_D2,Comp2_D1,SE_out,USE_out,forward,ctrl_for,
+	    IR_DR_in,IR_RE_in,IR_EM_in,IR_MW_in,IR_DR_out,IR_RE_out,IR_EM_out,IR_MW_out: std_logic_vector(15 downto 0);
+    signal PE1_A,PE2_A,RF_A1,RF_A2,RF_A3,RF_A4: std_logic_vector(2 downto 0);
+    signal PE1_valid,PE2_valid,Comp1_out,Comp2_out,Alu_C: std_logic;
+    constant one: std_logic_vector(15 downto 0) := "0000000000000001";
+    constant zero: std_logic_vector(15 downto 0) := "0000000000000000";
+
+begin
+    --Priority Encoder1  -- Doubt
+    PE1_in <= T4_EM_out;
+    pr1_enc: PE
+    	port map(inp=>PE1_in,v=>PE1_valid,a=>PE1_A,d=>PE1_D);
+    PE1_V <= PE1_valid;
+
+    --Priority Encoder2  -- Doubt
+    PE2_in <= T4_MW_out;
+    pr2_enc: PE
+    	port map(inp=>PE2_in,v=>PE2_valid,a=>PE2_A,d=>PE2_D);
+    PE2_V <= PE2_valid;
+	
+    --PC_FD         							PC_FD_in <= pc_alu_out when (M1='0') else BHT_BrOut;
+    PC_FD_in <= pc_alu_out;	
+    pc_fd: dataRegister generic map (data_width => 16)
+        port map (Din => PC_FD_in, Dout => PC_FD_out, enable => PC_FD_En, clk => clk);
+	
+    --T3_FD
+    T3_FD_in <= PC_FD_out when (M2='0') else Ctrl_for;
+    t3_fd: dataRegister generic map (data_width => 16)
+        port map (Din => T3_FD_in, Dout => T3_FD_out, enable => T3_FD_En, clk => clk);
+
+    --PC Incrementer
+    pc_alu1 <= PC_FD_out when (M2='0') else Ctrl_for;
+    incrementer1: ALU
+    	 port map (IP1=>pc_alu1,IP2=>one,OP=>pc_alu_out,aluOP=>'0');
+
+    --Instruction Memory
+    Instr_Mem_A <= PC_FD_out when (M2='0') else Ctrl_for;
+    instr_mem: instrMemory
+    		port map(A=>Instr_Mem_A, Dout=>Instr_Mem_out, clk=>clk);  
+
+    --T3_DR
+    T3_DR_in <= T3_FD_out;
+    t3_dr: dataRegister generic map (data_width => 16)
+        port map (Din => T3_DR_in, Dout => T3_DR_out, enable => T3_DR_En, clk => clk);
+
+    --PC_DR
+    PC_DR_in <= PC_FD_out;
+    pc_dr: dataRegister generic map (data_width => 16)
+        port map (Din => PC_DR_in, Dout => PC_DR_out, enable => PC_DR_En, clk => clk);
+
+    --IR_DR
+    IR_DR_in <= Instr_Mem_Out;
+    irdr: dataRegister generic map (data_width => 16)
+        port map (Din => IR_DR_in, Dout => IR_DR_out, enable => IR_DR_En, clk => clk);
+    IR_DR <= IR_DR_out;
+
+    --Register File
+    RF_pci <= PC_MW2_out when (M18 = '1') else PC_MW_out;
+    RF_A1 <= IR_MW_out(8 downto 6);
+    RF_A2 <= IR_MW_out(11 downto 9);
+    RF_A3 <= IR_MW_out(11 downto 9) when (M16="00") else 
+    		IR_MW_out(5 downto 3) when (M16="01") else
+    		PE1_A when (M16="11") else
+    		IR_MW_out(8 downto 6);
+    RF_D3 <= PC_MW_out when (M17="10") else 
+    		T3_MW_out when (M17="00") else
+    		T4_MW_out;
+    RF_A4 <= PE2_A;
+    rf: regFile 
+        port map(a1 => RF_A1, a2 => RF_A2, a3 => RF_A3, a4 => RF_A4, 
+                d3 => RF_D3, pci => RF_pci,
+                d1 => RF_D1, d2 => RF_D2, d4 => RF_D4, pco => RF_pco,
+                regWr => RegWr, pcWr => PCWr, clk => clk, reset => reset);	
+
+    --T1_RE
+    T1_RE_in <= RF_D1 when (M3="00") else
+		forward when (M3="01") else PC_RE_out;
+    t1_re: dataRegister generic map (data_width => 16)
+        port map (Din => T1_RE_in, Dout => T1_RE_out, enable => T1_RE_En, clk => clk);
+
+    --T2_RE
+    T2_RE_in <= RF_D2 when (M4="00") else
+		forward when (M4="01") else PC_RE_out;
+    t2_re: dataRegister generic map (data_width => 16)
+        port map (Din => T2_RE_in, Dout => T2_RE_out, enable => T2_RE_En, clk => clk);
+
+    --Comparator1
+    Comp1_D1 <= RF_D1 when (M3="00") else
+		forward when (M3="01") else PC_RE_out;
+    Comp1_D2 <= RF_D2 when (M4="00") else
+		forward when (M4="01") else PC_RE_out;
+    comp1: Comparator
+        port map (Comp_D1 => Comp1_D1, Comp_D2 => Comp1_D2, Comp_out => Comp1_out);
+
+    --Z1
+    Z1Reg: flipflop
+	port map (Din => Comp1_out, Dout => Z1, enable => Z1_En,clk => clk);
+
+    --IR_RE
+    IR_RE_in <= IR_DR_out;
+    irre: dataRegister generic map (data_width => 16)
+        port map (Din => IR_RE_in, Dout => IR_RE_out, enable => IR_RE_En, clk => clk);
+    IR_RE <= IR_RE_out;
+
+    --T3_RE
+    T3_RE_in <= T3_DR_out;
+    t3_re: dataRegister generic map (data_width => 16)
+        port map (Din => T3_RE_in, Dout => T3_RE_out, enable => T3_RE_En, clk => clk);
+
+    --PC_RE
+    PC_RE_in <= PC_DR_out;
+    pc_re: dataRegister generic map (data_width => 16)
+        port map (Din => PC_RE_in, Dout => PC_RE_out, enable => PC_RE_En, clk => clk);
+    
+    --Sign Extenders	
+    SE_out <= std_logic_vector(resize(signed(IR_DR_out(5 downto 0)),16)) when (M19='0') else
+    			std_logic_vector(resize(signed(IR_DR_out(8 downto 0)),16)); 	
+    USE_out <= IR_DR_out(8 downto 0)&"0000000"; 
+
+    --T4_RE
+    T4_RE_in <= USE_out when (M5="00") else
+		SE_out when (M5="01") else PE2_D;
+    t4_re: dataRegister generic map (data_width => 16)
+        port map (Din => T4_RE_in, Dout => T4_RE_out, enable => T4_RE_En, clk => clk);
+
+    --T4_EM
+    T4_EM_in <= T4_RE_out when (M12='0') else PE1_D;
+    t4_em: dataRegister generic map (data_width => 16)
+        port map (Din => T4_EM_in, Dout => T4_EM_out, enable => T4_EM_En, clk => clk);
+
+
+	--Andasu	
+    --T2_EM
+    T2_EM_in <= T2_RE_out when (M11 = '0') else	op2_alu_out;
+    t2_em: dataRegister generic map (data_width => 16)
+        port map (Din => T2_EM_in, Dout => T2_EM_out, enable => T2_EM_En, clk => clk);
+
+    --Data Memory
+    Data_Mem_A <= T2_EM_out when (M9 ="00") else 
+		T3_EM_out when (M9 = "01") else
+		op_alu_out when (M9 = "10") else T2_RE_out;
+    Data_Mem_din <= T3_EM_out when (M13='0') else T2_EM_out;
+    data_mem: dataMemory
+    	port map (A=>Data_Mem_A, Din=>Data_Mem_din, Dout=>Data_Mem_dout, memWR=>MemWr, clk=>clk); 
+    
+    --T3_EM
+    T3_EM_in <= OP_ALU_OUT when (M8="00") else 
+    		T1_RE_out when (M8="01") else RF_D4;
+    t3_em : dataRegister generic map (data_width => 16)
+	 port map (Din => T3_EM_in, Dout => T3_EM_out, enable => T3_EM_En,clk => clk);  
+	 
+    --PC_EM2
+    PC_EM2_in <= OP_ALU_OUT when (M10='1') else 
+    		T1_RE_out;
+			pc_em2 : dataRegister generic map (data_width => 16)
+			port map (Din => PC_EM2_in, Dout => PC_EM2_out, enable => PC_EM2_En,clk => clk); 
+	    
+    --op_alu
+    op_alu1 <= T1_RE_out when (M6="00") else 
+    		T2_RE_out when (M6="01") else T4_RE_out;
+    op_alu2 <= T2_RE_out when (M7="00") else 
+		T4_RE_out when (M7="01") else T3_RE_out;
+    op_alu: ALU
+    	 port map (IP1=>op_alu1,IP2=>op_alu2,OP=>op_alu_out,aluOP=>Alu_op,C=>Alu_C);
+		  
+    --op2_alu
+    op2_alu : alu
+	 port map (IP1=>T2_EM_out,IP2=>one,OP=>op2_alu_out,aluOP=> '0');
+				  
+	--Comparator2
+    Comp2_D1 <= T3_EM_out when (M14='0') else Data_mem_dout;			
+    comp2: Comparator
+        port map (Comp_D1 => Comp2_D1, Comp_D2 => zero, Comp_out => Comp2_out);
+
+    ZReg: flipFlop
+         port map (Din => Comp2_out, Dout => Z, enable => Z_En,clk => clk);	  
+
+    CReg: flipFlop
+         port map (Din => Alu_C, Dout => C, enable => C_En,clk => clk);
+
+	 --T2_MW
+    T2_MW_in <= op2_alu_out;
+    t2_mw: dataRegister generic map (data_width => 16)
+        port map (Din => T2_MW_in, Dout => T2_MW_out, enable => T2_MW_En, clk => clk);
+    
+	 --T3_MW
+    T3_MW_in <= T3_EM_out when (M15='0') else Data_mem_dout;
+    t3_mw: dataRegister generic map (data_width => 16)
+        port map (Din => T3_MW_in, Dout => T3_MW_out, enable => T3_MW_En, clk => clk);	
+
+	--IR_EM
+    IR_EM_in <= IR_RE_out;
+    irem: dataRegister generic map (data_width => 16)
+        port map (Din => IR_EM_in, Dout => IR_EM_out, enable => IR_EM_En, clk => clk);
+    IR_EM <= IR_EM_out;
+			
+	--PC_EM
+    PC_EM_in <= PC_RE_out;
+    pc_em: dataRegister generic map (data_width => 16)
+        port map (Din => PC_EM_in, Dout => PC_EM_out, enable => PC_EM_En, clk => clk);	  
+	
+	--IR_MW
+    IR_MW_in <= IR_EM_out;
+    irmw: dataRegister generic map (data_width => 16)
+        port map (Din => IR_MW_in, Dout => IR_MW_out, enable => IR_MW_En, clk => clk);
+    IR_MW <= IR_MW_out;
+			
+	--PC_MW
+    PC_MW_in <= PC_EM_out;
+    pc_mw: dataRegister generic map (data_width => 16)
+        port map (Din => PC_MW_in, Dout => PC_MW_out, enable => PC_MW_En, clk => clk);
+	
+	--PC_MW2
+    PC_MW2_in <= PC_EM2_out;
+    pc_mw2: dataRegister generic map (data_width => 16)
+        port map (Din => PC_MW2_in, Dout => PC_MW2_out, enable => PC_MW2_En, clk => clk);
+	
+	--T4_MW
+    T4_MW_in <= T4_EM_out;
+    t4_mW: dataRegister generic map (data_width => 16)
+        port map (Din => T4_MW_in, Dout => T4_MW_out, enable => T4_MW_En, clk => clk);
+
+	--Forwarding data
+    forward <= op_alu_out when (M20 ="00") else
+		Data_Mem_dout when (M20 ="01") else RF_D3;
+
+	--control forwarding data
+    ctrl_for <= op_alu_out when (M21 = '0') else Data_Mem_dout;
+
+end Build;
