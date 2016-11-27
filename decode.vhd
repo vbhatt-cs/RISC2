@@ -10,20 +10,20 @@ end entity;
 architecture behaviour of decode is
   
 begin  
-    process (clk,reset)
+    process (clk,reset,stall)
         variable T3_DR_En_var,PC_DR_En_var,IR_DR_En_var: std_logic;
 
     begin
         --Defaults
         T3_DR_En_var := '0';
         PC_DR_En_var := '0';
-	IR_DR_En_var := '0';
+        IR_DR_En_var := '0';
                   
-        if (stall ='0') then
+        if (stall ='0' and reset='0') then
             T3_DR_En_var := '1';
             PC_DR_En_var := '1';
             IR_DR_En_var := '1';
-	end if;
+        end if;
 
         T3_DR_En <= T3_DR_En_var;
         PC_DR_En <= PC_DR_En_var;

@@ -11,7 +11,7 @@ end entity;
 architecture behaviour of fetch is 
   
 begin  
-    process (clk,reset,stall) 
+    process (clk,reset) 
         variable M2_var,T3_FD_En_var,PC_FD_En_var: std_logic;
 
     begin
@@ -20,19 +20,19 @@ begin
         T3_FD_En_var := '0';
         PC_FD_En_var := '0';
 	
-	if (stall = '0' and reset='0') then
-        if (Ctrl_forwarding_V ='0') then
-            M2_var := '1' ;
-        else 
-            M2_var := '0';
-        end if;
-        PC_FD_En_var := '1';
-        T3_FD_En_var := '1';
+	if (stall = '0') then
+            if (Ctrl_forwarding_V ='0') then
+	    	M2_var := '1' ;
+	    else 
+		M2_var := '0';
+	    end if;
+            PC_FD_En_var := '1';
+            T3_FD_En_var := '1';
 	end if;
         
-    M2 <= M2_var;     
-    T3_FD_En <= T3_FD_En_var;
-    PC_FD_En <= PC_FD_En_var;
+        M2 <= M2_var;     
+        T3_FD_En <= T3_FD_En_var;
+        PC_FD_En <= PC_FD_En_var;
             
     end process;  
 end behaviour;

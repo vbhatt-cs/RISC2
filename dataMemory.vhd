@@ -14,7 +14,7 @@ entity dataMemory is
 end entity;
 
 architecture Behave of dataMemory is
-    signal ram : ram_t := MEM_INIT;
+    signal ram : ram_t := DATA_INIT;
     signal a_sync: std_logic_vector(15 downto 0);
 begin
     Dout <= ram(to_integer(unsigned(a_sync)));

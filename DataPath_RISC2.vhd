@@ -6,13 +6,15 @@ use work.datapathComponents.all;
 
 entity Datapath_RISC is
 	port (
-        M2,M10,M11,M12,M13,M14,M15,M18,M19,
+        M2,M10,M11,M13,M14,M15,M18,M19,MLoop1,MLoop2,M5,
         PC_FD_En,T3_FD_En,T3_DR_En,PC_DR_En,IR_DR_En,Z1_En,T1_RE_En,T2_RE_En,T3_RE_En,T4_RE_En,IR_RE_En,PC_RE_En,PC_RE2_En,
         T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,
         PC_MW_En,IR_MW_En,PC_MW2_En,RegWr,PCWr,Alu_op,MemWr: in std_logic;
-        M3,M4,M5,M6,M7,M8,M9,M16,M17,M20: in std_logic_vector(1 downto 0);
+        M3,M4,M6,M7,M8,M9,M16,M17,M20: in std_logic_vector(1 downto 0);
         M21: in std_logic_vector(2 downto 0);
-        C,Z',PE1_V,PE2_V,Z1: out std_logic;
+        C,ZEff,PE1_V,PE2_V,Z1: out std_logic;
+        NC_DR_in,NC_RE_in,NC_EM_in,NC_MW_in: in std_logic;
+        NC_DR,NC_RE,NC_EM,NC_MW: out std_logic;
         IR_DR,IR_RE,IR_EM,IR_MW,PC_RE,PC_EM,T1_RE,T4_RE,memDout,aluOut,r7: out std_logic_vector(15 downto 0);
         clk,reset: in std_logic);
 end entity;
@@ -29,11 +31,35 @@ architecture Build of DataPath_RISC is
 	    Comp1_D1,Comp1_D2,Comp2_D1,SE_out,USE_out,forward,ctrl_for,
 	    IR_DR_in,IR_RE_in,IR_EM_in,IR_MW_in,IR_DR_out,IR_RE_out,IR_EM_out,IR_MW_out: std_logic_vector(15 downto 0);
     signal PE1_A,PE2_A,RF_A1,RF_A2,RF_A3,RF_A4: std_logic_vector(2 downto 0);
-    signal PE1_valid,PE2_valid,Comp1_out,Comp2_out,Alu_C,Z: std_logic;
+    signal PE1_valid,PE2_valid,Comp1_out,Comp2_out,Alu_C,Z,
+        NC_DR_out,NC_RE_out,NC_EM_out,NC_MW_out,NC_DR_in1,NC_RE_in1,NC_EM_in1,NC_MW_in1,
+        IR_RE_En1,PC_RE_En1,T2_RE_En1,T3_RE_En1,T4_RE_En1,
+        IR_EM_En1,PC_EM_En1,T2_EM_En1,T3_EM_En1,T4_EM_En1: std_logic;
     constant one: std_logic_vector(15 downto 0) := "0000000000000001";
     constant zero: std_logic_vector(15 downto 0) := "0000000000000000";
 
 begin
+    --No change  
+    NC_DR_in1 <= NC_DR_in;
+    ncdr: flipFlop port map
+        (Din => NC_DR_in1, Dout => NC_DR_out, enable => IR_DR_En, clk => clk);
+    NC_DR <= NC_DR_out;
+        
+    NC_RE_in1 <= NC_RE_in or NC_DR_out;
+    ncre: flipFlop port map
+        (Din => NC_RE_in1, Dout => NC_RE_out, enable => IR_RE_En, clk => clk);
+    NC_RE <= NC_RE_out;
+        
+    NC_EM_in1 <= NC_EM_in or NC_RE_out;
+    ncem: flipFlop port map
+        (Din => NC_EM_in1, Dout => NC_EM_out, enable => IR_EM_En, clk => clk);
+    NC_EM <= NC_EM_out;  
+        
+    NC_MW_in1 <= NC_MW_in or NC_EM_out;
+    ncmw: flipFlop port map
+        (Din => NC_MW_in1, Dout => NC_MW_out, enable => IR_MW_En, clk => clk);
+    NC_MW <= NC_MW_out;
+        
     --Priority Encoder1  -- Doubt
     PE1_in <= T4_EM_out;
     pr1_enc: PE
@@ -46,7 +72,7 @@ begin
     	port map(inp=>PE2_in,v=>PE2_valid,a=>PE2_A,d=>PE2_D);
     PE2_V <= PE2_valid;
 	
-    --PC_FD         							PC_FD_in <= pc_alu_out when (M1='0') else BHT_BrOut;
+    --PC_FD         PC_FD_in <= pc_alu_out when (M1='0') else BHT_BrOut;
     PC_FD_in <= pc_alu_out;	
     pc_fd: dataRegister generic map (data_width => 16)
         port map (Din => PC_FD_in, Dout => PC_FD_out, enable => PC_FD_En, clk => clk);
@@ -84,8 +110,8 @@ begin
 
     --Register File
     RF_pci <= PC_MW2_out when (M18 = '1') else PC_MW_out;
-    RF_A1 <= IR_MW_out(8 downto 6);
-    RF_A2 <= IR_MW_out(11 downto 9);
+    RF_A1 <= IR_DR_out(8 downto 6);
+    RF_A2 <= IR_DR_out(11 downto 9);
     RF_A3 <= IR_MW_out(11 downto 9) when (M16="00") else 
     		IR_MW_out(5 downto 3) when (M16="01") else
     		PE1_A when (M16="11") else
@@ -109,10 +135,13 @@ begin
     T1_RE <= T1_RE_out;
 
     --T2_RE
-    T2_RE_in <= RF_D2 when (M4="00") else
-		forward when (M4="01") else PC_RE_out;
+    T2_RE_in <= T2_EM_out when (MLoop1='1') else
+        RF_D2 when (M4="00") else
+		forward when (M4="01") else 
+        PC_RE_out;
+    T2_RE_En1 <= T2_RE_En or MLoop1;
     t2_re: dataRegister generic map (data_width => 16)
-        port map (Din => T2_RE_in, Dout => T2_RE_out, enable => T2_RE_En, clk => clk);
+        port map (Din => T2_RE_in, Dout => T2_RE_out, enable => T2_RE_En1, clk => clk);
 
     --Comparator1
     Comp1_D1 <= RF_D1 when (M3="00") else
@@ -127,20 +156,26 @@ begin
 	port map (Din => Comp1_out, Dout => Z1, enable => Z1_En,clk => clk);
 
     --IR_RE
-    IR_RE_in <= IR_DR_out;
+    IR_RE_in <= IR_EM_out when (MLoop1='1') else
+        IR_DR_out;
+    IR_RE_En1 <= IR_RE_En or MLoop1;
     irre: dataRegister generic map (data_width => 16)
-        port map (Din => IR_RE_in, Dout => IR_RE_out, enable => IR_RE_En, clk => clk);
+        port map (Din => IR_RE_in, Dout => IR_RE_out, enable => IR_RE_En1, clk => clk);
     IR_RE <= IR_RE_out;
 
     --T3_RE
-    T3_RE_in <= T3_DR_out;
+    T3_RE_in <= T3_EM_out when (MLoop1='1') else
+        T3_DR_out;
+    T3_RE_En1 <= T3_RE_En or MLoop1;
     t3_re: dataRegister generic map (data_width => 16)
-        port map (Din => T3_RE_in, Dout => T3_RE_out, enable => T3_RE_En, clk => clk);
+        port map (Din => T3_RE_in, Dout => T3_RE_out, enable => T3_RE_En1, clk => clk);
 
     --PC_RE
-    PC_RE_in <= PC_DR_out;
+    PC_RE_in <= PC_EM_out when (MLoop1='1') else
+        PC_DR_out;
+    PC_RE_En1 <= PC_RE_En or MLoop1;
     pcre: dataRegister generic map (data_width => 16)
-        port map (Din => PC_RE_in, Dout => PC_RE_out, enable => PC_RE_En, clk => clk);
+        port map (Din => PC_RE_in, Dout => PC_RE_out, enable => PC_RE_En1, clk => clk);
     PC_RE <= PC_RE_out;
     
     --Sign Extenders	
@@ -149,23 +184,28 @@ begin
     USE_out <= IR_DR_out(8 downto 0)&"0000000"; 
 
     --T4_RE
-    T4_RE_in <= USE_out when (M5="00") else
-		SE_out when (M5="01") else PE2_D;
+    T4_RE_in <= PE2_D when (MLoop1='1') else
+        USE_out when (M5='0') else
+		SE_out;
+    T4_RE_En1 <= T4_RE_En or MLoop1;
     t4re: dataRegister generic map (data_width => 16)
-        port map (Din => T4_RE_in, Dout => T4_RE_out, enable => T4_RE_En, clk => clk);
+        port map (Din => T4_RE_in, Dout => T4_RE_out, enable => T4_RE_En1, clk => clk);
     T4_RE <= T4_RE_out;
 
     --T4_EM
-    T4_EM_in <= T4_RE_out when (M12='0') else PE1_D;
+    T4_EM_in <= T4_RE_out when (MLoop2='0') else PE1_D;
+    T4_EM_En1 <= T4_EM_En or MLoop2;
     t4_em: dataRegister generic map (data_width => 16)
-        port map (Din => T4_EM_in, Dout => T4_EM_out, enable => T4_EM_En, clk => clk);
+        port map (Din => T4_EM_in, Dout => T4_EM_out, enable => T4_EM_En1, clk => clk);
 
 
 	--Andasu	
     --T2_EM
-    T2_EM_in <= T2_RE_out when (M11 = '0') else	op2_alu_out;
+    T2_EM_in <= T2_MW_out when (MLoop2='1') else
+        T2_RE_out when (M11 = '0') else	op2_alu_out;
+    T2_EM_En1 <= T2_EM_En or MLoop2;
     t2_em: dataRegister generic map (data_width => 16)
-        port map (Din => T2_EM_in, Dout => T2_EM_out, enable => T2_EM_En, clk => clk);
+        port map (Din => T2_EM_in, Dout => T2_EM_out, enable => T2_EM_En1, clk => clk);
 
     --Data Memory
     Data_Mem_A <= T2_EM_out when (M9 ="00") else 
@@ -177,10 +217,12 @@ begin
     memDout <= data_Mem_dout; 
     
     --T3_EM
-    T3_EM_in <= OP_ALU_OUT when (M8="00") else 
-    		T1_RE_out when (M8="01") else RF_D4;
+    T3_EM_in <= T3_MW_out when (MLoop2='1') else
+        OP_ALU_OUT when (M8="00") else 
+        T1_RE_out when (M8="01") else RF_D4;
+    T3_EM_En1 <= T3_EM_En or MLoop2;
     t3_em : dataRegister generic map (data_width => 16)
-	 port map (Din => T3_EM_in, Dout => T3_EM_out, enable => T3_EM_En,clk => clk);  
+	 port map (Din => T3_EM_in, Dout => T3_EM_out, enable => T3_EM_En1,clk => clk);  
 	 
     --PC_EM2
     PC_EM2_in <= OP_ALU_OUT when (M10='1') else 
@@ -208,7 +250,7 @@ begin
 
     ZReg: flipFlop
          port map (Din => Comp2_out, Dout => Z, enable => Z_En,clk => clk);
-    Z’ <= comp2_out when (ZEn='1') else Z;   
+    ZEff <= comp2_out when (Z_En='1') else Z;   
 
     CReg: flipFlop
          port map (Din => Alu_C, Dout => C, enable => C_En,clk => clk);
@@ -224,15 +266,19 @@ begin
         port map (Din => T3_MW_in, Dout => T3_MW_out, enable => T3_MW_En, clk => clk);	
 
 	--IR_EM
-    IR_EM_in <= IR_RE_out;
+    IR_EM_in <= IR_MW_out when (MLoop2='1') else
+        IR_RE_out;
+    IR_EM_En1 <= IR_EM_En or MLoop2;
     irem: dataRegister generic map (data_width => 16)
-        port map (Din => IR_EM_in, Dout => IR_EM_out, enable => IR_EM_En, clk => clk);
+        port map (Din => IR_EM_in, Dout => IR_EM_out, enable => IR_EM_En1, clk => clk);
     IR_EM <= IR_EM_out;
 			
 	--PC_EM
-    PC_EM_in <= PC_RE_out;
+    PC_EM_in <= PC_MW_out when (MLoop2='1') else
+        PC_RE_out;
+    PC_EM_En1 <= PC_EM_En or MLoop2;
     pcem: dataRegister generic map (data_width => 16)
-        port map (Din => PC_EM_in, Dout => PC_EM_out, enable => PC_EM_En, clk => clk);
+        port map (Din => PC_EM_in, Dout => PC_EM_out, enable => PC_EM_En1, clk => clk);
     PC_EM <= PC_EM_out;   
 	
 	--IR_MW
@@ -263,6 +309,6 @@ begin
 	--control forwarding data
     ctrl_for <= op_alu_out when (M21 = "000") else 
         Data_Mem_dout when (M21 = "001") else
-        T4_RE when (M21 = "010") else
-        T1_RE when (M21 = "011") else RF_pco;
+        T4_RE_out when (M21 = "010") else
+        T1_RE_out when (M21 = "011") else RF_pco;
 end Build;

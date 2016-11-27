@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 package mem_package is
 type ram_t is array (0 to 256) of std_logic_vector(15 downto 0);
-constant INST_INIT : ram_t := (
+constant MEM_INIT : ram_t := (
 0 => "1000000000011101",
 1 => "0100100110000101",
 2 => "0001110000000010",
@@ -17,7 +17,13 @@ constant INST_INIT : ram_t := (
 11 => "0010110110110010",
 12 => "1100110101111010",
 13 => "0101100101010110",
-
+20 => x"0001",
+21 => x"000F",
+--22 => x"000C",
+23 => x"FFFF",
+24 => x"0045",
+--25 => x"FFBB",
+--26 => x"0044",
 29 => "0001011011000001",
 30 => "0001110110010111",
 31 => "0101000110000100",
@@ -33,15 +39,5 @@ constant INST_INIT : ram_t := (
 48 => "0001011011111111",
 49 => "0101011110000101",
 50 => "0100111110000100",
-others => (others => '0'));
-
-constant DATA_INIT : ram_t := (
-20 => x"0001",
-21 => x"000F",
---22 => x"000C",
-23 => x"FFFF",
-24 => x"0045",
---25 => x"FFBB",
---26 => x"0044",
 others => (others => '0'));
 end package mem_package;
