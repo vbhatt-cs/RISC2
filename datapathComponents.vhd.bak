@@ -48,6 +48,7 @@ package datapathComponents is
         port(
             A : in std_logic_vector(15 downto 0);
             Dout : out std_logic_vector(15 downto 0);
+            memWR : in std_logic;
             clk : in std_logic);
     end component;
     

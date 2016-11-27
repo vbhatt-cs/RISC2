@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity decode is  
     port (stall: in std_logic;
         clk,reset: in std_logic;
-        T3_DR_En,PC_DR_En,IR_DR_En: out std_logic);  
+	T3_DR_En,PC_DR_En,IR_DR_En: out std_logic);  
 end entity;
   
 architecture behaviour of decode is

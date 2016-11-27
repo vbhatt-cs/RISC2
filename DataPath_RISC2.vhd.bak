@@ -6,30 +6,31 @@ use work.datapathComponents.all;
 
 entity Datapath_RISC is
 	port (
-        M2,M10,M11,M12,M13,M14,M15,M18,M19,
-        PC_FD_En,T3_FD_En,T3_DR_En,PC_DR_En,IR_DR_En,Z1_En,T1_RE_En,T2_RE_En,T3_RE_En,T4_RE_En,IR_RE_En,PC_RE_En,PC_RE2_En,
-        T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,
-        PC_MW_En,IR_MW_En,PC_MW2_En,RegWr,PCWr,Alu_op,MemWr: in std_logic;
+        M2,M10,M11,M12,M13,M14,M15,M18,M19,M21,
+	PC_FD_En,T3_FD_En,T3_DR_En,PC_DR_En,IR_DR_En,Z1_En,T1_RE_En,T2_RE_En,T3_RE_En,T4_RE_En,IR_RE_En,PC_RE_En,PC_RE2_En,
+	T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,
+	PC_MW_En,IR_MW_En,PC_MW2_En,RegWr,PCWr,Alu_op,MemWr: in std_logic;
         M3,M4,M5,M6,M7,M8,M9,M16,M17,M20: in std_logic_vector(1 downto 0);
-        M21: in std_logic_vector(2 downto 0);
-        C,Z',PE1_V,PE2_V,Z1: out std_logic;
-        IR_DR,IR_RE,IR_EM,IR_MW,PC_RE,PC_EM,T1_RE,T4_RE,memDout,aluOut,r7: out std_logic_vector(15 downto 0);
+        C,Z,PE1_V,PE2_V,Z1: out std_logic;
+        IR_DR,IR_RE,IR_EM,IR_MW: out std_logic_vector(15 downto 0);
         clk,reset: in std_logic);
 end entity;
 
 architecture Build of DataPath_RISC is
-    signal RF_pci,RF_pco,RF_D1,RF_D2,RF_D3,RF_D4,PE1_in,PE1_D,PE2_in,PE2_D,
-        T1_RE_in,T1_RE_out,T2_RE_in,T2_RE_out,T2_EM_in,T2_EM_out,T2_MW_in,T2_MW_out,
-	    T3_RE_in,T3_RE_out,T3_EM_in,T3_EM_out,T3_MW_in,T3_MW_out,T3_FD_in,T3_FD_out,
-        T3_DR_in,T3_DR_out,T4_RE_in,T4_RE_out,T4_EM_in,T4_EM_out,T4_MW_in,T4_MW_out,
-	    PC_FD_in,PC_FD_out,PC_DR_in,PC_DR_out,PC_RE_in,PC_RE_out,PC_EM_in,PC_EM_out,
-        PC_MW_in,PC_MW_out,PC_EM2_in,PC_EM2_out,PC_MW2_in,PC_MW2_out,
+    signal RF_pci,RF_pco,Mem_A,Mem_din,Mem_dout,RF_D1,RF_D2,RF_D3,RF_D4,
+            PE1_in,PE1_D,PE2_in,PE2_D,
+            T1_RE_in,T1_RE_out,
+	    T2_RE_in,T2_RE_out,T2_EM_in,T2_EM_out,T2_MW_in,T2_MW_out,
+	    T3_RE_in,T3_RE_out,T3_EM_in,T3_EM_out,T3_MW_in,T3_MW_out,T3_FD_in,T3_FD_out,T3_DR_in,T3_DR_out,
+	    T4_RE_in,T4_RE_out,T4_EM_in,T4_EM_out,T4_MW_in,T4_MW_out,
+	    PC_FD_in,PC_FD_out,PC_DR_in,PC_DR_out,PC_RE_in,PC_RE_out,PC_EM_in,PC_EM_out,PC_MW_in,PC_MW_out,
+	    PC_EM2_in,PC_EM2_out,PC_MW2_in,PC_MW2_out,
 	    Data_Mem_A,Data_Mem_Din,Data_Mem_dout,Instr_Mem_A,Instr_Mem_out,
 	    pc_alu1,pc_alu_out,op_alu1,op_alu2,op_alu_out,op2_alu1,op2_alu_out,
 	    Comp1_D1,Comp1_D2,Comp2_D1,SE_out,USE_out,forward,ctrl_for,
 	    IR_DR_in,IR_RE_in,IR_EM_in,IR_MW_in,IR_DR_out,IR_RE_out,IR_EM_out,IR_MW_out: std_logic_vector(15 downto 0);
     signal PE1_A,PE2_A,RF_A1,RF_A2,RF_A3,RF_A4: std_logic_vector(2 downto 0);
-    signal PE1_valid,PE2_valid,Comp1_out,Comp2_out,Alu_C,Z: std_logic;
+    signal PE1_valid,PE2_valid,Comp1_out,Comp2_out,Alu_C: std_logic;
     constant one: std_logic_vector(15 downto 0) := "0000000000000001";
     constant zero: std_logic_vector(15 downto 0) := "0000000000000000";
 
@@ -99,14 +100,12 @@ begin
                 d3 => RF_D3, pci => RF_pci,
                 d1 => RF_D1, d2 => RF_D2, d4 => RF_D4, pco => RF_pco,
                 regWr => RegWr, pcWr => PCWr, clk => clk, reset => reset);	
-    r7 <= RF_pco;
 
     --T1_RE
     T1_RE_in <= RF_D1 when (M3="00") else
 		forward when (M3="01") else PC_RE_out;
-    t1re: dataRegister generic map (data_width => 16)
+    t1_re: dataRegister generic map (data_width => 16)
         port map (Din => T1_RE_in, Dout => T1_RE_out, enable => T1_RE_En, clk => clk);
-    T1_RE <= T1_RE_out;
 
     --T2_RE
     T2_RE_in <= RF_D2 when (M4="00") else
@@ -139,9 +138,8 @@ begin
 
     --PC_RE
     PC_RE_in <= PC_DR_out;
-    pcre: dataRegister generic map (data_width => 16)
+    pc_re: dataRegister generic map (data_width => 16)
         port map (Din => PC_RE_in, Dout => PC_RE_out, enable => PC_RE_En, clk => clk);
-    PC_RE <= PC_RE_out;
     
     --Sign Extenders	
     SE_out <= std_logic_vector(resize(signed(IR_DR_out(5 downto 0)),16)) when (M19='0') else
@@ -151,9 +149,8 @@ begin
     --T4_RE
     T4_RE_in <= USE_out when (M5="00") else
 		SE_out when (M5="01") else PE2_D;
-    t4re: dataRegister generic map (data_width => 16)
+    t4_re: dataRegister generic map (data_width => 16)
         port map (Din => T4_RE_in, Dout => T4_RE_out, enable => T4_RE_En, clk => clk);
-    T4_RE <= T4_RE_out;
 
     --T4_EM
     T4_EM_in <= T4_RE_out when (M12='0') else PE1_D;
@@ -173,8 +170,7 @@ begin
 		op_alu_out when (M9 = "10") else T2_RE_out;
     Data_Mem_din <= T3_EM_out when (M13='0') else T2_EM_out;
     data_mem: dataMemory
-    	port map (A=>Data_Mem_A, Din=>Data_Mem_din, Dout=>Data_Mem_dout, memWR=>MemWr, clk=>clk);
-    memDout <= data_Mem_dout; 
+    	port map (A=>Data_Mem_A, Din=>Data_Mem_din, Dout=>Data_Mem_dout, memWR=>MemWr, clk=>clk); 
     
     --T3_EM
     T3_EM_in <= OP_ALU_OUT when (M8="00") else 
@@ -195,7 +191,6 @@ begin
 		T4_RE_out when (M7="01") else T3_RE_out;
     op_alu: ALU
     	 port map (IP1=>op_alu1,IP2=>op_alu2,OP=>op_alu_out,aluOP=>Alu_op,C=>Alu_C);
-    aluOut <= op_alu_out;
 		  
     --op2_alu
     op2_alu : alu
@@ -207,8 +202,7 @@ begin
         port map (Comp_D1 => Comp2_D1, Comp_D2 => zero, Comp_out => Comp2_out);
 
     ZReg: flipFlop
-         port map (Din => Comp2_out, Dout => Z, enable => Z_En,clk => clk);
-    Z’ <= comp2_out when (ZEn='1') else Z;   
+         port map (Din => Comp2_out, Dout => Z, enable => Z_En,clk => clk);	  
 
     CReg: flipFlop
          port map (Din => Alu_C, Dout => C, enable => C_En,clk => clk);
@@ -231,9 +225,8 @@ begin
 			
 	--PC_EM
     PC_EM_in <= PC_RE_out;
-    pcem: dataRegister generic map (data_width => 16)
-        port map (Din => PC_EM_in, Dout => PC_EM_out, enable => PC_EM_En, clk => clk);
-    PC_EM <= PC_EM_out;   
+    pc_em: dataRegister generic map (data_width => 16)
+        port map (Din => PC_EM_in, Dout => PC_EM_out, enable => PC_EM_En, clk => clk);	  
 	
 	--IR_MW
     IR_MW_in <= IR_EM_out;
@@ -261,8 +254,6 @@ begin
 		Data_Mem_dout when (M20 ="01") else RF_D3;
 
 	--control forwarding data
-    ctrl_for <= op_alu_out when (M21 = "000") else 
-        Data_Mem_dout when (M21 = "001") else
-        T4_RE when (M21 = "010") else
-        T1_RE when (M21 = "011") else RF_pco;
+    ctrl_for <= op_alu_out when (M21 = '0') else Data_Mem_dout;
+
 end Build;

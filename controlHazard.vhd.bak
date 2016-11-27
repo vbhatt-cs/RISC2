@@ -1,0 +1,9 @@
+library ieee;  
+use ieee.std_logic_1164.all;
+
+entity ctrlHazard is
+    port(
+        PC_RE,PC_EM,IR_RE,IR_EM,T4_RE,T1_RE,memDout,aluOut,R7: in std_logic_vector(15 downto 0);
+        compOut,C,Z,NC_RE,NC_EM,stall: in std_logic;
+        Ctrl_forwarding_V,M21,NC_FD,NC_DR,NC_RE: out std_logic)
+end entity;

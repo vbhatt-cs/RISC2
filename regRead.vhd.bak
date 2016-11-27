@@ -36,20 +36,19 @@ begin
                  
         if (stall = '0') then
             if (data_forward1 = '1') then 
-                M3_var := "01"; 
-            elsif (IR_DR(8 downto 6) = "111") then
-                M3_var := "10"; 
-            else 
-                M3_var := "00";
-            end if;
-            
+		M3_var := "01"; 
+	    elsif (IR_DR(8 downto 6) = "111") then
+		M3_var := "10"; 
+	    else 
+		M3_var := "00";
+	    end if;
             if (data_forward2 = '1') then 
-                M4_var := "01"; 
-            elsif (IR_DR(11 downto 9) = "111") then
-                M4_var := "10";
-            else
-                M4_var := "10";
-            end if;
+	     	M4_var := "01"; 
+	    elsif (IR_DR(11 downto 9) = "111") then
+		M4_var := "10";
+	    else
+		M4_var := "10";
+	    end if;
             T1_RE_En_var := '1';
             T2_RE_En_var := '1';
             T3_RE_En_var := '1';
@@ -67,7 +66,7 @@ begin
                 M5_var := "01";
                 Z1_En_var := '1';
             end if;
-        end if;
+	end if;
              
         M3 <= M3_var;
         M4 <= M4_var;
