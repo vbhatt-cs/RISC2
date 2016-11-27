@@ -15,18 +15,14 @@ end entity;
 
 architecture Behave of dataMemory is
     signal ram : ram_t := DATA_INIT;
-    signal a_sync: std_logic_vector(15 downto 0);
 begin
-    Dout <= ram(to_integer(unsigned(a_sync)));
+    Dout <= ram(to_integer(unsigned(A)));
     process(clk)
     begin
         if(rising_edge(Clk)) then
             if(memWR='1') then
                 ram(to_integer(unsigned(A))) <= Din;
             end if;
-            a_sync <= a;
         end if;
-        
-        --Dout <= ram(to_integer(unsigned(A)));
     end process;
 end Behave;

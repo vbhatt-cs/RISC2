@@ -46,15 +46,15 @@ package finalComponents is
             clk,reset,PE2_V,NC_RE : in std_logic;
             M6,M7,M8,M9: out std_logic_vector(1 downto 0);  
             M10,M11,stall_E: out std_logic;
-            T4_RE_En,T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Alu_op: out std_logic);  
+            T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Alu_op: out std_logic);  
     end component;
     
     component memAccess is  
         port (IR_EM: in std_logic_vector(15 downto 0);
             clk,reset,PE2_V,PE1_V,NC_EM : in std_logic;
             M9: out std_logic_vector(1 downto 0);  
-            M11,M13,M14,M15,stall_M,MLoop1: out std_logic;
-            Z_En,Mem_Wr,T2_EM_En,T3_MW_En,T4_MW_En,T2_MW_En,PC_MW_En,IR_MW_En,PC_MW2_En: out std_logic);  
+            M13,M14,M15,stall_M,MLoop1: out std_logic;
+            Z_En,Mem_Wr,T3_MW_En,T4_MW_En,T2_MW_En,PC_MW_En,IR_MW_En,PC_MW2_En: out std_logic);  
     end component;
     
     component regWrite is  
@@ -63,7 +63,7 @@ package finalComponents is
             clk,reset : in std_logic;
             M16,M17: out std_logic_vector(1 downto 0);  
             M18,stall_W,MLoop2: out std_logic;
-            T4_EM_En,Reg_Wr,PC_Wr: out std_logic);  
+            Reg_Wr,PC_Wr: out std_logic);  
     end component;
     
     --Control hazard block

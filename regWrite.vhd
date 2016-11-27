@@ -7,7 +7,7 @@ entity regWrite is
         clk,reset : in std_logic;
         M16,M17: out std_logic_vector(1 downto 0);  
         M18,stall_W,MLoop2: out std_logic;
-        T4_EM_En,Reg_Wr,PC_Wr: out std_logic);  
+        Reg_Wr,PC_Wr: out std_logic);  
 end entity;
   
 architecture behaviour of regWrite is
@@ -16,7 +16,7 @@ begin
     process (clk,reset,PE1_V)
         variable M16_var,M17_var: std_logic_vector(1 downto 0);  
         variable M18_var,stall_W_var,MLoop2_var: std_logic;
-        variable T4_EM_En_var,Reg_Wr_var,PC_Wr_var: std_logic;
+        variable Reg_Wr_var,PC_Wr_var: std_logic;
 
     begin
         --Defaults
@@ -32,7 +32,6 @@ begin
                 M16_var := "11";
                 M18_var := '0';
                 Reg_Wr_var := '1';
-                T4_EM_En_var := '1';
                 if(PE1_V='1') then
                     stall_W_var := '1';
                     MLoop2_var := '1';
@@ -42,43 +41,36 @@ begin
                 M16_var := "00";
                 M18_var := '1';
                 Reg_Wr_var := '1';
-                T4_EM_En_var := '0';
             elsif (IR_MW(15 downto 12) = "0001") then --ADI
                 M17_var := "01";
                 M16_var := "10";
                 M18_var := '0';
                 Reg_Wr_var := '1';
-                T4_EM_En_var := '0';
             elsif (IR_MW(15 downto 12) = "0011") then --LHI
                 M17_var := "01";
                 M16_var := "00";
                 M18_var := '0';
                 Reg_Wr_var := '1';
-                T4_EM_En_var := '0';
             elsif (IR_MW(15 downto 12) = "0110") then --LW
                 M17_var := "00";
                 M16_var := "00";
                 M18_var := '0';
                 Reg_Wr_var := '1';
-                T4_EM_En_var := '0';
             elsif (IR_MW(15 downto 12) = "0110") then --BEQ --not sure about this
                 M17_var := "00";
                 M16_var := "11";
                 M18_var := '0';
                 Reg_Wr_var := '1';
-                T4_EM_En_var := '1';
             elsif ((IR_MW(15 downto 12) = "0000") or (IR_MW(15 downto 12) = "0010")) then --not sure
                 M17_var := "00";
                 M16_var := "01";
                 M18_var := '0';
-                T4_EM_En_var := '0';
                 Reg_Wr_var := '1';
             else --default --not sure about this
                 M17_var := "00";
                 M16_var := "01";
                 M18_var := '0';
                 Reg_Wr_var := '1';
-                T4_EM_En_var := '1';
             end if;
         end if;
 
@@ -86,8 +78,7 @@ begin
         M17 <= M17_var;
 
         M18 <= M18_var;
-
-        T4_EM_En <= T4_EM_En_var;        
+       
         Reg_Wr <= Reg_Wr_var;
         PC_Wr <= PC_Wr_var;
         stall_W <= stall_W_var;
