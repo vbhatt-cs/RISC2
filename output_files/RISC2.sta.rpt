@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for RISC2
-Mon Nov 28 13:47:29 2016
+Mon Nov 28 14:17:02 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -17,35 +17,43 @@ Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
   9. Slow 1200mV 85C Model Recovery Summary
  10. Slow 1200mV 85C Model Removal Summary
  11. Slow 1200mV 85C Model Minimum Pulse Width Summary
- 12. Slow 1200mV 85C Model Metastability Summary
- 13. Slow 1200mV 0C Model Fmax Summary
- 14. Slow 1200mV 0C Model Setup Summary
- 15. Slow 1200mV 0C Model Hold Summary
- 16. Slow 1200mV 0C Model Recovery Summary
- 17. Slow 1200mV 0C Model Removal Summary
- 18. Slow 1200mV 0C Model Minimum Pulse Width Summary
- 19. Slow 1200mV 0C Model Metastability Summary
- 20. Fast 1200mV 0C Model Setup Summary
- 21. Fast 1200mV 0C Model Hold Summary
- 22. Fast 1200mV 0C Model Recovery Summary
- 23. Fast 1200mV 0C Model Removal Summary
- 24. Fast 1200mV 0C Model Minimum Pulse Width Summary
- 25. Fast 1200mV 0C Model Metastability Summary
- 26. Multicorner Timing Analysis Summary
- 27. Board Trace Model Assignments
- 28. Input Transition Times
- 29. Signal Integrity Metrics (Slow 1200mv 0c Model)
- 30. Signal Integrity Metrics (Slow 1200mv 85c Model)
- 31. Signal Integrity Metrics (Fast 1200mv 0c Model)
- 32. Clock Transfers
- 33. Report TCCS
- 34. Report RSKM
- 35. Unconstrained Paths Summary
- 36. Unconstrained Input Ports
- 37. Unconstrained Output Ports
- 38. Unconstrained Input Ports
- 39. Unconstrained Output Ports
- 40. TimeQuest Timing Analyzer Messages
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Metastability Summary
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 21. Slow 1200mV 0C Model Setup: 'clk'
+ 22. Slow 1200mV 0C Model Hold: 'clk'
+ 23. Slow 1200mV 0C Model Metastability Summary
+ 24. Fast 1200mV 0C Model Setup Summary
+ 25. Fast 1200mV 0C Model Hold Summary
+ 26. Fast 1200mV 0C Model Recovery Summary
+ 27. Fast 1200mV 0C Model Removal Summary
+ 28. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 29. Fast 1200mV 0C Model Setup: 'clk'
+ 30. Fast 1200mV 0C Model Hold: 'clk'
+ 31. Fast 1200mV 0C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 36. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 37. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 38. Setup Transfers
+ 39. Hold Transfers
+ 40. Report TCCS
+ 41. Report RSKM
+ 42. Unconstrained Paths Summary
+ 43. Clock Status Summary
+ 44. Unconstrained Input Ports
+ 45. Unconstrained Output Ports
+ 46. Unconstrained Input Ports
+ 47. Unconstrained Output Ports
+ 48. TimeQuest Timing Analyzer Messages
 
 
 
@@ -91,25 +99,32 @@ agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.33        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ; < 0.1%      ;
+;     Processor 2            ;  33.3%      ;
 +----------------------------+-------------+
 
 
-----------
-; Clocks ;
-----------
-No clocks to report.
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
 
 
---------------------------------------
-; Slow 1200mV 85C Model Fmax Summary ;
---------------------------------------
-No paths to report.
++-------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary              ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 67.66 MHz ; 67.66 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
 ----------------------------------
@@ -118,16 +133,22 @@ No paths to report.
 HTML report is unavailable in plain text report export.
 
 
----------------------------------------
++-------------------------------------+
 ; Slow 1200mV 85C Model Setup Summary ;
----------------------------------------
-No paths to report.
++-------+---------+-------------------+
+; Clock ; Slack   ; End Point TNS     ;
++-------+---------+-------------------+
+; clk   ; -13.780 ; -33493.638        ;
++-------+---------+-------------------+
 
 
---------------------------------------
++------------------------------------+
 ; Slow 1200mV 85C Model Hold Summary ;
---------------------------------------
-No paths to report.
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.345 ; 0.000              ;
++-------+-------+--------------------+
 
 
 ------------------------------------------
@@ -142,34 +163,264 @@ No paths to report.
 No paths to report.
 
 
------------------------------------------------------
++---------------------------------------------------+
 ; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
------------------------------------------------------
-No paths to report.
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -3.000 ; -4610.174                        ;
++-------+--------+----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                                                         ;
++---------+---------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                                   ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+---------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -13.780 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 15.041     ;
+; -13.664 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.925     ;
+; -13.658 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.919     ;
+; -13.568 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.829     ;
+; -13.548 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.809     ;
+; -13.542 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.803     ;
+; -13.466 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.727     ;
+; -13.452 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.713     ;
+; -13.446 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.707     ;
+; -13.444 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.705     ;
+; -13.432 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.693     ;
+; -13.430 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.691     ;
+; -13.426 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.687     ;
+; -13.372 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.633     ;
+; -13.368 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.629     ;
+; -13.350 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.611     ;
+; -13.344 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.605     ;
+; -13.336 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.597     ;
+; -13.330 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.591     ;
+; -13.328 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.589     ;
+; -13.322 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.583     ;
+; -13.316 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.577     ;
+; -13.316 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.577     ;
+; -13.314 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.575     ;
+; -13.310 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.571     ;
+; -13.308 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.569     ;
+; -13.303 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.564     ;
+; -13.256 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.517     ;
+; -13.252 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.513     ;
+; -13.250 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.511     ;
+; -13.246 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.507     ;
+; -13.234 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.495     ;
+; -13.228 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.489     ;
+; -13.226 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.487     ;
+; -13.220 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.481     ;
+; -13.214 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.475     ;
+; -13.212 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.473     ;
+; -13.206 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.467     ;
+; -13.200 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[5]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.461     ;
+; -13.200 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.461     ;
+; -13.198 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.459     ;
+; -13.195 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.456     ;
+; -13.194 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[6]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.455     ;
+; -13.194 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.455     ;
+; -13.192 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.453     ;
+; -13.187 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.448     ;
+; -13.181 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.442     ;
+; -13.156 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.417     ;
+; -13.140 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.401     ;
+; -13.140 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.401     ;
+; -13.136 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.397     ;
+; -13.134 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.395     ;
+; -13.130 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.391     ;
+; -13.118 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.379     ;
+; -13.112 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.373     ;
+; -13.110 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.371     ;
+; -13.104 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.365     ;
+; -13.104 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.365     ;
+; -13.099 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.360     ;
+; -13.098 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.359     ;
+; -13.096 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.357     ;
+; -13.090 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.351     ;
+; -13.084 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[3]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.345     ;
+; -13.084 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.345     ;
+; -13.082 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.343     ;
+; -13.079 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.340     ;
+; -13.078 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[4]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.339     ;
+; -13.078 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.339     ;
+; -13.076 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.337     ;
+; -13.073 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.334     ;
+; -13.071 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.332     ;
+; -13.065 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.326     ;
+; -13.044 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; -0.126     ; 13.913     ;
+; -13.040 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.301     ;
+; -13.034 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.295     ;
+; -13.024 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.285     ;
+; -13.024 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.285     ;
+; -13.021 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[0] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.282     ;
+; -13.020 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.281     ;
+; -13.018 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.279     ;
+; -13.018 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.279     ;
+; -13.014 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.275     ;
+; -13.002 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.263     ;
+; -12.996 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.257     ;
+; -12.994 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.255     ;
+; -12.988 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.249     ;
+; -12.988 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[5]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.249     ;
+; -12.983 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.244     ;
+; -12.982 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[6]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.243     ;
+; -12.980 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.241     ;
+; -12.977 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.238     ;
+; -12.974 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.235     ;
+; -12.968 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.229     ;
+; -12.966 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.227     ;
+; -12.963 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.224     ;
+; -12.962 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.223     ;
+; -12.960 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.221     ;
+; -12.957 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.218     ;
+; -12.955 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.266      ; 14.216     ;
+; -12.949 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.266      ; 14.210     ;
++---------+---------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                                                                                                                           ;
++-------+--------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                        ; To Node                                                                                                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.345 ; Datapath_RISC:dp|flipFlop:ncre|Dout              ; Datapath_RISC:dp|flipFlop:ncre|Dout                                                                                        ; clk          ; clk         ; 0.000        ; 0.075      ; 0.577      ;
+; 0.345 ; Datapath_RISC:dp|flipFlop:ZReg|Dout              ; Datapath_RISC:dp|flipFlop:ZReg|Dout                                                                                        ; clk          ; clk         ; 0.000        ; 0.075      ; 0.577      ;
+; 0.359 ; Datapath_RISC:dp|flipFlop:CReg|Dout              ; Datapath_RISC:dp|flipFlop:CReg|Dout                                                                                        ; clk          ; clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.359 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]      ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.359 ; Datapath_RISC:dp|flipFlop:Z1Reg|Dout             ; Datapath_RISC:dp|flipFlop:Z1Reg|Dout                                                                                       ; clk          ; clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.359 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]      ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.359 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[11]     ; Datapath_RISC:dp|dataRegister:t4_em|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.359 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13]     ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.359 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]     ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.373 ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[11]     ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.062      ; 0.592      ;
+; 0.374 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[7]     ; Datapath_RISC:dp|regFile:rf|reg[7][7]                                                                                      ; clk          ; clk         ; 0.000        ; 0.062      ; 0.593      ;
+; 0.374 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[8]     ; Datapath_RISC:dp|regFile:rf|reg[7][8]                                                                                      ; clk          ; clk         ; 0.000        ; 0.061      ; 0.592      ;
+; 0.374 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[9]     ; Datapath_RISC:dp|regFile:rf|reg[7][9]                                                                                      ; clk          ; clk         ; 0.000        ; 0.061      ; 0.592      ;
+; 0.374 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[10]    ; Datapath_RISC:dp|regFile:rf|reg[7][10]                                                                                     ; clk          ; clk         ; 0.000        ; 0.061      ; 0.592      ;
+; 0.374 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[11]    ; Datapath_RISC:dp|regFile:rf|reg[7][11]                                                                                     ; clk          ; clk         ; 0.000        ; 0.061      ; 0.592      ;
+; 0.374 ; Datapath_RISC:dp|dataRegister:irmw|Dout[3]       ; Datapath_RISC:dp|dataRegister:irem|Dout[3]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.593      ;
+; 0.374 ; Datapath_RISC:dp|dataRegister:irmw|Dout[11]      ; Datapath_RISC:dp|dataRegister:irem|Dout[11]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.593      ;
+; 0.374 ; Datapath_RISC:dp|dataRegister:irmw|Dout[0]       ; Datapath_RISC:dp|dataRegister:irem|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.593      ;
+; 0.375 ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[10]     ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.593      ;
+; 0.375 ; Datapath_RISC:dp|dataRegister:irre|Dout[7]       ; Datapath_RISC:dp|dataRegister:irem|Dout[7]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.594      ;
+; 0.376 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[2]      ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[2]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.594      ;
+; 0.377 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[1]      ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[1]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.595      ;
+; 0.382 ; Datapath_RISC:dp|dataRegister:irre|Dout[8]       ; Datapath_RISC:dp|dataRegister:irem|Dout[8]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.601      ;
+; 0.393 ; Datapath_RISC:dp|dataRegister:pcem|Dout[1]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[1]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.612      ;
+; 0.393 ; Datapath_RISC:dp|dataRegister:pcem|Dout[3]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[3]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.612      ;
+; 0.394 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[7]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[7]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.613      ;
+; 0.394 ; Datapath_RISC:dp|dataRegister:pcem|Dout[0]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[0]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.613      ;
+; 0.394 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[12]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[12]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.613      ;
+; 0.395 ; Datapath_RISC:dp|dataRegister:pcem|Dout[15]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[15]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.613      ;
+; 0.396 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[4]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[4]                                                                                 ; clk          ; clk         ; 0.000        ; 0.061      ; 0.614      ;
+; 0.397 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]     ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[14]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.615      ;
+; 0.399 ; Datapath_RISC:dp|dataRegister:pcre|Dout[9]       ; Datapath_RISC:dp|dataRegister:pcem|Dout[9]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.618      ;
+; 0.400 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[3]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[3]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.619      ;
+; 0.400 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[1]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[1]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.619      ;
+; 0.401 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[14]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[14]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.619      ;
+; 0.401 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[6]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.620      ;
+; 0.401 ; Datapath_RISC:dp|dataRegister:pcem|Dout[10]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.062      ; 0.620      ;
+; 0.401 ; Datapath_RISC:dp|dataRegister:pcem|Dout[2]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[2]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.620      ;
+; 0.402 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[13]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[13]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.620      ;
+; 0.402 ; Datapath_RISC:dp|dataRegister:pcem|Dout[2]       ; Datapath_RISC:dp|dataRegister:pcre|Dout[2]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.621      ;
+; 0.415 ; Datapath_RISC:dp|dataRegister:pcem|Dout[4]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[4]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.633      ;
+; 0.434 ; Datapath_RISC:dp|dataRegister:pcre|Dout[11]      ; Datapath_RISC:dp|dataRegister:t2_re|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.652      ;
+; 0.435 ; Datapath_RISC:dp|dataRegister:pcre|Dout[11]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[11]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.653      ;
+; 0.479 ; Datapath_RISC:dp|dataRegister:pc_dr|Dout[1]      ; Datapath_RISC:dp|dataRegister:pcre|Dout[1]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.698      ;
+; 0.479 ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[4]      ; Datapath_RISC:dp|dataRegister:t3_re|Dout[4]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.698      ;
+; 0.481 ; Datapath_RISC:dp|dataRegister:irmw|Dout[5]       ; Datapath_RISC:dp|dataRegister:irem|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.700      ;
+; 0.485 ; Datapath_RISC:dp|dataRegister:irem|Dout[1]       ; Datapath_RISC:dp|dataRegister:irre|Dout[1]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.704      ;
+; 0.487 ; Datapath_RISC:dp|dataRegister:irem|Dout[5]       ; Datapath_RISC:dp|dataRegister:irre|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.706      ;
+; 0.487 ; Datapath_RISC:dp|dataRegister:irem|Dout[8]       ; Datapath_RISC:dp|dataRegister:irre|Dout[8]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.706      ;
+; 0.487 ; Datapath_RISC:dp|dataRegister:irem|Dout[0]       ; Datapath_RISC:dp|dataRegister:irre|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.706      ;
+; 0.488 ; Datapath_RISC:dp|dataRegister:irem|Dout[7]       ; Datapath_RISC:dp|dataRegister:irre|Dout[7]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.707      ;
+; 0.489 ; Datapath_RISC:dp|dataRegister:irem|Dout[4]       ; Datapath_RISC:dp|dataRegister:irre|Dout[4]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.708      ;
+; 0.497 ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[5]      ; Datapath_RISC:dp|dataRegister:t4re|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.716      ;
+; 0.498 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[0]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.717      ;
+; 0.501 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[11]     ; Datapath_RISC:dp|dataRegister:t3_re|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.719      ;
+; 0.504 ; Datapath_RISC:dp|dataRegister:t2_re|Dout[8]      ; Datapath_RISC:dp|dataRegister:t2_em|Dout[8]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.723      ;
+; 0.505 ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[11]     ; Datapath_RISC:dp|dataRegister:t2_em|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.062      ; 0.724      ;
+; 0.507 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[15]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[15]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.725      ;
+; 0.508 ; Datapath_RISC:dp|dataRegister:pcem|Dout[14]      ; Datapath_RISC:dp|dataRegister:pcre|Dout[14]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.726      ;
+; 0.509 ; Datapath_RISC:dp|dataRegister:pcem|Dout[13]      ; Datapath_RISC:dp|dataRegister:pcre|Dout[13]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.727      ;
+; 0.520 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[10]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[10]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.739      ;
+; 0.524 ; Datapath_RISC:dp|dataRegister:irem|Dout[8]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[8]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.743      ;
+; 0.524 ; Datapath_RISC:dp|dataRegister:irem|Dout[7]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[7]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.743      ;
+; 0.525 ; Datapath_RISC:dp|dataRegister:irem|Dout[0]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.744      ;
+; 0.525 ; Datapath_RISC:dp|dataRegister:irem|Dout[5]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.744      ;
+; 0.525 ; Datapath_RISC:dp|dataRegister:irem|Dout[4]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[4]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.744      ;
+; 0.525 ; Datapath_RISC:dp|dataRegister:irem|Dout[3]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[3]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.744      ;
+; 0.526 ; Datapath_RISC:dp|dataRegister:irem|Dout[1]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[1]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.745      ;
+; 0.528 ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[10]     ; Datapath_RISC:dp|dataRegister:t2_em|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.062      ; 0.747      ;
+; 0.531 ; Datapath_RISC:dp|dataRegister:irem|Dout[6]       ; Datapath_RISC:dp|dataRegister:irre|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.750      ;
+; 0.534 ; Datapath_RISC:dp|dataRegister:irem|Dout[9]       ; Datapath_RISC:dp|dataRegister:irre|Dout[9]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.753      ;
+; 0.536 ; Datapath_RISC:dp|dataRegister:irre|Dout[6]       ; Datapath_RISC:dp|dataRegister:irem|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.060      ; 0.753      ;
+; 0.537 ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[10]     ; Datapath_RISC:dp|dataRegister:t3_re|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.755      ;
+; 0.537 ; Datapath_RISC:dp|dataRegister:pcem|Dout[6]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[6]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.756      ;
+; 0.537 ; Datapath_RISC:dp|dataRegister:irem|Dout[9]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[9]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.756      ;
+; 0.538 ; Datapath_RISC:dp|dataRegister:irem|Dout[6]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.061      ; 0.756      ;
+; 0.538 ; Datapath_RISC:dp|dataRegister:t4re|Dout[14]      ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]                                                                               ; clk          ; clk         ; 0.000        ; 0.060      ; 0.755      ;
+; 0.542 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[10]     ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.760      ;
+; 0.544 ; Datapath_RISC:dp|dataRegister:pcem|Dout[14]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[14]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.762      ;
+; 0.544 ; Datapath_RISC:dp|dataRegister:pcem|Dout[12]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[12]                                                                               ; clk          ; clk         ; 0.000        ; 0.062      ; 0.763      ;
+; 0.545 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]      ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[9]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.763      ;
+; 0.547 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13]     ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[13]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.765      ;
+; 0.547 ; Datapath_RISC:dp|dataRegister:pcem|Dout[13]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[13]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.765      ;
+; 0.551 ; Datapath_RISC:dp|dataRegister:irre|Dout[9]       ; Datapath_RISC:dp|dataRegister:irem|Dout[9]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.770      ;
+; 0.552 ; Datapath_RISC:dp|dataRegister:irre|Dout[4]       ; Datapath_RISC:dp|dataRegister:irem|Dout[4]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.771      ;
+; 0.552 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[12]     ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[12]                                                                               ; clk          ; clk         ; 0.000        ; 0.061      ; 0.770      ;
+; 0.552 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]      ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[8]                                                                                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.770      ;
+; 0.552 ; Datapath_RISC:dp|dataRegister:irre|Dout[5]       ; Datapath_RISC:dp|dataRegister:irem|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.771      ;
+; 0.553 ; Datapath_RISC:dp|dataRegister:pc_dr|Dout[0]      ; Datapath_RISC:dp|dataRegister:pcre|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.772      ;
+; 0.553 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[2]     ; Datapath_RISC:dp|regFile:rf|reg[7][2]                                                                                      ; clk          ; clk         ; 0.000        ; 0.062      ; 0.772      ;
+; 0.553 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[4]     ; Datapath_RISC:dp|regFile:rf|reg[7][4]                                                                                      ; clk          ; clk         ; 0.000        ; 0.062      ; 0.772      ;
+; 0.553 ; Datapath_RISC:dp|dataRegister:irmw|Dout[6]       ; Datapath_RISC:dp|dataRegister:irem|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.061      ; 0.771      ;
+; 0.554 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[3]     ; Datapath_RISC:dp|regFile:rf|reg[7][3]                                                                                      ; clk          ; clk         ; 0.000        ; 0.062      ; 0.773      ;
+; 0.554 ; Datapath_RISC:dp|dataRegister:irre|Dout[11]      ; Datapath_RISC:dp|dataRegister:irem|Dout[11]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.773      ;
+; 0.554 ; Datapath_RISC:dp|dataRegister:irmw|Dout[8]       ; Datapath_RISC:dp|dataRegister:irem|Dout[8]                                                                                 ; clk          ; clk         ; 0.000        ; 0.062      ; 0.773      ;
+; 0.555 ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[3]      ; Datapath_RISC:dp|dataRegister:t3_re|Dout[3]                                                                                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.774      ;
+; 0.555 ; Datapath_RISC:dp|instrMemory:instr_mem|a_sync[6] ; Datapath_RISC:dp|instrMemory:instr_mem|altsyncram:ram_rtl_0|altsyncram_6181:auto_generated|ram_block1a0~porta_address_reg0 ; clk          ; clk         ; 0.000        ; 0.379      ; 1.121      ;
+; 0.555 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[1]     ; Datapath_RISC:dp|regFile:rf|reg[7][1]                                                                                      ; clk          ; clk         ; 0.000        ; 0.062      ; 0.774      ;
+; 0.555 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[5]     ; Datapath_RISC:dp|regFile:rf|reg[7][5]                                                                                      ; clk          ; clk         ; 0.000        ; 0.062      ; 0.774      ;
+; 0.555 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[0]     ; Datapath_RISC:dp|regFile:rf|reg[7][0]                                                                                      ; clk          ; clk         ; 0.000        ; 0.062      ; 0.774      ;
++-------+--------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 -----------------------------------------------
 ; Slow 1200mV 85C Model Metastability Summary ;
 -----------------------------------------------
-No synchronizer chains to report.
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
 
 
--------------------------------------
-; Slow 1200mV 0C Model Fmax Summary ;
--------------------------------------
-No paths to report.
+
++-------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary               ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 76.14 MHz ; 76.14 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
---------------------------------------
++------------------------------------+
 ; Slow 1200mV 0C Model Setup Summary ;
---------------------------------------
-No paths to report.
++-------+---------+------------------+
+; Clock ; Slack   ; End Point TNS    ;
++-------+---------+------------------+
+; clk   ; -12.134 ; -29735.119       ;
++-------+---------+------------------+
 
 
--------------------------------------
++-----------------------------------+
 ; Slow 1200mV 0C Model Hold Summary ;
--------------------------------------
-No paths to report.
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.301 ; 0.000             ;
++-------+-------+-------------------+
 
 
 -----------------------------------------
@@ -184,28 +435,254 @@ No paths to report.
 No paths to report.
 
 
-----------------------------------------------------
++--------------------------------------------------+
 ; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
-----------------------------------------------------
-No paths to report.
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -4610.174                       ;
++-------+--------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                                                              ;
++---------+---------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                                   ; To Node                                          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+---------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -12.134 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.365     ;
+; -12.034 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.265     ;
+; -12.016 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.247     ;
+; -11.956 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.187     ;
+; -11.934 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.165     ;
+; -11.916 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.147     ;
+; -11.860 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.091     ;
+; -11.856 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.087     ;
+; -11.845 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.076     ;
+; -11.838 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.069     ;
+; -11.834 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]      ; clk          ; clk         ; 1.000        ; 0.236      ; 13.065     ;
+; -11.816 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.047     ;
+; -11.809 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.040     ;
+; -11.800 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.031     ;
+; -11.772 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 13.003     ;
+; -11.760 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.991     ;
+; -11.760 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.991     ;
+; -11.756 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.987     ;
+; -11.745 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.976     ;
+; -11.743 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.974     ;
+; -11.742 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.973     ;
+; -11.738 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.969     ;
+; -11.734 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.965     ;
+; -11.727 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.958     ;
+; -11.716 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.947     ;
+; -11.709 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.940     ;
+; -11.700 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.931     ;
+; -11.695 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.926     ;
+; -11.691 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.922     ;
+; -11.682 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.913     ;
+; -11.672 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.903     ;
+; -11.660 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.891     ;
+; -11.660 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.891     ;
+; -11.660 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.891     ;
+; -11.656 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.887     ;
+; -11.654 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.885     ;
+; -11.645 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.876     ;
+; -11.643 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.874     ;
+; -11.642 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.873     ;
+; -11.642 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.873     ;
+; -11.638 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.869     ;
+; -11.634 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[5]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.865     ;
+; -11.628 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.859     ;
+; -11.627 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.858     ;
+; -11.625 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.856     ;
+; -11.621 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.852     ;
+; -11.616 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[6]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.847     ;
+; -11.609 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; -0.115     ; 12.489     ;
+; -11.609 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.840     ;
+; -11.600 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.831     ;
+; -11.595 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.826     ;
+; -11.591 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.822     ;
+; -11.582 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.813     ;
+; -11.577 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.808     ;
+; -11.572 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.803     ;
+; -11.562 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.793     ;
+; -11.560 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.791     ;
+; -11.560 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.791     ;
+; -11.560 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.791     ;
+; -11.556 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.787     ;
+; -11.554 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.785     ;
+; -11.545 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.776     ;
+; -11.543 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.774     ;
+; -11.542 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.773     ;
+; -11.542 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.773     ;
+; -11.542 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.773     ;
+; -11.538 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.769     ;
+; -11.534 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[3]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.765     ;
+; -11.528 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.759     ;
+; -11.527 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.758     ;
+; -11.525 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.756     ;
+; -11.521 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.752     ;
+; -11.516 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[4]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.747     ;
+; -11.510 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.741     ;
+; -11.509 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; -0.115     ; 12.389     ;
+; -11.509 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.740     ;
+; -11.503 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.734     ;
+; -11.501 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[0] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.732     ;
+; -11.500 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.731     ;
+; -11.495 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.726     ;
+; -11.491 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; -0.115     ; 12.371     ;
+; -11.491 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.722     ;
+; -11.482 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.713     ;
+; -11.477 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.708     ;
+; -11.472 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.703     ;
+; -11.462 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.693     ;
+; -11.460 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.691     ;
+; -11.460 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.691     ;
+; -11.460 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.691     ;
+; -11.456 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[5]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.687     ;
+; -11.454 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.685     ;
+; -11.449 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|instrMemory:instr_mem|a_sync[0] ; clk          ; clk         ; 1.000        ; 0.210      ; 12.654     ;
+; -11.445 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.676     ;
+; -11.444 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.675     ;
+; -11.443 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.674     ;
+; -11.442 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.673     ;
+; -11.442 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.673     ;
+; -11.442 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.673     ;
+; -11.438 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[6]      ; clk          ; clk         ; 1.000        ; 0.236      ; 12.669     ;
+; -11.428 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11]     ; clk          ; clk         ; 1.000        ; 0.236      ; 12.659     ;
++---------+---------------------------------------------+--------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                                           ;
++-------+-----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                     ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.301 ; Datapath_RISC:dp|flipFlop:ncre|Dout           ; Datapath_RISC:dp|flipFlop:ncre|Dout          ; clk          ; clk         ; 0.000        ; 0.066      ; 0.511      ;
+; 0.301 ; Datapath_RISC:dp|flipFlop:ZReg|Dout           ; Datapath_RISC:dp|flipFlop:ZReg|Dout          ; clk          ; clk         ; 0.000        ; 0.066      ; 0.511      ;
+; 0.312 ; Datapath_RISC:dp|flipFlop:CReg|Dout           ; Datapath_RISC:dp|flipFlop:CReg|Dout          ; clk          ; clk         ; 0.000        ; 0.055      ; 0.511      ;
+; 0.313 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]   ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; Datapath_RISC:dp|flipFlop:Z1Reg|Dout          ; Datapath_RISC:dp|flipFlop:Z1Reg|Dout         ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]   ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[11]  ; Datapath_RISC:dp|dataRegister:t4_em|Dout[11] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13]  ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]  ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.339 ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[10]  ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[10] ; clk          ; clk         ; 0.000        ; 0.055      ; 0.538      ;
+; 0.339 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[11] ; Datapath_RISC:dp|regFile:rf|reg[7][11]       ; clk          ; clk         ; 0.000        ; 0.054      ; 0.537      ;
+; 0.340 ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[11]  ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[11] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.538      ;
+; 0.340 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[8]  ; Datapath_RISC:dp|regFile:rf|reg[7][8]        ; clk          ; clk         ; 0.000        ; 0.054      ; 0.538      ;
+; 0.340 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[9]  ; Datapath_RISC:dp|regFile:rf|reg[7][9]        ; clk          ; clk         ; 0.000        ; 0.054      ; 0.538      ;
+; 0.340 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[10] ; Datapath_RISC:dp|regFile:rf|reg[7][10]       ; clk          ; clk         ; 0.000        ; 0.054      ; 0.538      ;
+; 0.340 ; Datapath_RISC:dp|dataRegister:irre|Dout[7]    ; Datapath_RISC:dp|dataRegister:irem|Dout[7]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.539      ;
+; 0.341 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[7]  ; Datapath_RISC:dp|regFile:rf|reg[7][7]        ; clk          ; clk         ; 0.000        ; 0.054      ; 0.539      ;
+; 0.341 ; Datapath_RISC:dp|dataRegister:irmw|Dout[3]    ; Datapath_RISC:dp|dataRegister:irem|Dout[3]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.539      ;
+; 0.341 ; Datapath_RISC:dp|dataRegister:irmw|Dout[11]   ; Datapath_RISC:dp|dataRegister:irem|Dout[11]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.539      ;
+; 0.341 ; Datapath_RISC:dp|dataRegister:irmw|Dout[0]    ; Datapath_RISC:dp|dataRegister:irem|Dout[0]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.539      ;
+; 0.342 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[2]   ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[2]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.540      ;
+; 0.343 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[1]   ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[1]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.541      ;
+; 0.347 ; Datapath_RISC:dp|dataRegister:irre|Dout[8]    ; Datapath_RISC:dp|dataRegister:irem|Dout[8]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.546      ;
+; 0.357 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]  ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[14] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.555      ;
+; 0.357 ; Datapath_RISC:dp|dataRegister:pcem|Dout[1]    ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[1]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.556      ;
+; 0.357 ; Datapath_RISC:dp|dataRegister:pcem|Dout[15]   ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[15] ; clk          ; clk         ; 0.000        ; 0.055      ; 0.556      ;
+; 0.357 ; Datapath_RISC:dp|dataRegister:pcem|Dout[3]    ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[3]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.556      ;
+; 0.357 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[12]  ; Datapath_RISC:dp|dataRegister:pcem|Dout[12]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.556      ;
+; 0.358 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[7]   ; Datapath_RISC:dp|dataRegister:pcem|Dout[7]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.557      ;
+; 0.358 ; Datapath_RISC:dp|dataRegister:pcem|Dout[0]    ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[0]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.556      ;
+; 0.360 ; Datapath_RISC:dp|dataRegister:pcre|Dout[9]    ; Datapath_RISC:dp|dataRegister:pcem|Dout[9]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.559      ;
+; 0.360 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[4]   ; Datapath_RISC:dp|dataRegister:pcem|Dout[4]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.558      ;
+; 0.361 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[14]  ; Datapath_RISC:dp|dataRegister:pcem|Dout[14]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.560      ;
+; 0.362 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[6]   ; Datapath_RISC:dp|dataRegister:pcem|Dout[6]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.561      ;
+; 0.362 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[1]   ; Datapath_RISC:dp|dataRegister:pcem|Dout[1]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.561      ;
+; 0.363 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[3]   ; Datapath_RISC:dp|dataRegister:pcem|Dout[3]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.562      ;
+; 0.363 ; Datapath_RISC:dp|dataRegister:pcem|Dout[10]   ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[10] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.561      ;
+; 0.364 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[13]  ; Datapath_RISC:dp|dataRegister:pcem|Dout[13]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.563      ;
+; 0.364 ; Datapath_RISC:dp|dataRegister:pcem|Dout[2]    ; Datapath_RISC:dp|dataRegister:pcre|Dout[2]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.563      ;
+; 0.364 ; Datapath_RISC:dp|dataRegister:pcem|Dout[2]    ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[2]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.563      ;
+; 0.376 ; Datapath_RISC:dp|dataRegister:pcem|Dout[4]    ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[4]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.574      ;
+; 0.394 ; Datapath_RISC:dp|dataRegister:pcre|Dout[11]   ; Datapath_RISC:dp|dataRegister:t2_re|Dout[11] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.592      ;
+; 0.395 ; Datapath_RISC:dp|dataRegister:pcre|Dout[11]   ; Datapath_RISC:dp|dataRegister:pcem|Dout[11]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.593      ;
+; 0.432 ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[4]   ; Datapath_RISC:dp|dataRegister:t3_re|Dout[4]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.631      ;
+; 0.433 ; Datapath_RISC:dp|dataRegister:pc_dr|Dout[1]   ; Datapath_RISC:dp|dataRegister:pcre|Dout[1]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.631      ;
+; 0.436 ; Datapath_RISC:dp|dataRegister:irmw|Dout[5]    ; Datapath_RISC:dp|dataRegister:irem|Dout[5]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.634      ;
+; 0.438 ; Datapath_RISC:dp|dataRegister:irem|Dout[8]    ; Datapath_RISC:dp|dataRegister:irre|Dout[8]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.637      ;
+; 0.438 ; Datapath_RISC:dp|dataRegister:irem|Dout[1]    ; Datapath_RISC:dp|dataRegister:irre|Dout[1]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.636      ;
+; 0.439 ; Datapath_RISC:dp|dataRegister:irem|Dout[0]    ; Datapath_RISC:dp|dataRegister:irre|Dout[0]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.637      ;
+; 0.440 ; Datapath_RISC:dp|dataRegister:irem|Dout[7]    ; Datapath_RISC:dp|dataRegister:irre|Dout[7]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.639      ;
+; 0.440 ; Datapath_RISC:dp|dataRegister:irem|Dout[5]    ; Datapath_RISC:dp|dataRegister:irre|Dout[5]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.638      ;
+; 0.441 ; Datapath_RISC:dp|dataRegister:irem|Dout[4]    ; Datapath_RISC:dp|dataRegister:irre|Dout[4]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.639      ;
+; 0.450 ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[5]   ; Datapath_RISC:dp|dataRegister:t4re|Dout[5]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.648      ;
+; 0.450 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[0]   ; Datapath_RISC:dp|dataRegister:pcem|Dout[0]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.648      ;
+; 0.452 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[11]  ; Datapath_RISC:dp|dataRegister:t3_re|Dout[11] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.650      ;
+; 0.454 ; Datapath_RISC:dp|dataRegister:t2_re|Dout[8]   ; Datapath_RISC:dp|dataRegister:t2_em|Dout[8]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.653      ;
+; 0.455 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[15]  ; Datapath_RISC:dp|dataRegister:pcem|Dout[15]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.654      ;
+; 0.457 ; Datapath_RISC:dp|dataRegister:pcem|Dout[14]   ; Datapath_RISC:dp|dataRegister:pcre|Dout[14]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.656      ;
+; 0.457 ; Datapath_RISC:dp|dataRegister:pcem|Dout[13]   ; Datapath_RISC:dp|dataRegister:pcre|Dout[13]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.656      ;
+; 0.464 ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[11]  ; Datapath_RISC:dp|dataRegister:t2_em|Dout[11] ; clk          ; clk         ; 0.000        ; 0.056      ; 0.664      ;
+; 0.470 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[10]  ; Datapath_RISC:dp|dataRegister:pcem|Dout[10]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.668      ;
+; 0.471 ; Datapath_RISC:dp|dataRegister:irem|Dout[7]    ; Datapath_RISC:dp|dataRegister:irmw|Dout[7]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.670      ;
+; 0.472 ; Datapath_RISC:dp|dataRegister:irem|Dout[8]    ; Datapath_RISC:dp|dataRegister:irmw|Dout[8]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.671      ;
+; 0.473 ; Datapath_RISC:dp|dataRegister:irem|Dout[0]    ; Datapath_RISC:dp|dataRegister:irmw|Dout[0]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.671      ;
+; 0.473 ; Datapath_RISC:dp|dataRegister:irem|Dout[4]    ; Datapath_RISC:dp|dataRegister:irmw|Dout[4]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.671      ;
+; 0.474 ; Datapath_RISC:dp|dataRegister:irem|Dout[5]    ; Datapath_RISC:dp|dataRegister:irmw|Dout[5]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.672      ;
+; 0.475 ; Datapath_RISC:dp|dataRegister:irem|Dout[1]    ; Datapath_RISC:dp|dataRegister:irmw|Dout[1]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.673      ;
+; 0.475 ; Datapath_RISC:dp|dataRegister:irem|Dout[3]    ; Datapath_RISC:dp|dataRegister:irmw|Dout[3]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.673      ;
+; 0.483 ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[10]  ; Datapath_RISC:dp|dataRegister:t2_em|Dout[10] ; clk          ; clk         ; 0.000        ; 0.056      ; 0.683      ;
+; 0.484 ; Datapath_RISC:dp|dataRegister:pcem|Dout[6]    ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[6]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.683      ;
+; 0.485 ; Datapath_RISC:dp|dataRegister:irem|Dout[6]    ; Datapath_RISC:dp|dataRegister:irmw|Dout[6]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.683      ;
+; 0.485 ; Datapath_RISC:dp|dataRegister:irem|Dout[9]    ; Datapath_RISC:dp|dataRegister:irmw|Dout[9]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.683      ;
+; 0.485 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[10]  ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[10] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.683      ;
+; 0.488 ; Datapath_RISC:dp|dataRegister:pcem|Dout[14]   ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[14] ; clk          ; clk         ; 0.000        ; 0.055      ; 0.687      ;
+; 0.490 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13]  ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[13] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.688      ;
+; 0.490 ; Datapath_RISC:dp|dataRegister:pcem|Dout[12]   ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[12] ; clk          ; clk         ; 0.000        ; 0.055      ; 0.689      ;
+; 0.491 ; Datapath_RISC:dp|dataRegister:pcem|Dout[13]   ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[13] ; clk          ; clk         ; 0.000        ; 0.055      ; 0.690      ;
+; 0.491 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]   ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[9]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.689      ;
+; 0.492 ; Datapath_RISC:dp|dataRegister:irem|Dout[6]    ; Datapath_RISC:dp|dataRegister:irre|Dout[6]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.691      ;
+; 0.494 ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[10]  ; Datapath_RISC:dp|dataRegister:t3_re|Dout[10] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.692      ;
+; 0.494 ; Datapath_RISC:dp|dataRegister:irre|Dout[6]    ; Datapath_RISC:dp|dataRegister:irem|Dout[6]   ; clk          ; clk         ; 0.000        ; 0.053      ; 0.691      ;
+; 0.496 ; Datapath_RISC:dp|dataRegister:irre|Dout[9]    ; Datapath_RISC:dp|dataRegister:irem|Dout[9]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.694      ;
+; 0.497 ; Datapath_RISC:dp|dataRegister:irem|Dout[9]    ; Datapath_RISC:dp|dataRegister:irre|Dout[9]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.695      ;
+; 0.497 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[4]  ; Datapath_RISC:dp|regFile:rf|reg[7][4]        ; clk          ; clk         ; 0.000        ; 0.054      ; 0.695      ;
+; 0.497 ; Datapath_RISC:dp|dataRegister:irre|Dout[4]    ; Datapath_RISC:dp|dataRegister:irem|Dout[4]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.695      ;
+; 0.497 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[12]  ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[12] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.695      ;
+; 0.497 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]   ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[8]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.695      ;
+; 0.497 ; Datapath_RISC:dp|dataRegister:irre|Dout[5]    ; Datapath_RISC:dp|dataRegister:irem|Dout[5]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.695      ;
+; 0.497 ; Datapath_RISC:dp|dataRegister:irmw|Dout[6]    ; Datapath_RISC:dp|dataRegister:irem|Dout[6]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.695      ;
+; 0.498 ; Datapath_RISC:dp|dataRegister:pc_dr|Dout[0]   ; Datapath_RISC:dp|dataRegister:pcre|Dout[0]   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.696      ;
+; 0.498 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[2]  ; Datapath_RISC:dp|regFile:rf|reg[7][2]        ; clk          ; clk         ; 0.000        ; 0.054      ; 0.696      ;
+; 0.498 ; Datapath_RISC:dp|dataRegister:t4re|Dout[14]   ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.696      ;
+; 0.498 ; Datapath_RISC:dp|dataRegister:irmw|Dout[8]    ; Datapath_RISC:dp|dataRegister:irem|Dout[8]   ; clk          ; clk         ; 0.000        ; 0.055      ; 0.697      ;
+; 0.500 ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[3]   ; Datapath_RISC:dp|dataRegister:t3_re|Dout[3]  ; clk          ; clk         ; 0.000        ; 0.055      ; 0.699      ;
+; 0.500 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[3]  ; Datapath_RISC:dp|regFile:rf|reg[7][3]        ; clk          ; clk         ; 0.000        ; 0.054      ; 0.698      ;
+; 0.500 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[13] ; Datapath_RISC:dp|regFile:rf|reg[7][13]       ; clk          ; clk         ; 0.000        ; 0.054      ; 0.698      ;
+; 0.500 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[15] ; Datapath_RISC:dp|regFile:rf|reg[7][15]       ; clk          ; clk         ; 0.000        ; 0.054      ; 0.698      ;
+; 0.500 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[0]  ; Datapath_RISC:dp|regFile:rf|reg[7][0]        ; clk          ; clk         ; 0.000        ; 0.054      ; 0.698      ;
+; 0.500 ; Datapath_RISC:dp|dataRegister:t1re|Dout[2]    ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[2] ; clk          ; clk         ; 0.000        ; 0.054      ; 0.698      ;
+; 0.500 ; Datapath_RISC:dp|dataRegister:irre|Dout[11]   ; Datapath_RISC:dp|dataRegister:irem|Dout[11]  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.698      ;
++-------+-----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 ----------------------------------------------
 ; Slow 1200mV 0C Model Metastability Summary ;
 ----------------------------------------------
-No synchronizer chains to report.
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
 
 
---------------------------------------
+
++------------------------------------+
 ; Fast 1200mV 0C Model Setup Summary ;
---------------------------------------
-No paths to report.
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -7.583 ; -17899.783        ;
++-------+--------+-------------------+
 
 
--------------------------------------
++-----------------------------------+
 ; Fast 1200mV 0C Model Hold Summary ;
--------------------------------------
-No paths to report.
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.180 ; 0.000             ;
++-------+-------+-------------------+
 
 
 -----------------------------------------
@@ -220,26 +697,248 @@ No paths to report.
 No paths to report.
 
 
-----------------------------------------------------
++--------------------------------------------------+
 ; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
-----------------------------------------------------
-No paths to report.
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -4882.830                       ;
++-------+--------+---------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                                                         ;
++--------+---------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                   ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -7.583 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.708      ;
+; -7.519 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.644      ;
+; -7.515 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.640      ;
+; -7.454 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.579      ;
+; -7.451 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.576      ;
+; -7.447 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.572      ;
+; -7.400 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.525      ;
+; -7.392 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.517      ;
+; -7.392 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.517      ;
+; -7.390 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.515      ;
+; -7.386 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.511      ;
+; -7.383 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.508      ;
+; -7.379 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.504      ;
+; -7.353 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.478      ;
+; -7.350 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.475      ;
+; -7.341 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.466      ;
+; -7.336 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.461      ;
+; -7.334 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.459      ;
+; -7.332 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.457      ;
+; -7.328 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.453      ;
+; -7.328 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.453      ;
+; -7.324 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.449      ;
+; -7.324 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.449      ;
+; -7.322 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.447      ;
+; -7.318 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.443      ;
+; -7.315 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.440      ;
+; -7.311 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.436      ;
+; -7.297 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.422      ;
+; -7.296 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.421      ;
+; -7.289 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.414      ;
+; -7.286 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.411      ;
+; -7.285 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.410      ;
+; -7.282 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.407      ;
+; -7.277 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.402      ;
+; -7.273 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.398      ;
+; -7.270 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.395      ;
+; -7.268 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.393      ;
+; -7.266 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.391      ;
+; -7.264 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.389      ;
+; -7.260 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.385      ;
+; -7.260 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.385      ;
+; -7.256 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.381      ;
+; -7.256 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.381      ;
+; -7.254 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.379      ;
+; -7.250 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.375      ;
+; -7.247 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[6]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.372      ;
+; -7.243 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[5]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.368      ;
+; -7.242 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.367      ;
+; -7.233 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.358      ;
+; -7.232 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.357      ;
+; -7.229 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.354      ;
+; -7.228 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.353      ;
+; -7.221 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.346      ;
+; -7.218 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.343      ;
+; -7.217 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.342      ;
+; -7.214 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.339      ;
+; -7.214 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.339      ;
+; -7.209 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.334      ;
+; -7.205 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.330      ;
+; -7.202 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.327      ;
+; -7.200 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.325      ;
+; -7.198 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.323      ;
+; -7.196 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.321      ;
+; -7.192 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.317      ;
+; -7.192 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.317      ;
+; -7.188 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.313      ;
+; -7.188 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.313      ;
+; -7.186 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.311      ;
+; -7.182 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.307      ;
+; -7.180 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.305      ;
+; -7.179 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[4]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.304      ;
+; -7.178 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.303      ;
+; -7.175 ; Datapath_RISC:dp|dataRegister:irem|Dout[14] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[3]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.300      ;
+; -7.174 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.299      ;
+; -7.165 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.290      ;
+; -7.164 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[12] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.289      ;
+; -7.161 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.286      ;
+; -7.160 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[11] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.285      ;
+; -7.153 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.278      ;
+; -7.150 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.275      ;
+; -7.150 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.275      ;
+; -7.149 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.274      ;
+; -7.146 ; Datapath_RISC:dp|dataRegister:irem|Dout[13] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.271      ;
+; -7.146 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.271      ;
+; -7.144 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[0] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.269      ;
+; -7.141 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.266      ;
+; -7.138 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[2] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[15] ; clk          ; clk         ; 1.000        ; -0.071     ; 8.054      ;
+; -7.137 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.262      ;
+; -7.134 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[10] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.259      ;
+; -7.132 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.257      ;
+; -7.130 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[9]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.255      ;
+; -7.128 ; Datapath_RISC:dp|flipFlop:ncem|Dout         ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.253      ;
+; -7.124 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.249      ;
+; -7.124 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[8]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.249      ;
+; -7.120 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.245      ;
+; -7.120 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[7]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.245      ;
+; -7.118 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[6]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.243      ;
+; -7.116 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[14] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.241      ;
+; -7.114 ; Datapath_RISC:dp|dataRegister:irem|Dout[15] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[5]  ; clk          ; clk         ; 1.000        ; 0.138      ; 8.239      ;
+; -7.112 ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4] ; Datapath_RISC:dp|dataRegister:pc_fd|Dout[13] ; clk          ; clk         ; 1.000        ; 0.138      ; 8.237      ;
++--------+---------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                                                                                                                            ;
++-------+--------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                        ; To Node                                                                                                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.180 ; Datapath_RISC:dp|flipFlop:ncre|Dout              ; Datapath_RISC:dp|flipFlop:ncre|Dout                                                                                        ; clk          ; clk         ; 0.000        ; 0.043      ; 0.307      ;
+; 0.180 ; Datapath_RISC:dp|flipFlop:ZReg|Dout              ; Datapath_RISC:dp|flipFlop:ZReg|Dout                                                                                        ; clk          ; clk         ; 0.000        ; 0.043      ; 0.307      ;
+; 0.187 ; Datapath_RISC:dp|flipFlop:CReg|Dout              ; Datapath_RISC:dp|flipFlop:CReg|Dout                                                                                        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]      ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; Datapath_RISC:dp|flipFlop:Z1Reg|Dout             ; Datapath_RISC:dp|flipFlop:Z1Reg|Dout                                                                                       ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]      ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.188 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[11]     ; Datapath_RISC:dp|dataRegister:t4_em|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.035      ; 0.307      ;
+; 0.188 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13]     ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13]                                                                               ; clk          ; clk         ; 0.000        ; 0.035      ; 0.307      ;
+; 0.188 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]     ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]                                                                               ; clk          ; clk         ; 0.000        ; 0.035      ; 0.307      ;
+; 0.194 ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[10]     ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[11]     ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[7]     ; Datapath_RISC:dp|regFile:rf|reg[7][7]                                                                                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[8]     ; Datapath_RISC:dp|regFile:rf|reg[7][8]                                                                                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[9]     ; Datapath_RISC:dp|regFile:rf|reg[7][9]                                                                                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[10]    ; Datapath_RISC:dp|regFile:rf|reg[7][10]                                                                                     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[11]    ; Datapath_RISC:dp|regFile:rf|reg[7][11]                                                                                     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; Datapath_RISC:dp|dataRegister:irmw|Dout[0]       ; Datapath_RISC:dp|dataRegister:irem|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.195 ; Datapath_RISC:dp|dataRegister:irmw|Dout[3]       ; Datapath_RISC:dp|dataRegister:irem|Dout[3]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.315      ;
+; 0.195 ; Datapath_RISC:dp|dataRegister:irmw|Dout[11]      ; Datapath_RISC:dp|dataRegister:irem|Dout[11]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.315      ;
+; 0.196 ; Datapath_RISC:dp|dataRegister:irre|Dout[7]       ; Datapath_RISC:dp|dataRegister:irem|Dout[7]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.316      ;
+; 0.196 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[2]      ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[2]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.316      ;
+; 0.197 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[1]      ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[1]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.317      ;
+; 0.200 ; Datapath_RISC:dp|dataRegister:irre|Dout[8]       ; Datapath_RISC:dp|dataRegister:irem|Dout[8]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.320      ;
+; 0.204 ; Datapath_RISC:dp|dataRegister:pcem|Dout[1]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[1]                                                                                ; clk          ; clk         ; 0.000        ; 0.037      ; 0.325      ;
+; 0.205 ; Datapath_RISC:dp|dataRegister:pcem|Dout[0]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[0]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.325      ;
+; 0.205 ; Datapath_RISC:dp|dataRegister:pcem|Dout[3]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[3]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.325      ;
+; 0.205 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[12]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[12]                                                                                ; clk          ; clk         ; 0.000        ; 0.037      ; 0.326      ;
+; 0.207 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[7]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[7]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.327      ;
+; 0.207 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]     ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[14]                                                                               ; clk          ; clk         ; 0.000        ; 0.035      ; 0.326      ;
+; 0.207 ; Datapath_RISC:dp|dataRegister:pcem|Dout[15]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[15]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.327      ;
+; 0.208 ; Datapath_RISC:dp|dataRegister:pcre|Dout[9]       ; Datapath_RISC:dp|dataRegister:pcem|Dout[9]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.328      ;
+; 0.208 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[4]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[4]                                                                                 ; clk          ; clk         ; 0.000        ; 0.035      ; 0.327      ;
+; 0.208 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[1]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[1]                                                                                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.329      ;
+; 0.209 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[14]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[14]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.329      ;
+; 0.209 ; Datapath_RISC:dp|dataRegister:pcem|Dout[2]       ; Datapath_RISC:dp|dataRegister:pcre|Dout[2]                                                                                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.330      ;
+; 0.209 ; Datapath_RISC:dp|dataRegister:pcem|Dout[2]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[2]                                                                                ; clk          ; clk         ; 0.000        ; 0.037      ; 0.330      ;
+; 0.210 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[6]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.330      ;
+; 0.210 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[3]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[3]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.330      ;
+; 0.210 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[13]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[13]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.330      ;
+; 0.210 ; Datapath_RISC:dp|dataRegister:pcem|Dout[10]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.330      ;
+; 0.220 ; Datapath_RISC:dp|dataRegister:pcem|Dout[4]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[4]                                                                                ; clk          ; clk         ; 0.000        ; 0.035      ; 0.339      ;
+; 0.230 ; Datapath_RISC:dp|dataRegister:pcre|Dout[11]      ; Datapath_RISC:dp|dataRegister:t2_re|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.350      ;
+; 0.230 ; Datapath_RISC:dp|dataRegister:pcre|Dout[11]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[11]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.350      ;
+; 0.254 ; Datapath_RISC:dp|dataRegister:pc_dr|Dout[1]      ; Datapath_RISC:dp|dataRegister:pcre|Dout[1]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.374      ;
+; 0.254 ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[4]      ; Datapath_RISC:dp|dataRegister:t3_re|Dout[4]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.374      ;
+; 0.254 ; Datapath_RISC:dp|dataRegister:irmw|Dout[5]       ; Datapath_RISC:dp|dataRegister:irem|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.374      ;
+; 0.256 ; Datapath_RISC:dp|dataRegister:irem|Dout[1]       ; Datapath_RISC:dp|dataRegister:irre|Dout[1]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.376      ;
+; 0.257 ; Datapath_RISC:dp|dataRegister:irem|Dout[0]       ; Datapath_RISC:dp|dataRegister:irre|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.377      ;
+; 0.258 ; Datapath_RISC:dp|dataRegister:irem|Dout[5]       ; Datapath_RISC:dp|dataRegister:irre|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.378      ;
+; 0.259 ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[11]     ; Datapath_RISC:dp|dataRegister:t2_em|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.037      ; 0.380      ;
+; 0.260 ; Datapath_RISC:dp|dataRegister:irem|Dout[7]       ; Datapath_RISC:dp|dataRegister:irre|Dout[7]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.380      ;
+; 0.260 ; Datapath_RISC:dp|dataRegister:irem|Dout[8]       ; Datapath_RISC:dp|dataRegister:irre|Dout[8]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.380      ;
+; 0.261 ; Datapath_RISC:dp|dataRegister:irem|Dout[4]       ; Datapath_RISC:dp|dataRegister:irre|Dout[4]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.381      ;
+; 0.264 ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[5]      ; Datapath_RISC:dp|dataRegister:t4re|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.384      ;
+; 0.265 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[0]      ; Datapath_RISC:dp|dataRegister:pcem|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.385      ;
+; 0.266 ; Datapath_RISC:dp|dataRegister:t3_em|Dout[11]     ; Datapath_RISC:dp|dataRegister:t3_re|Dout[11]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.386      ;
+; 0.267 ; Datapath_RISC:dp|dataRegister:t2_re|Dout[8]      ; Datapath_RISC:dp|dataRegister:t2_em|Dout[8]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.387      ;
+; 0.268 ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[10]     ; Datapath_RISC:dp|dataRegister:t2_em|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.037      ; 0.389      ;
+; 0.270 ; Datapath_RISC:dp|dataRegister:pcem|Dout[14]      ; Datapath_RISC:dp|dataRegister:pcre|Dout[14]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.390      ;
+; 0.271 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[15]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[15]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.391      ;
+; 0.271 ; Datapath_RISC:dp|dataRegister:irem|Dout[0]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.391      ;
+; 0.272 ; Datapath_RISC:dp|dataRegister:irem|Dout[6]       ; Datapath_RISC:dp|dataRegister:irre|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.393      ;
+; 0.272 ; Datapath_RISC:dp|dataRegister:pcem|Dout[13]      ; Datapath_RISC:dp|dataRegister:pcre|Dout[13]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.392      ;
+; 0.272 ; Datapath_RISC:dp|dataRegister:irem|Dout[8]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[8]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.392      ;
+; 0.272 ; Datapath_RISC:dp|dataRegister:irem|Dout[7]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[7]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.392      ;
+; 0.273 ; Datapath_RISC:dp|dataRegister:irre|Dout[6]       ; Datapath_RISC:dp|dataRegister:irem|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.035      ; 0.392      ;
+; 0.273 ; Datapath_RISC:dp|dataRegister:irem|Dout[5]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.393      ;
+; 0.273 ; Datapath_RISC:dp|dataRegister:irem|Dout[4]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[4]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.393      ;
+; 0.273 ; Datapath_RISC:dp|dataRegister:irem|Dout[3]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[3]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.393      ;
+; 0.274 ; Datapath_RISC:dp|dataRegister:irem|Dout[1]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[1]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.394      ;
+; 0.275 ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[10]     ; Datapath_RISC:dp|dataRegister:t3_re|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.395      ;
+; 0.276 ; Datapath_RISC:dp|dataRegister:irem|Dout[9]       ; Datapath_RISC:dp|dataRegister:irre|Dout[9]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.396      ;
+; 0.277 ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[10]     ; Datapath_RISC:dp|dataRegister:pcem|Dout[10]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.397      ;
+; 0.278 ; Datapath_RISC:dp|dataRegister:irem|Dout[6]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.398      ;
+; 0.279 ; Datapath_RISC:dp|dataRegister:pcem|Dout[6]       ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[6]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.399      ;
+; 0.279 ; Datapath_RISC:dp|dataRegister:t4re|Dout[14]      ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]                                                                               ; clk          ; clk         ; 0.000        ; 0.034      ; 0.397      ;
+; 0.280 ; Datapath_RISC:dp|dataRegister:irem|Dout[9]       ; Datapath_RISC:dp|dataRegister:irmw|Dout[9]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.400      ;
+; 0.282 ; Datapath_RISC:dp|dataRegister:pcem|Dout[14]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[14]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.402      ;
+; 0.282 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[10]     ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[10]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.402      ;
+; 0.283 ; Datapath_RISC:dp|instrMemory:instr_mem|a_sync[6] ; Datapath_RISC:dp|instrMemory:instr_mem|altsyncram:ram_rtl_0|altsyncram_6181:auto_generated|ram_block1a0~porta_address_reg0 ; clk          ; clk         ; 0.000        ; 0.220      ; 0.607      ;
+; 0.283 ; Datapath_RISC:dp|dataRegister:pcem|Dout[12]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[12]                                                                               ; clk          ; clk         ; 0.000        ; 0.037      ; 0.404      ;
+; 0.284 ; Datapath_RISC:dp|dataRegister:pcem|Dout[13]      ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[13]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.404      ;
+; 0.285 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]      ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[9]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.405      ;
+; 0.286 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13]     ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[13]                                                                               ; clk          ; clk         ; 0.000        ; 0.035      ; 0.405      ;
+; 0.291 ; Datapath_RISC:dp|dataRegister:t1re|Dout[2]       ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[2]                                                                               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.411      ;
+; 0.291 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[12]     ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[12]                                                                               ; clk          ; clk         ; 0.000        ; 0.035      ; 0.410      ;
+; 0.291 ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]      ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[8]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.411      ;
+; 0.293 ; Datapath_RISC:dp|instrMemory:instr_mem|a_sync[3] ; Datapath_RISC:dp|instrMemory:instr_mem|altsyncram:ram_rtl_0|altsyncram_6181:auto_generated|ram_block1a0~porta_address_reg0 ; clk          ; clk         ; 0.000        ; 0.221      ; 0.618      ;
+; 0.294 ; Datapath_RISC:dp|dataRegister:irre|Dout[9]       ; Datapath_RISC:dp|dataRegister:irem|Dout[9]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.414      ;
+; 0.294 ; Datapath_RISC:dp|dataRegister:irmw|Dout[6]       ; Datapath_RISC:dp|dataRegister:irem|Dout[6]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.414      ;
+; 0.295 ; Datapath_RISC:dp|dataRegister:pc_dr|Dout[0]      ; Datapath_RISC:dp|dataRegister:pcre|Dout[0]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.415      ;
+; 0.295 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[2]     ; Datapath_RISC:dp|regFile:rf|reg[7][2]                                                                                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.415      ;
+; 0.295 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[4]     ; Datapath_RISC:dp|regFile:rf|reg[7][4]                                                                                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.415      ;
+; 0.295 ; Datapath_RISC:dp|dataRegister:irre|Dout[5]       ; Datapath_RISC:dp|dataRegister:irem|Dout[5]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.415      ;
+; 0.296 ; Datapath_RISC:dp|dataRegister:irmw|Dout[8]       ; Datapath_RISC:dp|dataRegister:irem|Dout[8]                                                                                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.416      ;
+; 0.297 ; Datapath_RISC:dp|dataRegister:t3_dr|Dout[3]      ; Datapath_RISC:dp|dataRegister:t3_re|Dout[3]                                                                                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.417      ;
+; 0.297 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[1]     ; Datapath_RISC:dp|regFile:rf|reg[7][1]                                                                                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.417      ;
+; 0.297 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[5]     ; Datapath_RISC:dp|regFile:rf|reg[7][5]                                                                                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.417      ;
+; 0.297 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[3]     ; Datapath_RISC:dp|regFile:rf|reg[7][3]                                                                                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.417      ;
+; 0.297 ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[13]    ; Datapath_RISC:dp|regFile:rf|reg[7][13]                                                                                     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.417      ;
++-------+--------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 ----------------------------------------------
 ; Fast 1200mV 0C Model Metastability Summary ;
 ----------------------------------------------
-No synchronizer chains to report.
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
 
 
-+----------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                        ;
-+------------------+-------+------+----------+---------+---------------------+
-; Clock            ; Setup ; Hold ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+-------+------+----------+---------+---------------------+
-; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; N/A                 ;
-; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; 0.0                 ;
-+------------------+-------+------+----------+---------+---------------------+
+
++----------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                              ;
++------------------+------------+-------+----------+---------+---------------------+
+; Clock            ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+------------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -13.780    ; 0.180 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -13.780    ; 0.180 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -33493.638 ; 0.0   ; 0.0      ; 0.0     ; -4882.83            ;
+;  clk             ; -33493.638 ; 0.000 ; N/A      ; N/A     ; -4882.830           ;
++------------------+------------+-------+----------+---------+---------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -258,8 +957,8 @@ No synchronizer chains to report.
 +-------------------------+--------------+-----------------+-----------------+
 ; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
 +-------------------------+--------------+-----------------+-----------------+
-; rst                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; rst                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
@@ -299,10 +998,24 @@ No synchronizer chains to report.
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 51918487 ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 51918487 ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -324,20 +1037,30 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 1     ; 1    ;
-; Unconstrained Input Port Paths  ; 1     ; 1    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 4560  ; 4560 ;
 ; Unconstrained Output Ports      ; 1     ; 1    ;
-; Unconstrained Output Port Paths ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 35    ; 35   ;
 +---------------------------------+-------+------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                         ;
-+------------+--------------------------------------------------------------------------------------+
-; Input Port ; Comment                                                                              ;
-+------------+--------------------------------------------------------------------------------------+
-; clk        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------+--------------------------------------------------------------------------------------+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                                          ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                                                               ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+; clk        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found. This port has clock assignment. ;
+; rst        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found                                  ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -349,13 +1072,14 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------+---------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                         ;
-+------------+--------------------------------------------------------------------------------------+
-; Input Port ; Comment                                                                              ;
-+------------+--------------------------------------------------------------------------------------+
-; clk        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------+--------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                                          ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                                                               ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+; clk        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found. This port has clock assignment. ;
+; rst        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found                                  ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -373,7 +1097,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Mon Nov 28 13:47:28 2016
+    Info: Processing started: Mon Nov 28 14:16:55 2016
 Info: Command: quartus_sta RISC2 -c RISC2
 Info: qsta_default_script.tcl version: #1
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -381,48 +1105,78 @@ Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'RISC2.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
-Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
-Info (332159): No clocks to report
 Info: Analyzing Slow 1200mV 85C Model
-Info (332140): No fmax paths to report
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -13.780
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -13.780          -33493.638 clk 
+Info (332146): Worst-case hold slack is 0.345
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.345               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000           -4610.174 clk 
+Info (332114): Report Metastability: Found 8 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
-Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
-Info (332140): No fmax paths to report
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -12.134
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -12.134          -29735.119 clk 
+Info (332146): Worst-case hold slack is 0.301
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.301               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000           -4610.174 clk 
+Info (332114): Report Metastability: Found 8 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Fast 1200mV 0C Model
-Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
-Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -7.583
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -7.583          -17899.783 clk 
+Info (332146): Worst-case hold slack is 0.180
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.180               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000           -4882.830 clk 
+Info (332114): Report Metastability: Found 8 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 1094 megabytes
-    Info: Processing ended: Mon Nov 28 13:47:29 2016
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 1195 megabytes
+    Info: Processing ended: Mon Nov 28 14:17:02 2016
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:09
 
 

@@ -24,6 +24,11 @@ architecture Struct of RISC2 is
     signal stall,stall_E,stall_M,stall_W,stall_dh,Ctrl_forwarding_V: std_logic;
     signal data_forward1,data_forward2,MLoop1,MLoop2: std_logic;
 begin
+    data_forward1 <= '0';
+    data_forward2 <= '0';
+    stall_dh <= '0';
+    M20 <= "00";
+    
     x <= M5 or clk;
     reset <= not rst;
     dp: Datapath_RISC port map

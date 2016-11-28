@@ -16,7 +16,7 @@ rst => execute:e.reset
 rst => memAccess:m.reset
 rst => regWrite:w.reset
 rst => controlHazard:ch.reset
-x << x.DB_MAX_OUTPUT_PORT_TYPE
+x <= x.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |RISC2|Datapath_RISC:dp
