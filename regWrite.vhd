@@ -20,16 +20,15 @@ begin
 
     begin
         --Defaults
-        PC_Wr_var := '0';
         Reg_Wr_var := '0';
         stall_W_var := '0';
         MLoop2_var := '0';
         M17_var := "00";
         M16_var := "00";
         M18_var := '0';
-    
+        PC_Wr_var := '1';
+        
         if(NC_MW='0' and reset='0') then
-            PC_Wr_var := '1';
             if (IR_MW(15 downto 12) = "0110") then --LM
                 M17_var := "00";
                 M16_var := "11";

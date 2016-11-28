@@ -24,8 +24,6 @@ architecture Struct of RISC2 is
     signal stall,stall_E,stall_M,stall_W,stall_dh,Ctrl_forwarding_V: std_logic;
     signal data_forward1,data_forward2,MLoop1,MLoop2: std_logic;
 begin
-    data_forward1 <= forwarding and hazard(0);
-    data_forward2 <= forwarding and (not hazard(0));
     M20 <= hazard(2 downto 1);
     NC_EM_in <= NC_EM_in1 or NC_EM_in2;
     
@@ -89,6 +87,7 @@ begin
     dh: Data_Hazard_Detector port map
         (IR=>IR_DR,IR_OLD1=>IR_RE,IR_OLD2=>IR_EM,IR_OLD3=>IR_MW,
         NC_DR=>NC_DR,NC_RE_out=>NC_RE,NC_EM=>NC_EM,NC_MW=>NC_MW,hazard=>hazard,
-        stall=>stall_dh,clk=>clk,forwarding=>forwarding,C=>C,Zeff=>ZEff);
+        stall=>stall_dh,clk=>clk,forwarding1=>data_forward1,forwarding2=>data_forward2,
+        C=>C,Zeff=>ZEff);
     
 end Struct;

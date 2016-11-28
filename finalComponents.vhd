@@ -86,7 +86,7 @@ package finalComponents is
 		 hazard : out std_logic_vector(2 downto 0);
 		 stall : out std_logic;
 		 clk: in std_logic;
-		 forwarding: out std_logic
+		 forwarding1,forwarding2: out std_logic
 		);
 	end component;
 end package;

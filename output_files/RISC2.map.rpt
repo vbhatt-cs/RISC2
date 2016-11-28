@@ -1,5 +1,5 @@
 Analysis & Elaboration report for RISC2
-Mon Nov 28 18:20:19 2016
+Mon Nov 28 19:02:39 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -33,10 +33,11 @@ Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
  25. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_mw2
  26. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t4_mW
  27. Analysis & Elaboration Settings
- 28. Port Connectivity Checks: "Datapath_RISC:dp|Comparator:comp2"
- 29. Port Connectivity Checks: "Datapath_RISC:dp|alu:op2_alu"
- 30. Port Connectivity Checks: "Datapath_RISC:dp|alu:incrementer1"
- 31. Analysis & Elaboration Messages
+ 28. Port Connectivity Checks: "Data_Hazard_Detector:dh"
+ 29. Port Connectivity Checks: "Datapath_RISC:dp|Comparator:comp2"
+ 30. Port Connectivity Checks: "Datapath_RISC:dp|alu:op2_alu"
+ 31. Port Connectivity Checks: "Datapath_RISC:dp|alu:incrementer1"
+ 32. Analysis & Elaboration Messages
 
 
 
@@ -63,7 +64,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Mon Nov 28 18:20:19 2016       ;
+; Analysis & Elaboration Status      ; Successful - Mon Nov 28 19:02:39 2016       ;
 ; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
 ; Revision Name                      ; RISC2                                       ;
 ; Top-level Entity Name              ; RISC2                                       ;
@@ -413,6 +414,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Data_Hazard_Detector:dh"                                                                 ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; hazard[0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +---------------------------------------------------------------+
 ; Port Connectivity Checks: "Datapath_RISC:dp|Comparator:comp2" ;
 +---------+-------+----------+----------------------------------+
@@ -452,7 +462,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Mon Nov 28 18:20:04 2016
+    Info: Processing started: Mon Nov 28 19:02:25 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC2 -c RISC2 --analysis_and_elaboration
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file dataHazard.vhd
@@ -516,7 +526,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file control
     Info (12022): Found design unit 1: controlHazard-Behave File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 13
     Info (12023): Found entity 1: controlHazard File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 4
 Info (12127): Elaborating entity "RISC2" for the top level hierarchy
-Info (12128): Elaborating entity "Datapath_RISC" for hierarchy "Datapath_RISC:dp" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 34
+Info (12128): Elaborating entity "Datapath_RISC" for hierarchy "Datapath_RISC:dp" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 32
 Info (10041): Inferred latch for "T2_RE_in[0]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
 Info (10041): Inferred latch for "T2_RE_in[1]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
 Info (10041): Inferred latch for "T2_RE_in[2]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
@@ -542,10 +552,10 @@ Info (12128): Elaborating entity "regFile" for hierarchy "Datapath_RISC:dp|regFi
 Warning (10492): VHDL Process Statement warning at regFile.vhd(29): signal "a3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regFile.vhd Line: 29
 Info (12128): Elaborating entity "Comparator" for hierarchy "Datapath_RISC:dp|Comparator:comp1" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 151
 Info (12128): Elaborating entity "dataMemory" for hierarchy "Datapath_RISC:dp|dataMemory:data_mem" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 213
-Info (12128): Elaborating entity "fetch" for hierarchy "fetch:f" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 53
+Info (12128): Elaborating entity "fetch" for hierarchy "fetch:f" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 51
 Warning (10492): VHDL Process Statement warning at fetch.vhd(24): signal "Ctrl_forwarding_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/fetch.vhd Line: 24
-Info (12128): Elaborating entity "decode" for hierarchy "decode:d" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 57
-Info (12128): Elaborating entity "regRead" for hierarchy "regRead:r" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 61
+Info (12128): Elaborating entity "decode" for hierarchy "decode:d" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 55
+Info (12128): Elaborating entity "regRead" for hierarchy "regRead:r" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 59
 Warning (10492): VHDL Process Statement warning at regRead.vhd(37): signal "NC_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 37
 Warning (10492): VHDL Process Statement warning at regRead.vhd(38): signal "data_forward1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 38
 Warning (10492): VHDL Process Statement warning at regRead.vhd(40): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 40
@@ -555,7 +565,7 @@ Warning (10492): VHDL Process Statement warning at regRead.vhd(59): signal "IR_D
 Warning (10492): VHDL Process Statement warning at regRead.vhd(61): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 61
 Warning (10492): VHDL Process Statement warning at regRead.vhd(64): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 64
 Warning (10492): VHDL Process Statement warning at regRead.vhd(66): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 66
-Info (12128): Elaborating entity "execute" for hierarchy "execute:e" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 67
+Info (12128): Elaborating entity "execute" for hierarchy "execute:e" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 65
 Warning (10492): VHDL Process Statement warning at execute.vhd(38): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 38
 Warning (10492): VHDL Process Statement warning at execute.vhd(39): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 39
 Warning (10492): VHDL Process Statement warning at execute.vhd(46): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 46
@@ -571,7 +581,7 @@ Warning (10492): VHDL Process Statement warning at execute.vhd(99): signal "IR_R
 Warning (10492): VHDL Process Statement warning at execute.vhd(99): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 99
 Warning (10492): VHDL Process Statement warning at execute.vhd(103): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 103
 Warning (10492): VHDL Process Statement warning at execute.vhd(103): signal "Zeff" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 103
-Info (12128): Elaborating entity "memAccess" for hierarchy "memAccess:m" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 73
+Info (12128): Elaborating entity "memAccess" for hierarchy "memAccess:m" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 71
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(37): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 37
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(38): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 38
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(48): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 48
@@ -579,16 +589,16 @@ Warning (10492): VHDL Process Statement warning at memAccess.vhd(56): signal "IR
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(68): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 68
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(75): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 75
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(87): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 87
-Info (12128): Elaborating entity "regWrite" for hierarchy "regWrite:w" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 79
+Info (12128): Elaborating entity "regWrite" for hierarchy "regWrite:w" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 77
 Warning (10492): VHDL Process Statement warning at regWrite.vhd(31): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 31
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(33): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 33
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(42): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 42
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(47): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 47
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(52): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(57): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 57
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(62): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 62
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(67): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 67
-Info (12128): Elaborating entity "controlHazard" for hierarchy "controlHazard:ch" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(32): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(41): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(46): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 46
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(51): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(56): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 56
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(61): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 61
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(66): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 66
+Info (12128): Elaborating entity "controlHazard" for hierarchy "controlHazard:ch" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 81
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(26): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 26
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(26): signal "NC_EM_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 26
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(27): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 27
@@ -619,100 +629,102 @@ Warning (10492): VHDL Process Statement warning at controlHazard.vhd(83): signal
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(90): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 90
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(91): signal "RF_pco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 91
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(91): signal "PC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 91
-Info (12128): Elaborating entity "Data_Hazard_Detector" for hierarchy "Data_Hazard_Detector:dh" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 89
+Info (12128): Elaborating entity "Data_Hazard_Detector" for hierarchy "Data_Hazard_Detector:dh" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 87
 Warning (10492): VHDL Process Statement warning at dataHazard.vhd(27): signal "NC_RE_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 27
 Warning (10492): VHDL Process Statement warning at dataHazard.vhd(36): signal "NC_RE_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 36
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(49): signal "NC_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 49
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(57): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 57
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(63): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 63
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(68): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 68
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(74): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 74
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(80): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 80
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(85): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 85
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(96): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 96
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(102): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 102
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(107): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 107
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(113): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 113
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(119): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 119
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(125): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 125
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(136): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 136
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(50): signal "NC_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(58): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(64): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 64
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(69): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 69
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(75): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(81): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 81
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(86): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(97): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 97
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(103): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 103
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(108): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 108
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(114): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 114
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(120): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 120
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(126): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 126
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(137): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 137
 Warning (10492): VHDL Process Statement warning at dataHazard.vhd(147): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 147
 Warning (10492): VHDL Process Statement warning at dataHazard.vhd(153): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 153
 Warning (10492): VHDL Process Statement warning at dataHazard.vhd(160): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 160
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(171): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 171
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(176): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 176
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(187): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 187
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(193): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 193
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(199): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 199
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(205): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 205
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(211): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 211
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(217): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 217
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(233): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 233
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(237): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 237
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(240): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 240
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(248): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 248
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(252): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 252
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(256): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 256
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(265): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 265
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(276): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 276
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(279): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 279
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(287): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 287
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(291): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 291
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(294): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 294
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(313): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 313
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(316): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 316
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(319): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 319
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(327): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 327
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(331): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 331
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(334): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 334
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(342): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 342
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(353): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 353
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(356): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 356
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(365): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 365
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(369): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 369
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(372): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 372
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(386): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 386
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(389): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 389
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(392): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 392
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(397): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 397
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(401): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 401
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(404): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 404
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(413): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 413
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(416): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 416
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(419): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 419
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(428): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 428
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(439): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 439
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(442): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 442
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(451): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 451
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(455): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 455
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(458): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 458
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(474): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 474
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(478): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 478
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(481): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 481
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(489): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 489
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(493): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 493
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(496): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 496
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(504): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 504
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(515): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 515
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(518): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 518
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(526): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 526
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(530): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 530
-Warning (10492): VHDL Process Statement warning at dataHazard.vhd(533): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 533
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(170): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 170
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(175): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 175
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(186): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 186
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(192): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 192
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(198): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 198
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(204): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 204
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(210): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 210
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(216): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 216
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(232): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 232
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(236): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 236
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(239): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 239
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(247): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 247
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(251): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 251
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(255): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 255
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(264): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 264
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(274): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 274
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(277): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 277
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(285): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 285
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(289): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 289
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(292): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 292
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(305): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 305
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(308): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 308
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(311): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 311
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(319): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 319
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(323): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 323
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(326): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 326
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(334): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 334
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(344): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 344
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(347): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 347
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(356): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 356
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(360): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 360
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(363): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 363
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(377): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 377
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(380): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 380
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(383): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 383
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(388): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 388
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(392): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 392
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(395): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 395
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(404): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 404
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(407): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 407
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(410): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 410
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(419): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 419
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(429): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 429
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(432): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 432
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(441): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 441
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(445): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 445
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(448): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 448
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(464): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 464
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(468): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 468
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(471): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 471
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(479): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 479
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(483): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 483
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(486): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 486
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(494): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 494
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(504): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 504
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(507): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 507
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(515): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 515
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(519): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 519
+Warning (10492): VHDL Process Statement warning at dataHazard.vhd(522): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 522
 Warning (10631): VHDL Process Statement warning at dataHazard.vhd(39): inferring latch(es) for signal or variable "re_stall", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Warning (10631): VHDL Process Statement warning at dataHazard.vhd(39): inferring latch(es) for signal or variable "hazard", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Warning (10631): VHDL Process Statement warning at dataHazard.vhd(39): inferring latch(es) for signal or variable "stall", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
-Warning (10631): VHDL Process Statement warning at dataHazard.vhd(39): inferring latch(es) for signal or variable "forwarding", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
-Info (10041): Inferred latch for "forwarding" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
+Warning (10631): VHDL Process Statement warning at dataHazard.vhd(39): inferring latch(es) for signal or variable "forwarding1", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
+Warning (10631): VHDL Process Statement warning at dataHazard.vhd(39): inferring latch(es) for signal or variable "forwarding2", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
+Info (10041): Inferred latch for "forwarding2" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
+Info (10041): Inferred latch for "forwarding1" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Info (10041): Inferred latch for "stall" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Info (10041): Inferred latch for "hazard[0]" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Info (10041): Inferred latch for "hazard[1]" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Info (10041): Inferred latch for "hazard[2]" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Info (10041): Inferred latch for "re_stall[0]" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Info (10041): Inferred latch for "re_stall[1]" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 153 warnings
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 154 warnings
     Info: Peak virtual memory: 1511 megabytes
-    Info: Processing ended: Mon Nov 28 18:20:19 2016
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:37
+    Info: Processing ended: Mon Nov 28 19:02:39 2016
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:35
 
 

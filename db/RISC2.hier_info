@@ -4433,7 +4433,7 @@ M18 <= M18_var.DB_MAX_OUTPUT_PORT_TYPE
 stall_W <= stall_W_var.DB_MAX_OUTPUT_PORT_TYPE
 MLoop2 <= MLoop2_var.DB_MAX_OUTPUT_PORT_TYPE
 Reg_Wr <= process_0.DB_MAX_OUTPUT_PORT_TYPE
-PC_Wr <= process_0.DB_MAX_OUTPUT_PORT_TYPE
+PC_Wr <= <VCC>
 
 
 |RISC2|controlHazard:ch
@@ -4903,7 +4903,8 @@ NC_DR => hazard[2]$latch.LATCH_ENABLE
 NC_DR => hazard[1]$latch.LATCH_ENABLE
 NC_DR => hazard[0]$latch.LATCH_ENABLE
 NC_DR => stall$latch.LATCH_ENABLE
-NC_DR => forwarding$latch.LATCH_ENABLE
+NC_DR => forwarding1$latch.LATCH_ENABLE
+NC_DR => forwarding2$latch.LATCH_ENABLE
 NC_RE_out => NC_RE.IN1
 NC_RE_out => NC_RE_var.OUTPUTSELECT
 NC_EM => process_1.IN1
@@ -4925,6 +4926,7 @@ hazard[1] <= hazard[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
 hazard[2] <= hazard[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
 stall <= stall$latch.DB_MAX_OUTPUT_PORT_TYPE
 clk => ~NO_FANOUT~
-forwarding <= forwarding$latch.DB_MAX_OUTPUT_PORT_TYPE
+forwarding1 <= forwarding1$latch.DB_MAX_OUTPUT_PORT_TYPE
+forwarding2 <= forwarding2$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
