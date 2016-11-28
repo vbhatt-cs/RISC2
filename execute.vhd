@@ -56,14 +56,14 @@ begin
                 M6_var := "10";
                 M7_var := "10";
                 M8_var := "01";
-                M10_var := '0';
+                M10_var := '1';
                 PC_EM2_En_var := '1';
                 C_En_var := '0';
             elsif (IR_RE(15 downto 12) = "1000") then --JAL
                 M6_var := "10";
                 M7_var := "10";
                 M8_var := "01";
-                M10_var := '0';
+                M10_var := '1';
                 PC_EM2_En_var := '1';
                 C_En_var := '0';
             elsif (IR_RE(15 downto 12) = "1001") then --JLR

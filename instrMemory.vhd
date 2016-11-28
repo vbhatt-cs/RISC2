@@ -14,13 +14,6 @@ end entity;
 
 architecture Behave of instrMemory is
     signal ram : ram_t := INST_INIT;
-    signal a_sync: std_logic_vector(7 downto 0);
 begin
-    Dout <= ram(to_integer(unsigned(a_sync)));
-    process(clk)
-    begin
-        if(rising_edge(Clk)) then
-            a_sync <= a(7 downto 0);
-        end if;
-    end process;
+    Dout <= ram(to_integer(unsigned(a(7 downto 0))));
 end Behave;

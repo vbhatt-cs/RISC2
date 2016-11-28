@@ -9,8 +9,8 @@ package finalComponents is
             IR_RE_En,PC_RE_En,PC_RE2_En,T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,
             C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,PC_MW_En,IR_MW_En,PC_MW2_En,
             RegWr,PCWr,Alu_op,MemWr: in std_logic;
-            M3,M4,M6,M7,M8,M16,M17,M20: in std_logic_vector(1 downto 0);
-            M21: in std_logic_vector(2 downto 0);
+            M3,M4,M6,M7,M8,M16,M17: in std_logic_vector(1 downto 0);
+            M21,M20,M22: in std_logic_vector(2 downto 0);
             C,ZEff,PE1_V,PE2_V,Z1: out std_logic;
             NC_DR_in,NC_RE_in,NC_EM_in: in std_logic;
             NC_DR,NC_RE,NC_EM,NC_MW: out std_logic;
@@ -83,7 +83,7 @@ package finalComponents is
 		 IR_OLD2 :in std_logic_vector(15 downto 0);
 		 IR_OLD3 :in std_logic_vector(15 downto 0);
 		 NC_DR,NC_RE_out,NC_EM,NC_MW,C,Zeff: in std_logic;
-		 hazard : out std_logic_vector(2 downto 0);
+		 hazard1,hazard2 : out std_logic_vector(2 downto 0);
 		 stall : out std_logic;
 		 clk: in std_logic;
 		 forwarding1,forwarding2: out std_logic

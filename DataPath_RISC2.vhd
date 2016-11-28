@@ -10,8 +10,8 @@ entity Datapath_RISC is
         PC_FD_En,T3_FD_En,T3_DR_En,PC_DR_En,IR_DR_En,Z1_En,T1_RE_En,T2_RE_En,T3_RE_En,T4_RE_En,IR_RE_En,PC_RE_En,PC_RE2_En,
         T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,
         PC_MW_En,IR_MW_En,PC_MW2_En,RegWr,PCWr,Alu_op,MemWr: in std_logic;
-        M3,M4,M6,M7,M8,M16,M17,M20: in std_logic_vector(1 downto 0);
-        M21: in std_logic_vector(2 downto 0);
+        M3,M4,M6,M7,M8,M16,M17: in std_logic_vector(1 downto 0);
+        M21,M20,M22: in std_logic_vector(2 downto 0);
         C,ZEff,PE1_V,PE2_V,Z1: out std_logic;
         NC_DR_in,NC_RE_in,NC_EM_in: in std_logic;
         NC_DR,NC_RE,NC_EM,NC_MW: out std_logic;
@@ -28,8 +28,9 @@ architecture Build of DataPath_RISC is
         PC_MW_in,PC_MW_out,PC_EM2_in,PC_EM2_out,PC_MW2_in,PC_MW2_out,
 	    Data_Mem_A,Data_Mem_Din,Data_Mem_dout,Instr_Mem_A,Instr_Mem_out,
 	    pc_alu1,pc_alu_out,op_alu1,op_alu2,op_alu_out,op2_alu1,op2_alu_out,
-	    Comp1_D1,Comp1_D2,Comp2_D1,SE_out,USE_out,forward,ctrl_for,
-	    IR_DR_in,IR_RE_in,IR_EM_in,IR_MW_in,IR_DR_out,IR_RE_out,IR_EM_out,IR_MW_out: std_logic_vector(15 downto 0);
+	    Comp1_D1,Comp1_D2,Comp2_D1,SE_out,USE_out,forward1,forward2,ctrl_for,
+        IR_FD_in,IR_FD_out,IR_DR_in,IR_RE_in,IR_EM_in,IR_MW_in,IR_DR_out,IR_RE_out,
+        IR_EM_out,IR_MW_out: std_logic_vector(15 downto 0);
     signal PE1_A,PE2_A,RF_A1,RF_A2,RF_A3,RF_A4: std_logic_vector(2 downto 0);
     signal PE1_valid,PE2_valid,Comp1_out,Comp2_out,Alu_C,Z,
         NC_DR_out,NC_RE_out,NC_EM_out,NC_MW_out,NC_DR_in1,NC_RE_in1,NC_EM_in1,NC_MW_in1,
@@ -90,7 +91,12 @@ begin
     --Instruction Memory
     Instr_Mem_A <= PC_FD_out when (M2='0') else Ctrl_for;
     instr_mem: instrMemory
-    		port map(A=>Instr_Mem_A, Dout=>Instr_Mem_out, clk=>clk);  
+    		port map(A=>Instr_Mem_A, Dout=>Instr_Mem_out, clk=>clk); 
+    
+    --IR_FD
+    IR_FD_in <= Instr_Mem_out;	
+    ir_fd: dataRegister generic map (data_width => 16)
+        port map (Din => IR_FD_in, Dout => IR_FD_out, enable => PC_FD_En, clk => clk, reset => reset);
 
     --T3_DR
     T3_DR_in <= T3_FD_out;
@@ -103,7 +109,7 @@ begin
         port map (Din => PC_DR_in, Dout => PC_DR_out, enable => PC_DR_En, clk => clk, reset => reset);
 
     --IR_DR
-    IR_DR_in <= Instr_Mem_Out;
+    IR_DR_in <= IR_FD_out;
     irdr: dataRegister generic map (data_width => 16)
         port map (Din => IR_DR_in, Dout => IR_DR_out, enable => IR_DR_En, clk => clk, reset => reset);
     IR_DR <= IR_DR_out;
@@ -129,7 +135,7 @@ begin
 
     --T1_RE
     T1_RE_in <= RF_D1 when (M3="00") else
-		forward when (M3="01") else PC_RE_out;
+		forward1 when (M3="01") else PC_RE_out;
     t1re: dataRegister generic map (data_width => 16)
         port map (Din => T1_RE_in, Dout => T1_RE_out, enable => T1_RE_En, clk => clk, reset => reset);
     T1_RE <= T1_RE_out;
@@ -137,7 +143,7 @@ begin
     --T2_RE
     T2_RE_in <= op2_alu_out when (MLoop1='1') else
         RF_D2 when (M4="00") else
-		forward when (M4="01") else 
+		forward2 when (M4="01") else 
         PC_RE_out when (M4="10");
     T2_RE_En1 <= T2_RE_En or MLoop1;
     t2_re: dataRegister generic map (data_width => 16)
@@ -145,9 +151,9 @@ begin
 
     --Comparator1
     Comp1_D1 <= RF_D1 when (M3="00") else
-		forward when (M3="01") else PC_RE_out;
+		forward1 when (M3="01") else PC_RE_out;
     Comp1_D2 <= RF_D2 when (M4="00") else
-		forward when (M4="01") else PC_RE_out;
+		forward2 when (M4="01") else PC_RE_out;
     comp1: Comparator
         port map (Comp_D1 => Comp1_D1, Comp_D2 => Comp1_D2, Comp_out => Comp1_out);
 
@@ -301,8 +307,19 @@ begin
         port map (Din => T4_MW_in, Dout => T4_MW_out, enable => T4_MW_En, clk => clk, reset => reset);
 
 	--Forwarding data
-    forward <= op_alu_out when (M20 ="00") else
-		Data_Mem_dout when (M20 ="01") else RF_D3;
+    forward1 <= op_alu_out when (M20 ="000") else
+		Data_Mem_dout when (M20 ="010") else 
+        RF_D3 when (M20="100") else
+        T4_RE_out when (M20="001") else
+        T4_EM_out when (M20="011") else
+        T4_MW_out;
+        
+    forward2 <= op_alu_out when (M22 ="000") else
+		Data_Mem_dout when (M22 ="010") else 
+        RF_D3 when (M22="100") else
+        T4_RE_out when (M22="001") else
+        T4_EM_out when (M22="011") else
+        T4_MW_out;
 
 	--control forwarding data
     ctrl_for <= op_alu_out when (M21 = "000") else 
