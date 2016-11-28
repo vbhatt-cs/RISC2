@@ -22,9 +22,9 @@ begin
 	
 	if (stall = '0' and reset='0') then
         if (Ctrl_forwarding_V ='0') then
-            M2_var := '1' ;
+            M2_var := '0' ;
         else 
-            M2_var := '0';
+            M2_var := '1';
         end if;
         PC_FD_En_var := '1';
         T3_FD_En_var := '1';

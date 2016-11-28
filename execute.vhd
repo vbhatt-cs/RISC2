@@ -3,9 +3,9 @@ use ieee.std_logic_1164.all;
  
 entity execute is  
     port (IR_RE: in std_logic_vector(15 downto 0);
-        clk,reset,PE2_V,NC_RE : in std_logic;
+        clk,reset,PE2_V,NC_RE,C,Zeff : in std_logic;
         M6,M7,M8: out std_logic_vector(1 downto 0);  
-        M10,stall_E: out std_logic;
+        M10,stall_E,NC_EM_in: out std_logic;
         T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Alu_op: out std_logic);  
 end entity;
   
@@ -16,7 +16,7 @@ begin
         variable M6_var,M7_var,M8_var: std_logic_vector(1 downto 0);  
         variable M10_var,stall_E_var: std_logic;
         variable T2_EM_En_var,T3_EM_En_var,T4_EM_En_var,PC_EM_En_var,
-        IR_EM_En_var,PC_EM2_En_var,C_En_var,Alu_op_var: std_logic;
+            IR_EM_En_var,PC_EM2_En_var,C_En_var,Alu_op_var, NC_EM_in_var: std_logic;
 
     begin
         --Defaults
@@ -33,6 +33,7 @@ begin
         PC_EM2_En_var := '0';
         C_En_var := '0';
         M10_var := '0';
+        NC_EM_in_var := '0';
     
         if(NC_RE='0' and reset='0') then
             if (IR_RE(15 downto 12) = "0110") then --LM 
@@ -94,6 +95,15 @@ begin
                 if (IR_RE(15 downto 12) = "0010") then
                     Alu_op_var := '1';
                 end if;
+                
+                if(IR_RE(1)='1' and C='0') then --Carry
+                    NC_EM_in_var := '1';
+                end if;
+                
+                if(IR_RE(0)='1' and Zeff='0') then --Zero
+                    NC_EM_in_var := '1';
+                end if;
+                
                 M6_var := "00";
                 M7_var := "00";
                 M8_var := "00";
@@ -116,6 +126,7 @@ begin
         PC_EM2_En <= PC_EM2_En_var;
         C_En <= C_En_var;
         Alu_OP <= Alu_OP_var;
+        NC_EM_in <= NC_EM_in_var;
             
     end process;  
 end behaviour;

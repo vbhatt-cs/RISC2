@@ -8,7 +8,7 @@ entity dataRegister is
 	port(
         Din: in std_logic_vector(data_width-1 downto 0);
 	    Dout: out std_logic_vector(data_width-1 downto 0);
-	    clk, enable: in std_logic);
+	    clk, enable, reset: in std_logic);
 end entity;
 
 architecture Behave of dataRegister is
@@ -16,7 +16,9 @@ begin
     process(clk)
     begin
         if(clk'event and (clk  = '1')) then
-            if(enable = '1') then
+            if(reset='1') then
+                Dout <= (others => '0');
+            elsif(enable = '1') then
                 Dout <= Din;
             else
             end if;

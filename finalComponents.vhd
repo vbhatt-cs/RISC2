@@ -43,9 +43,9 @@ package finalComponents is
     
     component execute is  
         port (IR_RE: in std_logic_vector(15 downto 0);
-            clk,reset,PE2_V,NC_RE : in std_logic;
+            clk,reset,PE2_V,NC_RE,C,Zeff : in std_logic;
             M6,M7,M8: out std_logic_vector(1 downto 0);  
-            M10,stall_E: out std_logic;
+            M10,stall_E,NC_EM_in: out std_logic;
             T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Alu_op: out std_logic);  
     end component;
     
@@ -74,4 +74,19 @@ package finalComponents is
             M21: out std_logic_vector(2 downto 0);
             clk,reset: in std_logic);
     end component;
+    
+    --Data hazard block
+    component Data_Hazard_Detector is
+		port
+		(IR :in std_logic_vector(15 downto 0);
+		 IR_OLD1 :in std_logic_vector(15 downto 0);
+		 IR_OLD2 :in std_logic_vector(15 downto 0);
+		 IR_OLD3 :in std_logic_vector(15 downto 0);
+		 NC_DR,NC_RE_out,NC_EM,NC_MW,C,Zeff: in std_logic;
+		 hazard : out std_logic_vector(2 downto 0);
+		 stall : out std_logic;
+		 clk: in std_logic;
+		 forwarding: out std_logic
+		);
+	end component;
 end package;

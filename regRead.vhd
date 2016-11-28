@@ -48,7 +48,7 @@ begin
             elsif (IR_DR(11 downto 9) = "111") then
                 M4_var := "10";
             else
-                M4_var := "10";
+                M4_var := "00";
             end if;
             T1_RE_En_var := '1';
             T2_RE_En_var := '1';

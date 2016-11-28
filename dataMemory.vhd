@@ -16,12 +16,12 @@ end entity;
 architecture Behave of dataMemory is
     signal ram : ram_t := DATA_INIT;
 begin
-    Dout <= ram(to_integer(unsigned(A)));
+    Dout <= ram(to_integer(unsigned(A(7 downto 0))));
     process(clk)
     begin
         if(rising_edge(Clk)) then
             if(memWR='1') then
-                ram(to_integer(unsigned(A))) <= Din;
+                ram(to_integer(unsigned(A(7 downto 0)))) <= Din;
             end if;
         end if;
     end process;

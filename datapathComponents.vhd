@@ -57,14 +57,14 @@ package datapathComponents is
         port(
             Din : in std_logic_vector(data_width-1 downto 0);
             Dout : out std_logic_vector(data_width-1 downto 0);
-            clk, enable : in std_logic);
+            clk, enable, reset : in std_logic);
     end component;
 
     component flipFlop is
         port(
             Din: in std_logic;
             Dout: out std_logic;
-            clk, enable: in std_logic);
+            clk, enable, reset: in std_logic);
     end component;
     
     --Comparator

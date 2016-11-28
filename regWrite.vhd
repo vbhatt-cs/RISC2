@@ -45,7 +45,7 @@ begin
                 M18_var := '1';
                 Reg_Wr_var := '1';
             elsif (IR_MW(15 downto 12) = "0001") then --ADI
-                M17_var := "01";
+                M17_var := "00";
                 M16_var := "10";
                 M18_var := '0';
                 Reg_Wr_var := '1';
@@ -54,7 +54,7 @@ begin
                 M16_var := "00";
                 M18_var := '0';
                 Reg_Wr_var := '1';
-            elsif (IR_MW(15 downto 12) = "0110") then --LW
+            elsif (IR_MW(15 downto 12) = "0100") then --LW
                 M17_var := "00";
                 M16_var := "00";
                 M18_var := '0';
