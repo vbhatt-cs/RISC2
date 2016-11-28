@@ -1,61 +1,61 @@
 v 3
-file . "testbench_full.vhd" "20161127182951.000" "20161127235959.242":
-  entity testbench_full at 1( 0) + 0 on 623;
-  architecture behave of testbench_full at 8( 108) + 0 on 624;
-file . "regRead.vhd" "20161127174352.000" "20161127235959.099":
-  entity regread at 1( 0) + 0 on 617;
-  architecture behaviour of regread at 13( 410) + 0 on 618;
-file . "PE.vhd" "20161126142229.000" "20161127235959.009":
-  entity pe at 1( 0) + 0 on 613;
-  architecture behave of pe at 15( 318) + 0 on 614;
-file . "memAccess.vhd" "20161127174710.000" "20161127235958.944":
-  entity memaccess at 1( 0) + 0 on 610;
-  architecture behaviour of memaccess at 12( 394) + 0 on 611;
-file . "flipFlop.vhd" "20161127152213.000" "20161127235958.887":
-  entity flipflop at 1( 0) + 0 on 606;
-  architecture behave of flipflop at 13( 225) + 0 on 607;
-file . "fetch.vhd" "20161127115153.000" "20161127235958.843":
-  entity fetch at 1( 0) + 0 on 603;
-  architecture behaviour of fetch at 11( 236) + 0 on 604;
-file . "decode.vhd" "20161127120810.000" "20161127235958.774":
-  entity decode at 1( 0) + 0 on 599;
-  architecture behaviour of decode at 10( 200) + 0 on 600;
-file . "DataPath_RISC2.vhd" "20161127180527.000" "20161127235958.326":
-  entity datapath_risc at 1( 0) + 0 on 595;
-  architecture build of datapath_risc at 22( 934) + 0 on 596;
-file . "dataMemory.vhd" "20161127162814.000" "20161128000001.264":
-  entity datamemory at 1( 0) + 0 on 631;
-  architecture behave of datamemory at 16( 347) + 0 on 632;
-file . "memPackage.vhd" "20161127162935.000" "20161127235958.979":
-  package mem_package at 1( 0) + 0 on 612;
-file . "controlHazard.vhd" "20161127175541.000" "20161127235958.226":
-  entity controlhazard at 1( 0) + 0 on 590;
-  architecture behave of controlhazard at 13( 400) + 0 on 591;
-file . "alu.vhd" "20161126142215.000" "20161128000001.146":
-  entity alu at 1( 0) + 0 on 625;
-  architecture behave of alu at 15( 306) + 0 on 626;
-file . "datapathComponents.vhd" "20161126144621.000" "20161127235958.298":
-  package datapathcomponents at 1( 0) + 0 on 594;
-file . "Comparator.vhd" "20161126142217.000" "20161128000001.233":
-  entity comparator at 1( 0) + 0 on 629;
-  architecture behave of comparator at 12( 222) + 0 on 630;
-file . "dataRegister.vhd" "20161126142223.000" "20161127235958.753":
-  entity dataregister at 1( 0) + 0 on 597;
-  architecture behave of dataregister at 14( 311) + 0 on 598;
-file . "execute.vhd" "20161127174416.000" "20161127235958.799":
-  entity execute at 1( 0) + 0 on 601;
-  architecture behaviour of execute at 12( 380) + 0 on 602;
-file . "finalComponents.vhd" "20161127182527.000" "20161127235958.863":
-  package finalcomponents at 1( 0) + 0 on 605;
-file . "instrMemory.vhd" "20161127162801.000" "20161128000001.187":
-  entity instrmemory at 1( 0) + 0 on 627;
-  architecture behave of instrmemory at 15( 314) + 0 on 628;
-file . "regFile.vhd" "20161126142231.000" "20161127235959.054":
-  entity regfile at 1( 0) + 0 on 615;
-  architecture behave of regfile at 16( 400) + 0 on 616;
-file . "regWrite.vhd" "20161127182024.000" "20161127235959.138":
-  entity regwrite at 1( 0) + 0 on 619;
-  architecture behaviour of regwrite at 13( 349) + 0 on 620;
-file . "RISC2.vhd" "20161127182834.000" "20161127235959.177":
-  entity risc2 at 1( 0) + 0 on 621;
-  architecture struct of risc2 at 12( 214) + 0 on 622;
+file . "RISC2.vhd" "20161128084245.000" "20161128142240.461":
+  entity risc2 at 1( 0) + 0 on 721;
+  architecture struct of risc2 at 12( 214) + 0 on 722;
+file . "regWrite.vhd" "20161128044008.000" "20161128142240.427":
+  entity regwrite at 1( 0) + 0 on 719;
+  architecture behaviour of regwrite at 13( 340) + 0 on 720;
+file . "regFile.vhd" "20161126142231.000" "20161128142240.343":
+  entity regfile at 1( 0) + 0 on 715;
+  architecture behave of regfile at 16( 400) + 0 on 716;
+file . "instrMemory.vhd" "20161127162801.000" "20161128142244.008":
+  entity instrmemory at 1( 0) + 0 on 727;
+  architecture behave of instrmemory at 15( 314) + 0 on 728;
+file . "finalComponents.vhd" "20161128073948.000" "20161128142240.160":
+  package finalcomponents at 1( 0) + 0 on 705;
+file . "execute.vhd" "20161128081200.000" "20161128142240.099":
+  entity execute at 1( 0) + 0 on 701;
+  architecture behaviour of execute at 12( 364) + 0 on 702;
+file . "dataRegister.vhd" "20161126142223.000" "20161128142240.058":
+  entity dataregister at 1( 0) + 0 on 697;
+  architecture behave of dataregister at 14( 311) + 0 on 698;
+file . "Comparator.vhd" "20161126142217.000" "20161128142244.035":
+  entity comparator at 1( 0) + 0 on 729;
+  architecture behave of comparator at 12( 222) + 0 on 730;
+file . "datapathComponents.vhd" "20161126144621.000" "20161128142239.625":
+  package datapathcomponents at 1( 0) + 0 on 694;
+file . "alu.vhd" "20161126142215.000" "20161128142243.968":
+  entity alu at 1( 0) + 0 on 725;
+  architecture behave of alu at 15( 306) + 0 on 726;
+file . "controlHazard.vhd" "20161127175541.000" "20161128142239.548":
+  entity controlhazard at 1( 0) + 0 on 690;
+  architecture behave of controlhazard at 13( 400) + 0 on 691;
+file . "memPackage.vhd" "20161127162935.000" "20161128142240.272":
+  package mem_package at 1( 0) + 0 on 712;
+file . "dataMemory.vhd" "20161127190022.000" "20161128142244.060":
+  entity datamemory at 1( 0) + 0 on 731;
+  architecture behave of datamemory at 16( 347) + 0 on 732;
+file . "DataPath_RISC2.vhd" "20161128085230.000" "20161128142239.646":
+  entity datapath_risc at 1( 0) + 0 on 695;
+  architecture build of datapath_risc at 22( 921) + 0 on 696;
+file . "decode.vhd" "20161127120810.000" "20161128142240.079":
+  entity decode at 1( 0) + 0 on 699;
+  architecture behaviour of decode at 10( 200) + 0 on 700;
+file . "fetch.vhd" "20161127115153.000" "20161128142240.140":
+  entity fetch at 1( 0) + 0 on 703;
+  architecture behaviour of fetch at 11( 236) + 0 on 704;
+file . "flipFlop.vhd" "20161127152213.000" "20161128142240.181":
+  entity flipflop at 1( 0) + 0 on 706;
+  architecture behave of flipflop at 13( 225) + 0 on 707;
+file . "memAccess.vhd" "20161128081614.000" "20161128142240.236":
+  entity memaccess at 1( 0) + 0 on 710;
+  architecture behaviour of memaccess at 11( 338) + 0 on 711;
+file . "PE.vhd" "20161126142229.000" "20161128142240.299":
+  entity pe at 1( 0) + 0 on 713;
+  architecture behave of pe at 15( 318) + 0 on 714;
+file . "regRead.vhd" "20161127174352.000" "20161128142240.390":
+  entity regread at 1( 0) + 0 on 717;
+  architecture behaviour of regread at 13( 410) + 0 on 718;
+file . "testbench_full.vhd" "20161127182951.000" "20161128142240.533":
+  entity testbench_full at 1( 0) + 0 on 723;
+  architecture behave of testbench_full at 8( 108) + 0 on 724;

@@ -13,7 +13,7 @@ entity Datapath_RISC is
         M3,M4,M6,M7,M8,M16,M17,M20: in std_logic_vector(1 downto 0);
         M21: in std_logic_vector(2 downto 0);
         C,ZEff,PE1_V,PE2_V,Z1: out std_logic;
-        NC_DR_in,NC_RE_in,NC_EM_in,NC_MW_in: in std_logic;
+        NC_DR_in,NC_RE_in,NC_EM_in: in std_logic;
         NC_DR,NC_RE,NC_EM,NC_MW: out std_logic;
         IR_DR,IR_RE,IR_EM,IR_MW,PC_RE,PC_EM,T1_RE,T4_RE,memDout,aluOut,r7: out std_logic_vector(15 downto 0);
         clk,reset: in std_logic);
@@ -55,7 +55,7 @@ begin
         (Din => NC_EM_in1, Dout => NC_EM_out, enable => IR_EM_En, clk => clk);
     NC_EM <= NC_EM_out;  
         
-    NC_MW_in1 <= NC_MW_in or NC_EM_out;
+    NC_MW_in1 <= NC_EM_out;
     ncmw: flipFlop port map
         (Din => NC_MW_in1, Dout => NC_MW_out, enable => IR_MW_En, clk => clk);
     NC_MW <= NC_MW_out;
