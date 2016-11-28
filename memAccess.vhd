@@ -27,11 +27,20 @@ begin
         stall_M_var := '0';
         MLoop1_var := '0';
         Mem_Wr_var := '0';
-        
+        Z_En_var := '0';
+        M15_var := '0';
+        M14_var := '0';
+        M9_var := "00";
+        Mem_Wr_var := '0';
+        T2_MW_En_var := '0';
+        PC_MW2_En_var := '0';
+        M13_var := '0';
+    
         if(NC_EM='0' and reset='0') then
             if (IR_EM(15 downto 12) = "0110") then --LM
                 M15_var := '1';
                 M14_var := '1';
+                M9_var := "11";
                 Mem_Wr_var := '0';
                 T2_MW_En_var := '1';
                 PC_MW2_En_var := '0';
@@ -41,9 +50,11 @@ begin
             elsif (IR_EM(15 downto 12) = "0100") then --LW
                 M15_var := '1';
                 M14_var := '1';
+                M9_var := "10";
                 Mem_Wr_var := '0';
                 T2_MW_En_var := '0';
-                PC_MW2_En_var := '0';   
+                PC_MW2_En_var := '0';
+                Z_En_var := '1';
             elsif (IR_EM(15 downto 12) = "0111") then --SM
                 M15_var := '0';
                 M9_var := "00";
@@ -74,6 +85,9 @@ begin
                 Mem_Wr_var := '0';
                 T2_MW_En_var := '0';
                 PC_MW2_En_var := '0';
+                if(IR_EM(15 downto 12)  /= "1100" and IR_EM(15 downto 12) /= "0011") then --LHI,BEQ
+                    Z_En_var := '1';
+                end if;
             end if;
         end if;
 
@@ -91,6 +105,7 @@ begin
         IR_MW_En <= IR_MW_En_var;
         PC_MW2_En <= PC_MW2_En_var;
         MLoop1 <= MLoop1_var;
+        stall_M <= stall_M_var;
             
     end process;  
 end behaviour;

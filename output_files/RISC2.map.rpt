@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISC2
-Mon Nov 28 00:23:13 2016
+Mon Nov 28 10:19:43 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -10,40 +10,48 @@ Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_fd
-  6. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_fd
-  7. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_dr
-  8. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_dr
-  9. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:irdr
- 10. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t1re
- 11. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t2_re
- 12. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:irre
- 13. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_re
- 14. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pcre
- 15. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t4re
- 16. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t4_em
- 17. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t2_em
- 18. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_em
- 19. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_em2
- 20. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t2_mw
- 21. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_mw
- 22. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:irem
- 23. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pcem
- 24. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:irmw
- 25. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_mw
- 26. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_mw2
- 27. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t4_mW
- 28. Port Connectivity Checks: "controlHazard:ch"
- 29. Port Connectivity Checks: "regWrite:w"
- 30. Port Connectivity Checks: "memAccess:m"
- 31. Port Connectivity Checks: "execute:e"
- 32. Port Connectivity Checks: "regRead:r"
- 33. Port Connectivity Checks: "decode:d"
- 34. Port Connectivity Checks: "fetch:f"
- 35. Port Connectivity Checks: "Datapath_RISC:dp|Comparator:comp2"
- 36. Port Connectivity Checks: "Datapath_RISC:dp|alu:op2_alu"
- 37. Port Connectivity Checks: "Datapath_RISC:dp|alu:incrementer1"
- 38. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_fd
+ 12. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_fd
+ 13. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_dr
+ 14. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_dr
+ 15. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:irdr
+ 16. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t1re
+ 17. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t2_re
+ 18. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:irre
+ 19. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_re
+ 20. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pcre
+ 21. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t4re
+ 22. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t4_em
+ 23. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t2_em
+ 24. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_em
+ 25. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_em2
+ 26. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t2_mw
+ 27. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t3_mw
+ 28. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:irem
+ 29. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pcem
+ 30. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:irmw
+ 31. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_mw
+ 32. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:pc_mw2
+ 33. Parameter Settings for User Entity Instance: Datapath_RISC:dp|dataRegister:t4_mW
+ 34. Port Connectivity Checks: "controlHazard:ch"
+ 35. Port Connectivity Checks: "regWrite:w"
+ 36. Port Connectivity Checks: "memAccess:m"
+ 37. Port Connectivity Checks: "execute:e"
+ 38. Port Connectivity Checks: "regRead:r"
+ 39. Port Connectivity Checks: "decode:d"
+ 40. Port Connectivity Checks: "fetch:f"
+ 41. Port Connectivity Checks: "Datapath_RISC:dp|Comparator:comp2"
+ 42. Port Connectivity Checks: "Datapath_RISC:dp|alu:op2_alu"
+ 43. Port Connectivity Checks: "Datapath_RISC:dp|alu:incrementer1"
+ 44. Post-Synthesis Netlist Statistics for Top Partition
+ 45. Elapsed Time Per Partition
+ 46. Analysis & Synthesis Messages
 
 
 
@@ -70,20 +78,20 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Mon Nov 28 00:23:13 2016           ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 28 10:19:43 2016       ;
 ; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
 ; Revision Name                      ; RISC2                                       ;
 ; Top-level Entity Name              ; RISC2                                       ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 3                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -188,6 +196,680 @@ agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 +----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                         ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
+; flipFlop.vhd                     ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/flipFlop.vhd           ;         ;
+; finalComponents.vhd              ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/finalComponents.vhd    ;         ;
+; regRead.vhd                      ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/regRead.vhd            ;         ;
+; dataRegister.vhd                 ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/dataRegister.vhd       ;         ;
+; instrMemory.vhd                  ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/instrMemory.vhd        ;         ;
+; execute.vhd                      ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/execute.vhd            ;         ;
+; alu.vhd                          ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/alu.vhd                ;         ;
+; memPackage.vhd                   ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/memPackage.vhd         ;         ;
+; datapathComponents.vhd           ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/datapathComponents.vhd ;         ;
+; regWrite.vhd                     ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/regWrite.vhd           ;         ;
+; memAccess.vhd                    ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/memAccess.vhd          ;         ;
+; fetch.vhd                        ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/fetch.vhd              ;         ;
+; PE.vhd                           ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/PE.vhd                 ;         ;
+; decode.vhd                       ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/decode.vhd             ;         ;
+; dataMemory.vhd                   ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/dataMemory.vhd         ;         ;
+; Comparator.vhd                   ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/Comparator.vhd         ;         ;
+; DataPath_RISC2.vhd               ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd     ;         ;
+; regFile.vhd                      ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/regFile.vhd            ;         ;
+; RISC2.vhd                        ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/RISC2.vhd              ;         ;
+; controlHazard.vhd                ; yes             ; User VHDL File  ; /home/virtualgod/Altera/RISC2/controlHazard.vhd      ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 3     ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 3     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |RISC2                     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 3    ; 0            ; |RISC2              ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                ;
++-----------------------------------------------------+---------------------------------------------+
+; Register name                                       ; Reason for Removal                          ;
++-----------------------------------------------------+---------------------------------------------+
+; Datapath_RISC:dp|flipFlop:Z1Reg|Dout                ; Lost fanout                                 ;
+; Datapath_RISC:dp|flipFlop:ZReg|Dout                 ; Lost fanout                                 ;
+; Datapath_RISC:dp|flipFlop:CReg|Dout                 ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[0..15]      ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[0..15]      ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|instrMemory:instr_mem|a_sync[0..8] ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[0..15]     ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[0]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[0]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[1]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[1]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[2]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[2]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[3]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[3]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[4]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[4]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[5]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[5]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[6]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[6]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[7]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[7]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[8]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[8]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[9]         ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[9]         ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[10]        ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[10]        ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[11]        ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[11]        ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[12]        ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[12]        ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[13]        ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[13]        ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[14]        ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[14]        ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[15]        ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_fd|Dout[15]        ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:pc_fd|Dout[0..15]     ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|flipFlop:ncre|Dout                 ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|flipFlop:ncdr|Dout                 ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t4re|Dout[7]          ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|flipFlop:ncem|Dout                 ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_em|Dout[7]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|flipFlop:ncmw|Dout                 ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_mW|Dout[7]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4re|Dout[8]          ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_em|Dout[8]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_mW|Dout[8]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4re|Dout[9]          ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_mW|Dout[9]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4re|Dout[10]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_em|Dout[10]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_mW|Dout[10]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4re|Dout[11]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_em|Dout[11]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_mW|Dout[11]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4re|Dout[12]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_em|Dout[12]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_mW|Dout[12]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4re|Dout[13]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_em|Dout[13]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_mW|Dout[13]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4re|Dout[14]         ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_em|Dout[14]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t2_mw|Dout[0..15]     ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:irmw|Dout[0,1]        ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t4_mW|Dout[14]        ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:irem|Dout[1]          ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:irre|Dout[1]          ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:irem|Dout[0]          ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:irre|Dout[0]          ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t4re|Dout[0..6,15]    ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:pcre|Dout[0..15]      ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t3_re|Dout[0..15]     ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:irre|Dout[3..15]      ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t2_re|Dout[0..15]     ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:pcem|Dout[0..15]      ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:irem|Dout[3..15]      ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:pc_em2|Dout[0..15]    ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:t2_em|Dout[0..15]     ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_em|Dout[0..6,15]   ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t4_mW|Dout[0..6,15]   ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[0..15]    ; Stuck at GND due to stuck port clock_enable ;
+; Datapath_RISC:dp|dataRegister:pc_mw|Dout[0..15]     ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:irmw|Dout[3..15]      ; Stuck at GND due to stuck port data_in      ;
+; Datapath_RISC:dp|dataRegister:t3_mw|Dout[0..15]     ; Lost fanout                                 ;
+; Datapath_RISC:dp|dataRegister:t3_em|Dout[0..15]     ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][3]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][2]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][1]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][0]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][4]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][5]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][6]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][7]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][8]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][9]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][10]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][11]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][12]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][13]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][14]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[7][15]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][0]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][1]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][2]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][3]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][4]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][5]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][6]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][7]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][8]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][9]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][10]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][11]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][12]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][13]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][14]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[6][15]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][0]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][1]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][2]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][3]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][4]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][5]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][6]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][7]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][8]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][9]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][10]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][11]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][12]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][13]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][14]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[5][15]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][0]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][1]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][2]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][3]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][4]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][5]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][6]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][7]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][8]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][9]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][10]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][11]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][12]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][13]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][14]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[4][15]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][0]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][1]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][2]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][3]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][4]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][5]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][6]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][7]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][8]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][9]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][10]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][11]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][12]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][13]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][14]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[3][15]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][0]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][1]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][2]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][3]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][4]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][5]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][6]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][7]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][8]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][9]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][10]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][11]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][12]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][13]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][14]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[2][15]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][0]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][1]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][2]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][3]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][4]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][5]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][6]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][7]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][8]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][9]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][10]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][11]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][12]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][13]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][14]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[1][15]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][0]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][1]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][2]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][3]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][4]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][5]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][6]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][7]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][8]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][9]               ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][10]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][11]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][12]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][13]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][14]              ; Lost fanout                                 ;
+; Datapath_RISC:dp|regFile:rf|reg[0][15]              ; Lost fanout                                 ;
+; Total Number of Removed Registers = 509             ;                                             ;
++-----------------------------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                         ;
++----------------------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
+; Register name                                ; Reason for Removal             ; Registers Removed due to This Register                                              ;
++----------------------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
+; Datapath_RISC:dp|flipFlop:ncre|Dout          ; Stuck at GND                   ; Datapath_RISC:dp|flipFlop:ncdr|Dout, Datapath_RISC:dp|flipFlop:ncem|Dout,           ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|flipFlop:ncmw|Dout, Datapath_RISC:dp|dataRegister:t4_em|Dout[12],  ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[13],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[14],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[15],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[14],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[13],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[12],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[11],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[10],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[9],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[8],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[7],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[6],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[5],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[4],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[3],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[2],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[1],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_mw|Dout[0],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[1],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[0],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[14],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irre|Dout[1],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irre|Dout[0],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[0],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[1],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[2],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[3],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[4],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[5],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[6],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[7],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[8],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[9],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[10],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[11],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[12],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[13],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[14],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[15],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[3],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[4],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[5],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[6],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[7],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[8],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[9],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[10],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[11],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[12],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[13],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[14],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[15],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[0],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[1],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[2],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[3],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[4],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[5],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[6],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[7],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[8],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[9],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[10],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[11],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[12],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[13],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[14],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_em|Dout[15],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[0],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[1],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[2],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[3],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[4],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[5],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[6],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_em|Dout[15],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[0],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[1],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[2],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[3],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[4],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[5],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[6],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[15],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[0],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[1],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[2],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[3],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[4],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[5],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[6],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[7],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[8],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[9],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[10],                                      ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[11],                                      ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[12],                                      ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[13],                                      ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[14],                                      ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw2|Dout[15],                                      ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[0],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[1],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[2],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[3],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[4],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[5],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[6],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[7],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[8],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[9],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[10],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[11],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[12],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[13],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[14],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:pc_mw|Dout[15],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[3],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[4],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[5],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[6],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[7],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[8],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[9],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[10],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[11],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[12],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[13],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[14],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irmw|Dout[15], Datapath_RISC:dp|regFile:rf|reg[7][3], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[7][2], Datapath_RISC:dp|regFile:rf|reg[7][1],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[7][0], Datapath_RISC:dp|regFile:rf|reg[7][4],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[7][5], Datapath_RISC:dp|regFile:rf|reg[7][6],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[7][7], Datapath_RISC:dp|regFile:rf|reg[7][8],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[7][9], Datapath_RISC:dp|regFile:rf|reg[7][10],      ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[7][11], Datapath_RISC:dp|regFile:rf|reg[7][12],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[7][13], Datapath_RISC:dp|regFile:rf|reg[7][14],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[7][15], Datapath_RISC:dp|regFile:rf|reg[6][0],      ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[6][1], Datapath_RISC:dp|regFile:rf|reg[6][2],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[6][3], Datapath_RISC:dp|regFile:rf|reg[6][4],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[6][5], Datapath_RISC:dp|regFile:rf|reg[6][6],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[6][7], Datapath_RISC:dp|regFile:rf|reg[6][8],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[6][9], Datapath_RISC:dp|regFile:rf|reg[6][10],      ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[6][11], Datapath_RISC:dp|regFile:rf|reg[6][12],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[6][13], Datapath_RISC:dp|regFile:rf|reg[6][14],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[6][15]                                              ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[9]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:irre|Dout[9],                                         ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t2_re|Dout[0],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[1],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[2],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[3],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[4],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[5],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[6],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[7],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[8],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[9],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[10],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[11],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[12],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[13],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[14],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t2_re|Dout[15],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[5][0], Datapath_RISC:dp|regFile:rf|reg[5][1],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[5][2], Datapath_RISC:dp|regFile:rf|reg[5][3],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[5][4], Datapath_RISC:dp|regFile:rf|reg[5][5],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[5][6], Datapath_RISC:dp|regFile:rf|reg[5][7],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[5][8], Datapath_RISC:dp|regFile:rf|reg[5][9],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[5][10], Datapath_RISC:dp|regFile:rf|reg[5][11],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[5][12], Datapath_RISC:dp|regFile:rf|reg[5][13],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[5][14], Datapath_RISC:dp|regFile:rf|reg[5][15]      ;
+; Datapath_RISC:dp|flipFlop:ZReg|Dout          ; Lost Fanouts                   ; Datapath_RISC:dp|dataRegister:t3_em|Dout[0],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[1],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[2],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[3],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[4],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[9],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[10],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[11],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[12],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[13],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[14],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[15]                                        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[2]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[2],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[2], Datapath_RISC:dp|regFile:rf|reg[4][2], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][2], Datapath_RISC:dp|regFile:rf|reg[2][2],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][2], Datapath_RISC:dp|regFile:rf|reg[0][2]        ;
+; Datapath_RISC:dp|flipFlop:Z1Reg|Dout         ; Lost Fanouts                   ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[15],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[2][15], Datapath_RISC:dp|regFile:rf|reg[1][14],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][15], Datapath_RISC:dp|regFile:rf|reg[0][13],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[0][14], Datapath_RISC:dp|regFile:rf|reg[0][15]      ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[1]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[1],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[1], Datapath_RISC:dp|regFile:rf|reg[4][1], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][1], Datapath_RISC:dp|regFile:rf|reg[2][1],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][1], Datapath_RISC:dp|regFile:rf|reg[0][1]        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[0]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[0],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[0], Datapath_RISC:dp|regFile:rf|reg[4][0], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][0], Datapath_RISC:dp|regFile:rf|reg[2][0],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][0], Datapath_RISC:dp|regFile:rf|reg[0][0]        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[12]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[12],                                      ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[12],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[4][12], Datapath_RISC:dp|regFile:rf|reg[3][12],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[2][12], Datapath_RISC:dp|regFile:rf|reg[1][12],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[0][12]                                              ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[11]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[11],                                      ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[11],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[4][11], Datapath_RISC:dp|regFile:rf|reg[3][11],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[2][11], Datapath_RISC:dp|regFile:rf|reg[1][11],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[0][11]                                              ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[10]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[10],                                      ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[10],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[4][10], Datapath_RISC:dp|regFile:rf|reg[3][10],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[2][10], Datapath_RISC:dp|regFile:rf|reg[1][10],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[0][10]                                              ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[9]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[9],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[9], Datapath_RISC:dp|regFile:rf|reg[4][9], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][9], Datapath_RISC:dp|regFile:rf|reg[2][9],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][9], Datapath_RISC:dp|regFile:rf|reg[0][9]        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[8]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[8],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[8], Datapath_RISC:dp|regFile:rf|reg[4][8], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][8], Datapath_RISC:dp|regFile:rf|reg[2][8],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][8], Datapath_RISC:dp|regFile:rf|reg[0][8]        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[7]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[7],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[7], Datapath_RISC:dp|regFile:rf|reg[4][7], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][7], Datapath_RISC:dp|regFile:rf|reg[2][7],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][7], Datapath_RISC:dp|regFile:rf|reg[0][7]        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[6]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[6],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[6], Datapath_RISC:dp|regFile:rf|reg[4][6], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][6], Datapath_RISC:dp|regFile:rf|reg[2][6],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][6], Datapath_RISC:dp|regFile:rf|reg[0][6]        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[5]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[5],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[5], Datapath_RISC:dp|regFile:rf|reg[4][5], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][5], Datapath_RISC:dp|regFile:rf|reg[2][5],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][5], Datapath_RISC:dp|regFile:rf|reg[0][5]        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[4]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[4],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[4], Datapath_RISC:dp|regFile:rf|reg[4][4], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][4], Datapath_RISC:dp|regFile:rf|reg[2][4],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][4], Datapath_RISC:dp|regFile:rf|reg[0][4]        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[3]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[3],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[3], Datapath_RISC:dp|regFile:rf|reg[4][3], ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[3][3], Datapath_RISC:dp|regFile:rf|reg[2][3],       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[1][3], Datapath_RISC:dp|regFile:rf|reg[0][3]        ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[13]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[13],                                      ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[13],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[4][13], Datapath_RISC:dp|regFile:rf|reg[3][13],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[2][13], Datapath_RISC:dp|regFile:rf|reg[1][13]      ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[14]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[14],                                      ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_mw|Dout[14],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[4][14], Datapath_RISC:dp|regFile:rf|reg[3][14],     ;
+;                                              ;                                ; Datapath_RISC:dp|regFile:rf|reg[2][14]                                              ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[5]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[5],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[5],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[5]                                         ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[6]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[6],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[6],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[6]                                         ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[7]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[7],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[7],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[7]                                         ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[8]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[8],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[8],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t3_em|Dout[8]                                         ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[3]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t4re|Dout[10],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t4_em|Dout[10],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irre|Dout[3]                                          ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[4]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t4re|Dout[11],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t4_em|Dout[11],                                       ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irre|Dout[4]                                          ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[1]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t4re|Dout[8],                                         ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t4_em|Dout[8],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[1]                                          ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[0]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t4re|Dout[7],                                         ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t4_em|Dout[7],                                        ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:irem|Dout[0]                                          ;
+; Datapath_RISC:dp|dataRegister:t1re|Dout[15]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pc_em2|Dout[15],                                      ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|regFile:rf|reg[4][15], Datapath_RISC:dp|regFile:rf|reg[3][15]      ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[14] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[14],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[14]                                        ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[13] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[13],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[13]                                        ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[12] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[12],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[12]                                        ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[15] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[15],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[15]                                        ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[11] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[11],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[11]                                        ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[10] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[10],                                       ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[10]                                        ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[9]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[9],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[9]                                         ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[4]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[4],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[4]                                         ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[3]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[3],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[3]                                         ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[2]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[2],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[2]                                         ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[1]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[1],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[1]                                         ;
+; Datapath_RISC:dp|dataRegister:t3_dr|Dout[0]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t3_fd|Dout[0],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t3_re|Dout[0]                                         ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[2]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t4re|Dout[9],                                         ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:t4_em|Dout[9]                                         ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[5]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t4re|Dout[12],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:irre|Dout[5]                                          ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[6]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t4re|Dout[13],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:irre|Dout[6]                                          ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[7]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t4re|Dout[14],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:irre|Dout[7]                                          ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[8]   ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:t4re|Dout[15],                                        ;
+;                                              ; due to stuck port clock_enable ; Datapath_RISC:dp|dataRegister:irre|Dout[8]                                          ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[2]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[2]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[10]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:irre|Dout[10]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[11]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:irre|Dout[11]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[12]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:irre|Dout[12]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[13]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:irre|Dout[13]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[14]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:irre|Dout[14]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:irdr|Dout[15]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:irre|Dout[15]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[0]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[0]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[1]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[1]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[6]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[6]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[3]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[3]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[4]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[4]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[5]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[5]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[15] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[15]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[14] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[14]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[13] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[13]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[12] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[12]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[11] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[11]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[10] ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[10]                                         ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[9]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[9]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[8]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[8]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
+; Datapath_RISC:dp|dataRegister:pc_dr|Dout[7]  ; Stuck at GND                   ; Datapath_RISC:dp|dataRegister:pcre|Dout[7]                                          ;
+;                                              ; due to stuck port clock_enable ;                                                                                     ;
++----------------------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
 
 
 +----------------------------------------------------------------------------------+
@@ -435,7 +1117,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port    ; Type   ; Severity ; Details                                                                             ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 ; stall_w ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; mloop2  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -445,7 +1126,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port    ; Type   ; Severity ; Details                                                                             ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 ; stall_m ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; mloop1  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -518,13 +1198,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 3                           ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Mon Nov 28 00:22:58 2016
+    Info: Processing started: Mon Nov 28 10:19:28 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC2 -c RISC2
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file flipFlop.vhd
@@ -586,12 +1290,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file control
     Info (12023): Found entity 1: controlHazard File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 4
 Info (12127): Elaborating entity "RISC2" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(18): used implicit default value for signal "M20" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 18
-Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(23): used implicit default value for signal "NC_MW_in" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 23
 Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(24): used implicit default value for signal "stall_dh" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 24
 Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(25): used implicit default value for signal "data_forward1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 25
 Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(25): used implicit default value for signal "data_forward2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 25
-Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(25): used implicit default value for signal "MLoop1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 25
-Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(25): used implicit default value for signal "MLoop2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 25
 Info (12128): Elaborating entity "Datapath_RISC" for hierarchy "Datapath_RISC:dp" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 29
 Info (12128): Elaborating entity "flipFlop" for hierarchy "Datapath_RISC:dp|flipFlop:ncdr" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 44
 Info (12128): Elaborating entity "PE" for hierarchy "Datapath_RISC:dp|PE:pr1_enc" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 65
@@ -616,77 +1317,34 @@ Warning (10492): VHDL Process Statement warning at regRead.vhd(61): signal "IR_D
 Warning (10492): VHDL Process Statement warning at regRead.vhd(64): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 64
 Warning (10492): VHDL Process Statement warning at regRead.vhd(66): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 66
 Info (12128): Elaborating entity "execute" for hierarchy "execute:e" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 62
-Warning (10492): VHDL Process Statement warning at execute.vhd(32): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Warning (10492): VHDL Process Statement warning at execute.vhd(33): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 33
-Warning (10492): VHDL Process Statement warning at execute.vhd(41): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 41
-Warning (10492): VHDL Process Statement warning at execute.vhd(47): signal "PE2_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 47
-Warning (10492): VHDL Process Statement warning at execute.vhd(50): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 50
-Warning (10492): VHDL Process Statement warning at execute.vhd(57): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 57
-Warning (10492): VHDL Process Statement warning at execute.vhd(64): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 64
-Warning (10492): VHDL Process Statement warning at execute.vhd(71): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 71
-Warning (10492): VHDL Process Statement warning at execute.vhd(77): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 77
-Warning (10492): VHDL Process Statement warning at execute.vhd(83): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 83
-Warning (10492): VHDL Process Statement warning at execute.vhd(91): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 91
-Warning (10631): VHDL Process Statement warning at execute.vhd(15): inferring latch(es) for signal or variable "M6_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at execute.vhd(15): inferring latch(es) for signal or variable "M7_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at execute.vhd(15): inferring latch(es) for signal or variable "M8_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at execute.vhd(15): inferring latch(es) for signal or variable "M9_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at execute.vhd(15): inferring latch(es) for signal or variable "PC_EM2_En_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at execute.vhd(15): inferring latch(es) for signal or variable "C_En_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at execute.vhd(15): inferring latch(es) for signal or variable "M10_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 15
-Info (10041): Inferred latch for "M10_var" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "C_En_var" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "PC_EM2_En_var" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "M9_var[0]" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "M9_var[1]" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "M8_var[0]" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "M8_var[1]" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "M7_var[0]" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "M7_var[1]" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "M6_var[0]" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
-Info (10041): Inferred latch for "M6_var[1]" at execute.vhd(32) File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at execute.vhd(38): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at execute.vhd(39): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at execute.vhd(46): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 46
+Warning (10492): VHDL Process Statement warning at execute.vhd(52): signal "PE2_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at execute.vhd(55): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at execute.vhd(62): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 62
+Warning (10492): VHDL Process Statement warning at execute.vhd(69): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 69
+Warning (10492): VHDL Process Statement warning at execute.vhd(76): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 76
+Warning (10492): VHDL Process Statement warning at execute.vhd(82): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 82
+Warning (10492): VHDL Process Statement warning at execute.vhd(88): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 88
+Warning (10492): VHDL Process Statement warning at execute.vhd(95): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 95
 Info (12128): Elaborating entity "memAccess" for hierarchy "memAccess:m" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 68
-Warning (10541): VHDL Signal Declaration warning at memAccess.vhd(8): used implicit default value for signal "stall_M" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 8
-Warning (10036): Verilog HDL or VHDL warning at memAccess.vhd(17): object "stall_M_var" assigned a value but never read File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 17
-Warning (10543): VHDL Variable Declaration warning at memAccess.vhd(18): used default initial value for variable "Z_En_var" because variable was never assigned a value or an initial value expression. Use of default initial value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 18
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(31): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 31
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(32): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 32
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(41): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 41
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(47): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 47
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(59): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 59
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(66): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 66
-Warning (10631): VHDL Process Statement warning at memAccess.vhd(15): inferring latch(es) for signal or variable "M15_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at memAccess.vhd(15): inferring latch(es) for signal or variable "M14_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at memAccess.vhd(15): inferring latch(es) for signal or variable "T2_MW_En_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at memAccess.vhd(15): inferring latch(es) for signal or variable "PC_MW2_En_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at memAccess.vhd(15): inferring latch(es) for signal or variable "M9_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 15
-Warning (10631): VHDL Process Statement warning at memAccess.vhd(15): inferring latch(es) for signal or variable "M13_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 15
-Info (10041): Inferred latch for "M13_var" at memAccess.vhd(31) File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 31
-Info (10041): Inferred latch for "M9_var[0]" at memAccess.vhd(31) File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 31
-Info (10041): Inferred latch for "M9_var[1]" at memAccess.vhd(31) File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 31
-Info (10041): Inferred latch for "PC_MW2_En_var" at memAccess.vhd(31) File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 31
-Info (10041): Inferred latch for "T2_MW_En_var" at memAccess.vhd(31) File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 31
-Info (10041): Inferred latch for "M14_var" at memAccess.vhd(31) File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 31
-Info (10041): Inferred latch for "M15_var" at memAccess.vhd(31) File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(39): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(40): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 40
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(50): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(58): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(70): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 70
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(77): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(88): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 88
 Info (12128): Elaborating entity "regWrite" for hierarchy "regWrite:w" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 74
-Warning (10541): VHDL Signal Declaration warning at regWrite.vhd(9): used implicit default value for signal "MLoop2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 9
-Warning (10036): Verilog HDL or VHDL warning at regWrite.vhd(18): object "MLoop2_var" assigned a value but never read File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 18
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(28): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 28
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(30): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 30
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(39): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 39
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(44): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 44
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(49): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 49
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(54): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 54
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(59): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 59
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(64): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 64
-Warning (10631): VHDL Process Statement warning at regWrite.vhd(16): inferring latch(es) for signal or variable "M17_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 16
-Warning (10631): VHDL Process Statement warning at regWrite.vhd(16): inferring latch(es) for signal or variable "M16_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 16
-Warning (10631): VHDL Process Statement warning at regWrite.vhd(16): inferring latch(es) for signal or variable "M18_var", which holds its previous value in one or more paths through the process File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 16
-Info (10041): Inferred latch for "M18_var" at regWrite.vhd(28) File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 28
-Info (10041): Inferred latch for "M16_var[0]" at regWrite.vhd(28) File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 28
-Info (10041): Inferred latch for "M16_var[1]" at regWrite.vhd(28) File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 28
-Info (10041): Inferred latch for "M17_var[0]" at regWrite.vhd(28) File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 28
-Info (10041): Inferred latch for "M17_var[1]" at regWrite.vhd(28) File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(31): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(33): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(42): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 42
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(47): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 47
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(52): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(57): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 57
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(62): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 62
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(67): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 67
 Info (12128): Elaborating entity "controlHazard" for hierarchy "controlHazard:ch" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 78
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(26): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 26
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(26): signal "NC_EM_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 26
@@ -715,16 +1373,21 @@ Warning (10492): VHDL Process Statement warning at controlHazard.vhd(83): signal
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(90): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 90
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(91): signal "RF_pco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 91
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(91): signal "PC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 91
-Error (12014): Net "M9[1]", which fans out to "Datapath_RISC:dp|M9[1]", cannot be assigned more than one value File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 18
-    Error (12015): Net is fed by "execute:e|M9[1]" File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 7
-    Error (12015): Net is fed by "memAccess:m|M9[1]" File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 7
-Error (12014): Net "M9[0]", which fans out to "Datapath_RISC:dp|M9[0]", cannot be assigned more than one value File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 18
-    Error (12015): Net is fed by "execute:e|M9[0]" File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 7
-    Error (12015): Net is fed by "memAccess:m|M9[0]" File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 7
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 6 errors, 91 warnings
-    Error: Peak virtual memory: 1188 megabytes
-    Error: Processing ended: Mon Nov 28 00:23:13 2016
-    Error: Elapsed time: 00:00:15
-    Error: Total CPU time (on all processors): 00:00:36
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "x" is stuck at GND File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 9
+Info (17049): 211 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 8
+    Warning (15610): No output dependent on input pin "rst" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 8
+Info (21057): Implemented 3 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 1 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 73 warnings
+    Info: Peak virtual memory: 1205 megabytes
+    Info: Processing ended: Mon Nov 28 10:19:43 2016
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:37
 
 

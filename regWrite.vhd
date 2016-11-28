@@ -24,7 +24,10 @@ begin
         Reg_Wr_var := '0';
         stall_W_var := '0';
         MLoop2_var := '0';
-        
+        M17_var := "00";
+        M16_var := "00";
+        M18_var := '0';
+    
         if(NC_MW='0' and reset='0') then
             PC_Wr_var := '1';
             if (IR_MW(15 downto 12) = "0110") then --LM
@@ -82,6 +85,7 @@ begin
         Reg_Wr <= Reg_Wr_var;
         PC_Wr <= PC_Wr_var;
         stall_W <= stall_W_var;
+        MLoop2 <= MLoop2_var;
             
     end process;  
 end behaviour;

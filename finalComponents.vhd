@@ -12,7 +12,7 @@ package finalComponents is
             M3,M4,M6,M7,M8,M9,M16,M17,M20: in std_logic_vector(1 downto 0);
             M21: in std_logic_vector(2 downto 0);
             C,ZEff,PE1_V,PE2_V,Z1: out std_logic;
-            NC_DR_in,NC_RE_in,NC_EM_in,NC_MW_in: in std_logic;
+            NC_DR_in,NC_RE_in,NC_EM_in: in std_logic;
             NC_DR,NC_RE,NC_EM,NC_MW: out std_logic;
             IR_DR,IR_RE,IR_EM,IR_MW,PC_RE,PC_EM,T1_RE,T4_RE,memDout,aluOut,r7: out std_logic_vector(15 downto 0);
             clk,reset: in std_logic);
@@ -44,7 +44,7 @@ package finalComponents is
     component execute is  
         port (IR_RE: in std_logic_vector(15 downto 0);
             clk,reset,PE2_V,NC_RE : in std_logic;
-            M6,M7,M8,M9: out std_logic_vector(1 downto 0);  
+            M6,M7,M8: out std_logic_vector(1 downto 0);  
             M10,M11,stall_E: out std_logic;
             T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Alu_op: out std_logic);  
     end component;
