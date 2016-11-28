@@ -10,12 +10,12 @@ entity RISC2 is
 end entity;
 
 architecture Struct of RISC2 is
-    signal M2,M10,M11,M13,M14,M15,M18,M19,M5,
+    signal M2,M10,M13,M14,M15,M18,M19,M5,M9,
         PC_FD_En,T3_FD_En,T3_DR_En,PC_DR_En,IR_DR_En,Z1_En,T1_RE_En,T2_RE_En,T3_RE_En,T4_RE_En,
         IR_RE_En,PC_RE_En,PC_RE2_En,T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,
         C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,PC_MW_En,IR_MW_En,PC_MW2_En,
         RegWr,PCWr,Alu_op,MemWr: std_logic;
-    signal M3,M4,M6,M7,M8,M9,M16,M17,M20: std_logic_vector(1 downto 0);
+    signal M3,M4,M6,M7,M8,M16,M17,M20: std_logic_vector(1 downto 0);
     signal M21: std_logic_vector(2 downto 0);
     signal C,ZEff,PE1_V,PE2_V,Z1: std_logic;
     signal IR_DR,IR_RE,IR_EM,IR_MW,PC_RE,PC_EM,T1_RE,T4_RE,memDout,aluOut,r7: std_logic_vector(15 downto 0);
@@ -24,10 +24,10 @@ architecture Struct of RISC2 is
     signal stall,stall_E,stall_M,stall_W,stall_dh,Ctrl_forwarding_V: std_logic;
     signal data_forward1,data_forward2,MLoop1,MLoop2: std_logic;
 begin
-    x <= M5;
+    x <= M5 or clk;
     reset <= not rst;
     dp: Datapath_RISC port map
-        (M2=>M2,M10=>M10,M11=>M11,M13=>M13,M14=>M14,M15=>M15,M18=>M18,M19=>M19,M21=>M21,
+        (M2=>M2,M10=>M10,M13=>M13,M14=>M14,M15=>M15,M18=>M18,M19=>M19,M21=>M21,
         PC_FD_En=>PC_FD_En,T3_FD_En=>T3_FD_En,T3_DR_En=>T3_DR_En,PC_DR_En=>PC_DR_En,
         IR_DR_En=>IR_DR_En,Z1_En=>Z1_En,T1_RE_En=>T1_RE_En,T2_RE_En=>T2_RE_En,T3_RE_En=>T3_RE_En,
         T4_RE_En=>T4_RE_En,IR_RE_En=>IR_RE_En,PC_RE_En=>PC_RE_En,PC_RE2_En=>PC_RE2_En,
@@ -60,7 +60,7 @@ begin
         IR_RE_En=>IR_RE_En,PC_RE_En=>PC_RE_En,PC_RE2_En=>PC_RE2_En);
         
     e: execute port map
-        (IR_RE=>IR_RE,clk=>clk,reset=>reset,M6=>M6,M7=>M7,M8=>M8,M10=>M10,M11=>M11,
+        (IR_RE=>IR_RE,clk=>clk,reset=>reset,M6=>M6,M7=>M7,M8=>M8,M10=>M10,
         stall_E=>stall_E,T2_EM_En=>T2_EM_En,T3_EM_En=>T3_EM_En,
         T4_EM_En=>T4_EM_En,PC_EM_En=>PC_EM_En,IR_EM_En=>IR_EM_En,PC_EM2_En=>PC_EM2_En,C_En=>C_En,
         Alu_op=>Alu_op,NC_RE=>NC_RE,PE2_V=>PE2_V);

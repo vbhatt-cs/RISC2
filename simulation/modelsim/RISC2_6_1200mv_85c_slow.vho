@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition"
 
--- DATE "11/28/2016 10:20:50"
+-- DATE "11/28/2016 13:47:45"
 
 -- 
 -- Device: Altera EP4CE22F17C6 Package FBGA256
@@ -36,14 +36,14 @@ ENTITY 	RISC2 IS
     PORT (
 	clk : IN std_logic;
 	rst : IN std_logic;
-	x : OUT std_logic
+	x : BUFFER std_logic
 	);
 END RISC2;
 
 -- Design Ports Information
--- clk	=>  Location: PIN_L13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- rst	=>  Location: PIN_B13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- x	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- rst	=>  Location: PIN_R3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- x	=>  Location: PIN_T11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- clk	=>  Location: PIN_T12,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 ARCHITECTURE structure OF RISC2 IS
@@ -59,9 +59,9 @@ SIGNAL ww_devpor : std_logic;
 SIGNAL ww_clk : std_logic;
 SIGNAL ww_rst : std_logic;
 SIGNAL ww_x : std_logic;
-SIGNAL \clk~input_o\ : std_logic;
 SIGNAL \rst~input_o\ : std_logic;
 SIGNAL \x~output_o\ : std_logic;
+SIGNAL \clk~input_o\ : std_logic;
 
 BEGIN
 
@@ -72,7 +72,7 @@ ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
 
--- Location: IOOBUF_X40_Y34_N9
+-- Location: IOOBUF_X36_Y0_N23
 \x~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -80,11 +80,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => GND,
+	i => \clk~input_o\,
 	devoe => ww_devoe,
 	o => \x~output_o\);
 
--- Location: IOIBUF_X53_Y10_N15
+-- Location: IOIBUF_X36_Y0_N8
 \clk~input\ : cycloneive_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -95,7 +95,7 @@ PORT MAP (
 	i => ww_clk,
 	o => \clk~input_o\);
 
--- Location: IOIBUF_X49_Y34_N8
+-- Location: IOIBUF_X1_Y0_N8
 \rst~input\ : cycloneive_io_ibuf
 -- pragma translate_off
 GENERIC MAP (

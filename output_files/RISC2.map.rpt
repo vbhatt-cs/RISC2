@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISC2
-Mon Nov 28 10:19:43 2016
+Mon Nov 28 13:46:37 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -49,9 +49,10 @@ Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
  41. Port Connectivity Checks: "Datapath_RISC:dp|Comparator:comp2"
  42. Port Connectivity Checks: "Datapath_RISC:dp|alu:op2_alu"
  43. Port Connectivity Checks: "Datapath_RISC:dp|alu:incrementer1"
- 44. Post-Synthesis Netlist Statistics for Top Partition
- 45. Elapsed Time Per Partition
- 46. Analysis & Synthesis Messages
+ 44. Port Connectivity Checks: "Datapath_RISC:dp"
+ 45. Post-Synthesis Netlist Statistics for Top Partition
+ 46. Elapsed Time Per Partition
+ 47. Analysis & Synthesis Messages
 
 
 
@@ -78,7 +79,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 28 10:19:43 2016       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 28 13:46:37 2016       ;
 ; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
 ; Revision Name                      ; RISC2                                       ;
 ; Top-level Entity Name              ; RISC2                                       ;
@@ -250,10 +251,10 @@ agreement for further details.
 ;                                             ;       ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ;                                             ;       ;
-; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out node                        ; rst   ;
 ; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 3     ;
-; Average fan-out                             ; 0.50  ;
+; Total fan-out                               ; 4     ;
+; Average fan-out                             ; 0.67  ;
 +---------------------------------------------+-------+
 
 
@@ -524,6 +525,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4_mW|Dout[14],                                       ;
 ;                                              ;                                ; Datapath_RISC:dp|dataRegister:irre|Dout[1],                                         ;
 ;                                              ;                                ; Datapath_RISC:dp|dataRegister:irre|Dout[0],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4re|Dout[0],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4re|Dout[1],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4re|Dout[2],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4re|Dout[3],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4re|Dout[4],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4re|Dout[5],                                         ;
+;                                              ;                                ; Datapath_RISC:dp|dataRegister:t4re|Dout[6],                                         ;
 ;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[0],                                         ;
 ;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[1],                                         ;
 ;                                              ;                                ; Datapath_RISC:dp|dataRegister:pcem|Dout[2],                                         ;
@@ -1198,19 +1206,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Datapath_RISC:dp"                                                                                                                               ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                      ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; nc_mw_in ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 3                           ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
-;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
-+-----------------------+-----------------------------+
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 3                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
 
 
 +-------------------------------+
@@ -1228,7 +1242,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Mon Nov 28 10:19:28 2016
+    Info: Processing started: Mon Nov 28 13:46:22 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC2 -c RISC2
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file flipFlop.vhd
@@ -1259,7 +1273,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file regWrit
     Info (12022): Found design unit 1: regWrite-behaviour File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 13
     Info (12023): Found entity 1: regWrite File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file memAccess.vhd
-    Info (12022): Found design unit 1: memAccess-behaviour File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 12
+    Info (12022): Found design unit 1: memAccess-behaviour File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 11
     Info (12023): Found entity 1: memAccess File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file fetch.vhd
     Info (12022): Found design unit 1: fetch-behaviour File: /home/virtualgod/Altera/RISC2/fetch.vhd Line: 11
@@ -1294,6 +1308,22 @@ Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(24): used implicit
 Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(25): used implicit default value for signal "data_forward1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 25
 Warning (10541): VHDL Signal Declaration warning at RISC2.vhd(25): used implicit default value for signal "data_forward2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 25
 Info (12128): Elaborating entity "Datapath_RISC" for hierarchy "Datapath_RISC:dp" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 29
+Info (10041): Inferred latch for "T2_RE_in[0]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[1]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[2]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[3]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[4]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[5]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[6]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[7]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[8]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[9]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[10]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[11]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[12]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[13]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[14]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
+Info (10041): Inferred latch for "T2_RE_in[15]" at DataPath_RISC2.vhd(138) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 138
 Info (12128): Elaborating entity "flipFlop" for hierarchy "Datapath_RISC:dp|flipFlop:ncdr" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 44
 Info (12128): Elaborating entity "PE" for hierarchy "Datapath_RISC:dp|PE:pr1_enc" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 65
 Info (12128): Elaborating entity "dataRegister" for hierarchy "Datapath_RISC:dp|dataRegister:pc_fd" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 77
@@ -1302,7 +1332,7 @@ Info (12128): Elaborating entity "instrMemory" for hierarchy "Datapath_RISC:dp|i
 Info (12128): Elaborating entity "regFile" for hierarchy "Datapath_RISC:dp|regFile:rf" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 123
 Warning (10492): VHDL Process Statement warning at regFile.vhd(29): signal "a3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regFile.vhd Line: 29
 Info (12128): Elaborating entity "Comparator" for hierarchy "Datapath_RISC:dp|Comparator:comp1" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 151
-Info (12128): Elaborating entity "dataMemory" for hierarchy "Datapath_RISC:dp|dataMemory:data_mem" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 215
+Info (12128): Elaborating entity "dataMemory" for hierarchy "Datapath_RISC:dp|dataMemory:data_mem" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 213
 Info (12128): Elaborating entity "fetch" for hierarchy "fetch:f" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 48
 Warning (10492): VHDL Process Statement warning at fetch.vhd(24): signal "Ctrl_forwarding_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/fetch.vhd Line: 24
 Info (12128): Elaborating entity "decode" for hierarchy "decode:d" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 52
@@ -1317,25 +1347,25 @@ Warning (10492): VHDL Process Statement warning at regRead.vhd(61): signal "IR_D
 Warning (10492): VHDL Process Statement warning at regRead.vhd(64): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 64
 Warning (10492): VHDL Process Statement warning at regRead.vhd(66): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 66
 Info (12128): Elaborating entity "execute" for hierarchy "execute:e" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 62
-Warning (10492): VHDL Process Statement warning at execute.vhd(38): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 38
-Warning (10492): VHDL Process Statement warning at execute.vhd(39): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 39
-Warning (10492): VHDL Process Statement warning at execute.vhd(46): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 46
-Warning (10492): VHDL Process Statement warning at execute.vhd(52): signal "PE2_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at execute.vhd(55): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 55
-Warning (10492): VHDL Process Statement warning at execute.vhd(62): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 62
-Warning (10492): VHDL Process Statement warning at execute.vhd(69): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 69
-Warning (10492): VHDL Process Statement warning at execute.vhd(76): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 76
-Warning (10492): VHDL Process Statement warning at execute.vhd(82): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 82
-Warning (10492): VHDL Process Statement warning at execute.vhd(88): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 88
-Warning (10492): VHDL Process Statement warning at execute.vhd(95): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 95
+Warning (10492): VHDL Process Statement warning at execute.vhd(37): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at execute.vhd(38): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at execute.vhd(45): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 45
+Warning (10492): VHDL Process Statement warning at execute.vhd(51): signal "PE2_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at execute.vhd(54): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 54
+Warning (10492): VHDL Process Statement warning at execute.vhd(61): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 61
+Warning (10492): VHDL Process Statement warning at execute.vhd(68): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 68
+Warning (10492): VHDL Process Statement warning at execute.vhd(75): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at execute.vhd(81): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 81
+Warning (10492): VHDL Process Statement warning at execute.vhd(87): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 87
+Warning (10492): VHDL Process Statement warning at execute.vhd(94): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 94
 Info (12128): Elaborating entity "memAccess" for hierarchy "memAccess:m" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 68
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(39): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 39
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(40): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 40
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(50): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 50
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(58): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 58
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(70): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 70
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(77): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 77
-Warning (10492): VHDL Process Statement warning at memAccess.vhd(88): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 88
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(37): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(38): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(48): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 48
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(56): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 56
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(68): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 68
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(75): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at memAccess.vhd(87): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 87
 Info (12128): Elaborating entity "regWrite" for hierarchy "regWrite:w" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 74
 Warning (10492): VHDL Process Statement warning at regWrite.vhd(31): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 31
 Warning (10492): VHDL Process Statement warning at regWrite.vhd(33): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 33
@@ -1373,20 +1403,18 @@ Warning (10492): VHDL Process Statement warning at controlHazard.vhd(83): signal
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(90): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 90
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(91): signal "RF_pco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 91
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(91): signal "PC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 91
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "x" is stuck at GND File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 9
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (17049): 211 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 8
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "rst" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 8
 Info (21057): Implemented 3 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 1 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 73 warnings
-    Info: Peak virtual memory: 1205 megabytes
-    Info: Processing ended: Mon Nov 28 10:19:43 2016
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 71 warnings
+    Info: Peak virtual memory: 1207 megabytes
+    Info: Processing ended: Mon Nov 28 13:46:37 2016
     Info: Elapsed time: 00:00:15
     Info: Total CPU time (on all processors): 00:00:37
 

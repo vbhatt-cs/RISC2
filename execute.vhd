@@ -5,7 +5,7 @@ entity execute is
     port (IR_RE: in std_logic_vector(15 downto 0);
         clk,reset,PE2_V,NC_RE : in std_logic;
         M6,M7,M8: out std_logic_vector(1 downto 0);  
-        M10,M11,stall_E: out std_logic;
+        M10,stall_E: out std_logic;
         T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Alu_op: out std_logic);  
 end entity;
   
@@ -14,13 +14,12 @@ architecture behaviour of execute is
 begin  
     process (clk,reset)
         variable M6_var,M7_var,M8_var: std_logic_vector(1 downto 0);  
-        variable M10_var,M11_var,stall_E_var: std_logic;
+        variable M10_var,stall_E_var: std_logic;
         variable T2_EM_En_var,T3_EM_En_var,T4_EM_En_var,PC_EM_En_var,
         IR_EM_En_var,PC_EM2_En_var,C_En_var,Alu_op_var: std_logic;
 
     begin
         --Defaults
-        M11_var := '0';
         T2_EM_En_var := '1';
         T3_EM_En_var := '1';
         T4_EM_En_var := '1';
@@ -107,7 +106,6 @@ begin
         M7 <= M7_var;
         M8 <= M8_var;
         M10 <= M10_var;
-        M11 <= M11_var;
         stall_E <= stall_E_var;
 
         T2_EM_En <= T2_EM_En_var;
