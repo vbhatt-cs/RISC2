@@ -111,7 +111,7 @@ begin
         port map (Din => T3_DR_in, Dout => T3_DR_out, enable => T3_DR_En, clk => clk, reset => reset);
 
     --PC_DR
-    PC_DR_in <= PC_FD_out;
+    PC_DR_in <= PC_FD_out when (M2='0') else Ctrl_for;
     pc_dr: dataRegister generic map (data_width => 16)
         port map (Din => PC_DR_in, Dout => PC_DR_out, enable => PC_DR_En, clk => clk, reset => reset);
 
@@ -232,7 +232,7 @@ begin
         OP_ALU_OUT when (M8="00") else 
         T1_RE_out when (M8="01") else
         RF_D4 when (M24="00") else
-		forward3 when (M24="01") else PC_MW_out;
+		forward3 when (M24="01") else PC_EM_out;
     T3_EM_En1 <= T3_EM_En or MLoop2;
     t3_em : dataRegister generic map (data_width => 16)
 	 port map (Din => T3_EM_in, Dout => T3_EM_out, enable => T3_EM_En1,clk => clk, reset => reset);  

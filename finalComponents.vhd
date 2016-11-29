@@ -45,7 +45,8 @@ package finalComponents is
     component execute is  
         port (IR_RE: in std_logic_vector(15 downto 0);
             clk,reset,PE2_V,NC_RE,C,Zeff,data_forward3 : in std_logic;
-            M6,M7,M8,M24: out std_logic_vector(1 downto 0);  
+            M6,M7,M8,M24: out std_logic_vector(1 downto 0);
+            PE2_A: in std_logic_vector(2 downto 0);
             M10,stall_E,NC_EM_in,NC_RE_in,NC_RE_En: out std_logic;
             T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Alu_op: out std_logic);  
     end component;

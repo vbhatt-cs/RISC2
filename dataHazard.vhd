@@ -39,13 +39,22 @@
 	
         process(IR,IR_OLD1,IR_OLD2,IR_OLD3,clk,re_stall)
             variable hazard1_var,hazard2_var,hazard3_var: std_logic_vector(2 downto 0);
+            variable hazard11_var,hazard21_var,hazard31_var: std_logic_vector(2 downto 0);
+            variable hazard12_var,hazard22_var,hazard32_var: std_logic_vector(2 downto 0);            
+            variable hazard13_var,hazard23_var,hazard33_var: std_logic_vector(2 downto 0);
             variable re_stall_var : std_logic_vector(1 downto 0);
             variable stall_var : std_logic := '0';
             variable forwarding2_var,forwarding1_var,forwarding3_var : std_logic := '0';
         begin
-            hazard1_var := "000";
-            hazard2_var := "000";
-            hazard3_var := "000";
+            hazard11_var := "111";
+            hazard21_var := "111";
+            hazard31_var := "111";
+            hazard12_var := "111";
+            hazard22_var := "111";
+            hazard32_var := "111";
+            hazard13_var := "111";
+            hazard23_var := "111";
+            hazard33_var := "111";
             stall_var := '0';
             forwarding2_var := '0';
             forwarding1_var := '0';
@@ -57,13 +66,13 @@
                 if(IR(15 downto 12)="0010" or IR(15 downto 12)="0000") then
                     if(IR_OLD1(15 downto 12)="0000" or IR_OLD1(15 downto 12)="0010") then
                         if(IR_OLD1(5 downto 3)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="000";
+                            hazard21_var :="000";
                             stall_var:='0';
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD1(5 downto 3)=IR(8 downto 6) and NC_RE='0') then
-                            hazard1_var :="000";
+                            hazard11_var :="000";
                             stall_var:='0'; 
                             forwarding1_var := '1';
                         end if;
@@ -71,13 +80,13 @@
                     
                     if(IR_OLD2(15 downto 12)="0000" or IR_OLD2(15 downto 12)="0010") then
                         if(IR_OLD2(5 downto 3)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="110";
+                            hazard22_var :="110";
                             stall_var:='0';
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD2(5 downto 3)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="110";
+                            hazard12_var :="110";
                             stall_var:='0';
                             forwarding1_var := '1';
                         end if;
@@ -85,13 +94,13 @@
                     
                     if(IR_OLD3(15 downto 12)="0000" or IR_OLD3(15 downto 12)="0010") then
                         if(IR_OLD3(5 downto 3)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var := "100";
+                            hazard23_var := "100";
                             stall_var := '0';
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD3(5 downto 3)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="100";
+                            hazard13_var :="100";
                             stall_var:='0';
                             forwarding1_var := '1';
                         end if;
@@ -100,13 +109,13 @@
                     --LHI
                     if(IR_OLD1(15 downto 12)="0011") then
                         if(IR_OLD1(11 downto 9)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="001";
+                            hazard21_var :="001";
                             stall_var:='0'; 
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD1(11 downto 9)=IR(8 downto 6) and NC_RE='0') then
-                            hazard1_var :="001";
+                            hazard11_var :="001";
                             stall_var:='0'; 
                             forwarding1_var := '1';
                         end if;
@@ -114,13 +123,13 @@
                     
                     if(IR_OLD2(15 downto 12)="0011") then
                         if(IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="011";
+                            hazard22_var :="011";
                             stall_var:='0'; 
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD2(11 downto 9)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="011";
+                            hazard12_var :="011";
                             stall_var:='0';
                             forwarding1_var := '1';	
                         end if;
@@ -128,13 +137,13 @@
                     
                     if(IR_OLD3(15 downto 12)="0011") then
                         if(IR_OLD3(11 downto 9)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="101";
+                            hazard23_var :="101";
                             stall_var:='0'; 
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD3(11 downto 9)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="101";
+                            hazard13_var :="101";
                             stall_var:='0'; 
                             forwarding1_var := '1';
                         end if; 
@@ -148,7 +157,7 @@
                                 re_stall_var := "01";
                             else
                                 re_stall_var := "00";
-                                hazard2_var :="010";
+                                hazard21_var :="010";
                                 forwarding2_var := '1';
                             end if;
                         end if;
@@ -159,7 +168,7 @@
                                 re_stall_var := "01";
                             else
                                 re_stall_var := "00";
-                                hazard1_var :="010";
+                                hazard11_var :="010";
                                 forwarding1_var := '1';
                             end if;
                         end if; 
@@ -167,13 +176,13 @@
                     
                     if(IR_OLD2(15 downto 12)="0100") then
                         if(IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="010";
+                            hazard22_var :="010";
                             stall_var:='0'; 
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD2(11 downto 9)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="010";
+                            hazard12_var :="010";
                             stall_var:='0';
                             forwarding1_var := '1';
                         end if;
@@ -181,13 +190,13 @@
                     
                     if(IR_OLD3(15 downto 12)="0100" or IR_OLD3(15 downto 13)="100") then
                         if(IR_OLD3(11 downto 9)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="100";
+                            hazard23_var :="100";
                             stall_var:='0'; 
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD3(11 downto 9)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="100";
+                            hazard13_var :="100";
                             stall_var:='0';
                             forwarding1_var := '1';	
                         end if;
@@ -196,13 +205,13 @@
                     --ADI
                     if(IR_OLD1(15 downto 12)="0001") then
                         if(IR_OLD1(8 downto 6)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="000";
+                            hazard21_var :="000";
                             stall_var:='0'; 
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD1(8 downto 6)=IR(8 downto 6) and NC_RE='0') then
-                            hazard1_var :="000";
+                            hazard11_var :="000";
                             stall_var:='0'; 
                             forwarding1_var := '1';
                         end if;
@@ -210,13 +219,13 @@
                     
                     if(IR_OLD2(15 downto 12)="0001") then
                         if(IR_OLD2(8 downto 6)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="110";
+                            hazard22_var :="110";
                             stall_var:='0';
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD2(8 downto 6)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="110";
+                            hazard12_var :="110";
                             stall_var:='0'; 
                             forwarding1_var := '1';
                         end if;
@@ -224,13 +233,13 @@
                     
                     if(IR_OLD3(15 downto 12)="0001") then
                         if(IR_OLD3(8 downto 6)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="100";
+                            hazard23_var :="100";
                             stall_var:='0'; 
                             forwarding2_var := '1';
                         end if;
                         
                         if(IR_OLD3(8 downto 6)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="100";
+                            hazard13_var :="100";
                             stall_var:='0'; 
                             forwarding1_var := '1';
                         end if;
@@ -241,42 +250,42 @@
                 if(IR(15 downto 12)="0001" or IR(15 downto 12)="0110") then
                     if(IR_OLD1(15 downto 12)="0000" or IR_OLD1(15 downto 12)="0010") then
                         if (IR_OLD1(5 downto 3)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="000";
+                            hazard21_var :="000";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0000" or IR_OLD2(15 downto 12)="0010") then
                         if (IR_OLD2(5 downto 3)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="110";
+                            hazard22_var :="110";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0000" or IR_OLD3(15 downto 12)="0010") then 
                         if (IR_OLD3(5 downto 3)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="100";	
+                            hazard23_var :="100";	
                             forwarding2_var := '1';
                         end if;
                     end if;
         
                     if(IR_OLD1(15 downto 12)="0011") then
                         if (IR_OLD1(11 downto 9)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="001";
+                            hazard21_var :="001";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0011") then
                         if (IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="011";
+                            hazard22_var :="011";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0011") then
                         if (IR_OLD3(11 downto 9)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="101";
+                            hazard23_var :="101";
                             forwarding2_var := '1';
                         end if;
                     end if; 
@@ -287,7 +296,7 @@
                                 stall_var:='1';
                                 re_stall_var := "01";
                             else    
-                                hazard2_var :="010";
+                                hazard21_var :="010";
                                 re_stall_var:= "00";
                                 forwarding2_var := '1';
                             end if;
@@ -296,35 +305,35 @@
                     
                     if(IR_OLD2(15 downto 12)="0100") then
                         if (IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then 
-                            hazard2_var := "010";
+                            hazard22_var := "010";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0100" or IR_OLD3(15 downto 13)="100") then
                         if (IR_OLD3(11 downto 9)=IR(11 downto 9) and NC_MW='0') then 
-                            hazard2_var := "100";	
+                            hazard23_var := "100";	
                             forwarding2_var := '1';
                         end if;
                     end if;
         
                     if(IR_OLD1(15 downto 12)="0001") then
                         if (IR_OLD1(8 downto 6)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="000";
+                            hazard21_var :="000";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0001") then
                         if (IR_OLD2(8 downto 6)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="110";
+                            hazard22_var :="110";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0001") then
                         if (IR_OLD3(8 downto 6)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="100";
+                            hazard23_var :="100";
                             forwarding2_var := '1';	
                         end if;
                     end if;    
@@ -334,42 +343,42 @@
                 if (IR(15 downto 12)="0100" or IR(15 downto 12)="1001") then
                     if(IR_OLD1(15 downto 12)="0000" or IR_OLD1(15 downto 12)="0010") then
                         if (IR_OLD1(5 downto 3)=IR(8 downto 6) and NC_RE='0') then
-                            hazard1_var :="000";	
+                            hazard11_var :="000";	
                             forwarding1_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0000" or IR_OLD2(15 downto 12)="0010") then
                         if (IR_OLD2(5 downto 3)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="110";
+                            hazard12_var :="110";
                             forwarding1_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0000" or IR_OLD3(15 downto 12)="0010") then 
                         if (IR_OLD3(5 downto 3)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="100";
+                            hazard13_var :="100";
                             forwarding1_var := '1';	
                         end if;
                     end if;
         
                     if(IR_OLD1(15 downto 12)="0011") then
                         if (IR_OLD1(11 downto 9)=IR(8 downto 6) and NC_RE='0') then
-                            hazard1_var :="001";
+                            hazard11_var :="001";
                             forwarding1_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0011") then
                         if (IR_OLD2(11 downto 9)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="011";
+                            hazard12_var :="011";
                             forwarding1_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0011") then
                         if (IR_OLD3(11 downto 9)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="101";
+                            hazard13_var :="101";
                             forwarding1_var := '1';	
                         end if;
                     end if; 
@@ -380,7 +389,7 @@
                                 stall_var:='1';
                                 re_stall_var := "01";
                             else    
-                                hazard1_var :="010";
+                                hazard11_var :="010";
                                 re_stall_var := "00";
                                 forwarding1_var := '1';
                             end if;
@@ -389,35 +398,35 @@
                     
                     if(IR_OLD2(15 downto 12)="0100") then
                         if (IR_OLD2(11 downto 9)=IR(8 downto 6) and NC_EM='0') then 
-                            hazard1_var := "010";
+                            hazard12_var := "010";
                             forwarding1_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0100" or IR_OLD3(15 downto 13)="100") then
                         if (IR_OLD3(11 downto 9)=IR(8 downto 6) and NC_MW='0') then 
-                            hazard1_var := "100";	
+                            hazard13_var := "100";	
                             forwarding1_var := '1';
                         end if;
                     end if;
         
                     if(IR_OLD1(15 downto 12)="0001") then
                         if (IR_OLD1(8 downto 6)=IR(8 downto 6) and NC_RE='0') then
-                            hazard1_var :="000";
+                            hazard11_var :="000";
                             forwarding1_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0001") then
                         if (IR_OLD2(8 downto 6)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="110";
+                            hazard12_var :="110";
                             forwarding1_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0001") then
                         if (IR_OLD3(8 downto 6)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="100";
+                            hazard13_var :="100";
                             forwarding1_var := '1';	
                         end if;
                     end if;
@@ -427,72 +436,72 @@
                 if(IR(15 downto 12)="0101" or IR(15 downto 12)="1100" ) then
                     if(IR_OLD1(15 downto 12)="0000" or IR_OLD1(15 downto 12)="0010") then
                         if (IR_OLD1(5 downto 3)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="000";
+                            hazard21_var :="000";
                             forwarding2_var := '1';
                         end if;
                         
                         if (IR_OLD1(5 downto 3)=IR(8 downto 6) and NC_RE='0') then
-                            hazard1_var :="000";
+                            hazard11_var :="000";
                             forwarding1_var := '1'; 
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0000" or IR_OLD2(15 downto 12)="0010") then
                         if (IR_OLD2(5 downto 3)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="110";
+                            hazard22_var :="110";
                             forwarding2_var := '1';
                         end if;
                         
                         if (IR_OLD2(5 downto 3)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="110";
+                            hazard12_var :="110";
                             forwarding1_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0000" or IR_OLD3(15 downto 12)="0010") then 
                         if (IR_OLD3(5 downto 3)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="100";
+                            hazard23_var :="100";
                             forwarding2_var := '1';
                         end if;
                         
                         if (IR_OLD3(5 downto 3)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="100";
+                            hazard13_var :="100";
                             forwarding1_var := '1';
                         end if;
                     end if;
         
                     if(IR_OLD1(15 downto 12)="0011") then
                         if (IR_OLD1(5 downto 3)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="001";
+                            hazard21_var :="001";
                             forwarding2_var := '1';
                         end if;
                         
                         if (IR_OLD1(11 downto 9)=IR(8 downto 6) and NC_RE='0') then
-                            hazard1_var :="001";
+                            hazard11_var :="001";
                             forwarding1_var := '1';
                         end if;
                     end if;
                         
                     if(IR_OLD2(15 downto 12)="0011") then
                         if (IR_OLD2(5 downto 3)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="011";
+                            hazard22_var :="011";
                             forwarding2_var := '1';
                         end if;
                         
                         if (IR_OLD2(11 downto 9)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="011";
+                            hazard12_var :="011";
                             forwarding1_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0011") then
                         if (IR_OLD3(5 downto 3)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="101";
+                            hazard23_var :="101";
                             forwarding2_var := '1';
                         end if;
                         
                         if (IR_OLD3(11 downto 9)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="101";
+                            hazard13_var :="101";
                             forwarding1_var := '1';
                         end if;
                     end if; 
@@ -503,7 +512,7 @@
                                 stall_var:='1';
                                 re_stall_var := "01";
                             else    
-                                hazard1_var :="010";
+                                hazard11_var :="010";
                                 re_stall_var := "00";
                                 forwarding1_var := '1';
                             end if;
@@ -514,7 +523,7 @@
                                 stall_var:='1';
                                 re_stall_var := "01";
                             else    
-                                hazard2_var :="010";
+                                hazard21_var :="010";
                                 re_stall_var := "00";
                                 forwarding2_var := '1';
                             end if;
@@ -523,60 +532,60 @@
                     
                     if(IR_OLD2(15 downto 12)="0100") then
                         if (IR_OLD2(11 downto 9)=IR(8 downto 6) and NC_EM='0') then 
-                            hazard1_var := "010";
+                            hazard12_var := "010";
                             forwarding1_var := '1';
                         end if;
                         
                         if (IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then 
-                            hazard2_var := "010";
+                            hazard22_var := "010";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0100" or IR_OLD3(15 downto 13)="100") then
                         if (IR_OLD3(11 downto 9)=IR(8 downto 6) and NC_MW='0') then 
-                            hazard1_var := "100";
+                            hazard13_var := "100";
                             forwarding1_var := '1';
                         end if;
                         
                         if (IR_OLD3(11 downto 9)=IR(11 downto 9) and NC_MW='0') then 
-                            hazard2_var := "100";
+                            hazard23_var := "100";
                             forwarding2_var := '1';
                         end if;
                     end if;
         
                     if(IR_OLD1(15 downto 12)="0001") then
                         if (IR_OLD1(8 downto 6)=IR(8 downto 6) and NC_RE='0') then
-                            hazard1_var :="000";
+                            hazard11_var :="000";
                             forwarding1_var := '1';
                         end if;
                         
                         if (IR_OLD1(8 downto 6)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="000";
+                            hazard21_var :="000";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0001") then
                         if (IR_OLD2(8 downto 6)=IR(8 downto 6) and NC_EM='0') then
-                            hazard1_var :="110";
+                            hazard12_var :="110";
                             forwarding1_var := '1';
                         end if;
                         
                         if (IR_OLD2(8 downto 6)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="110";
+                            hazard22_var :="110";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0001") then
                         if (IR_OLD3(8 downto 6)=IR(8 downto 6) and NC_MW='0') then
-                            hazard1_var :="100";	
+                            hazard13_var :="100";	
                             forwarding1_var := '1';
                         end if;
                         
                         if (IR_OLD3(8 downto 6)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="100";	
+                            hazard23_var :="100";	
                             forwarding2_var := '1';
                         end if;
                     end if;
@@ -586,42 +595,42 @@
                 if(IR(15 downto 12)= "0111") then
                     if(IR_OLD1(15 downto 12)="0000" or IR_OLD1(15 downto 12)="0010") then
                         if (IR_OLD1(5 downto 3)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="000";
+                            hazard21_var :="000";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0000" or IR_OLD2(15 downto 12)="0010") then
                         if (IR_OLD2(5 downto 3)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="110";
+                            hazard22_var :="110";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0000" or IR_OLD3(15 downto 12)="0010") then 
                         if (IR_OLD3(5 downto 3)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="100";
+                            hazard23_var :="100";
                             forwarding2_var := '1';	
                         end if;   
                     end if;
         
                     if(IR_OLD1(15 downto 12)="0011") then
                         if (IR_OLD1(11 downto 9)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="001";
+                            hazard21_var :="001";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0011") then
                         if (IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="011";
+                            hazard22_var :="011";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0011") then
                         if (IR_OLD3(11 downto 9)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="101";	
+                            hazard23_var :="101";	
                             forwarding2_var := '1';
                         end if;
                     end if; 
@@ -632,7 +641,7 @@
                                 stall_var:='1';
                                 re_stall_var := "01";
                             else    
-                                hazard2_var :="010";
+                                hazard21_var :="010";
                                 re_stall_var := "00";
                                 forwarding2_var := '1';
                             end if;
@@ -641,35 +650,35 @@
                     
                     if(IR_OLD2(15 downto 12)="0100") then
                         if (IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then 
-                            hazard2_var := "010";
+                            hazard22_var := "010";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0100" or IR_OLD3(15 downto 13)="100") then
                         if (IR_OLD3(11 downto 9)=IR(11 downto 9) and NC_MW='0') then 
-                            hazard2_var := "100";	
+                            hazard23_var := "100";	
                             forwarding2_var := '1';
                         end if;
                     end if;
         
                     if(IR_OLD1(15 downto 12)="0001") then
                         if (IR_OLD1(8 downto 6)=IR(11 downto 9) and NC_RE='0') then
-                            hazard2_var :="000";
+                            hazard21_var :="000";
                             forwarding2_var := '1'; 
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0001") then
                         if (IR_OLD2(8 downto 6)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="110";
+                            hazard22_var :="110";
                             forwarding2_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0001") then
                         if (IR_OLD3(8 downto 6)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var :="100";	
+                            hazard23_var :="100";	
                             forwarding2_var := '1';
                         end if;
                     end if;
@@ -679,57 +688,57 @@
                 if(IR_OLD1(15 downto 12)="0111") then
                     if(IR_OLD2(15 downto 12)="0000" or IR_OLD2(15 downto 12)="0010") then
                         if (IR_OLD2(5 downto 3)=PE2_A and NC_EM='0') then
-                            hazard3_var :="110";
+                            hazard32_var :="110";
                             forwarding3_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0000" or IR_OLD3(15 downto 12)="0010") then 
                         if (IR_OLD3(5 downto 3)=PE2_A and NC_MW='0') then
-                            hazard3_var :="100";
+                            hazard33_var :="100";
                             forwarding3_var := '1';	
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0011") then
                         if (IR_OLD2(11 downto 9)=PE2_A and NC_EM='0') then
-                            hazard3_var :="011";
+                            hazard32_var :="011";
                             forwarding3_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0011") then
                         if (IR_OLD3(11 downto 9)=PE2_A and NC_MW='0') then
-                            hazard3_var :="101";
+                            hazard33_var :="101";
                             forwarding3_var := '1';	
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0100") then
                         if (IR_OLD2(11 downto 9)=PE2_A and NC_EM='0') then 
-                            hazard3_var := "010";
+                            hazard32_var := "010";
                             forwarding3_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0100" or IR_OLD3(15 downto 13)="100") then
                         if (IR_OLD3(11 downto 9)=PE2_A and NC_MW='0') then 
-                            hazard3_var := "100";	
+                            hazard33_var := "100";	
                             forwarding3_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD2(15 downto 12)="0001") then
                         if (IR_OLD2(8 downto 6)=PE2_A and NC_EM='0') then
-                            hazard3_var :="110";
+                            hazard32_var :="110";
                             forwarding3_var := '1';
                         end if;
                     end if;
                     
                     if(IR_OLD3(15 downto 12)="0001") then
                         if (IR_OLD3(8 downto 6)=PE2_A and NC_MW='0') then
-                            hazard1_var :="100";
-                            forwarding1_var := '1';	
+                            hazard33_var :="100";
+                            forwarding3_var := '1';	
                         end if;
                     end if;
                 end if;
@@ -737,6 +746,30 @@
            
             if(rising_edge(clk)) then
                 re_stall <= re_stall_var;
+            end if;
+            
+            if ((hazard11_var="111") and (hazard12_var="111")) then
+            	hazard1_var := hazard13_var;
+            elsif (hazard11_var="111") then
+            	hazard1_var := hazard12_var;
+            else 
+                hazard1_var := hazard11_var;
+            end if;
+            
+            if ((hazard21_var="111") and (hazard22_var="111")) then
+            	hazard2_var := hazard23_var;
+            elsif (hazard21_var="111") then
+            	hazard2_var := hazard22_var;
+            else 
+                hazard2_var := hazard21_var;
+            end if;
+            
+            if ((hazard31_var="111") and (hazard32_var="111")) then
+            	hazard3_var := hazard33_var;
+            elsif (hazard31_var="111") then
+            	hazard3_var := hazard32_var;
+            else 
+                hazard3_var := hazard31_var;
             end if;
             
             hazard1 <= hazard1_var;

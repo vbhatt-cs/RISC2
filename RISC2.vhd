@@ -67,7 +67,7 @@ begin
         stall_E=>stall_E,NC_EM_in=>NC_EM_in2,T2_EM_En=>T2_EM_En,T3_EM_En=>T3_EM_En,M24=>M24,
         data_forward3=>data_forward3,T4_EM_En=>T4_EM_En,PC_EM_En=>PC_EM_En,IR_EM_En=>IR_EM_En,
         PC_EM2_En=>PC_EM2_En,C_En=>C_En,NC_RE_En=>NC_RE_En,Alu_op=>Alu_op,NC_RE=>NC_RE,
-        PE2_V=>PE2_V,C=>C,Zeff=>ZEff);
+        PE2_V=>PE2_V,PE2_A=>PE2_A,C=>C,Zeff=>ZEff);
         
     m: memAccess port map
         (IR_EM=>IR_EM,clk=>clk,reset=>reset,M9=>M9,M13=>M13,M14=>M14,M15=>M15,
