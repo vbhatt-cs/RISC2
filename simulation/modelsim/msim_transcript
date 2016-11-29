@@ -13,125 +13,125 @@
 # 
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/dataHazard.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:04 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/dataHazard.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Data_Hazard_Detector
 # -- Compiling architecture behavioural of Data_Hazard_Detector
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:04 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/finalComponents.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:04 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/finalComponents.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package finalComponents
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:04 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/regRead.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:04 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/regRead.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity regRead
 # -- Compiling architecture behaviour of regRead
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:04 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/execute.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:04 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/execute.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity execute
 # -- Compiling architecture behaviour of execute
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:04 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/memPackage.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:04 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/memPackage.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package mem_package
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:04 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/datapathComponents.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:04 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/datapathComponents.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package datapathComponents
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:04 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/regWrite.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:04 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/regWrite.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity regWrite
 # -- Compiling architecture behaviour of regWrite
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/memAccess.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/memAccess.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity memAccess
 # -- Compiling architecture behaviour of memAccess
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/fetch.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/fetch.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity fetch
 # -- Compiling architecture behaviour of fetch
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/decode.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/decode.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity decode
 # -- Compiling architecture behaviour of decode
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/controlHazard.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/controlHazard.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity controlHazard
 # -- Compiling architecture Behave of controlHazard
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/flipFlop.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/flipFlop.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -139,11 +139,11 @@
 # -- Loading package datapathComponents
 # -- Compiling entity flipFlop
 # -- Compiling architecture Behave of flipFlop
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/dataRegister.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/dataRegister.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -151,11 +151,11 @@
 # -- Loading package datapathComponents
 # -- Compiling entity dataRegister
 # -- Compiling architecture Behave of dataRegister
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/instrMemory.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/instrMemory.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -165,11 +165,11 @@
 # -- Loading package mem_package
 # -- Compiling entity instrMemory
 # -- Compiling architecture Behave of instrMemory
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/alu.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/alu.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -178,11 +178,11 @@
 # -- Loading package datapathComponents
 # -- Compiling entity alu
 # -- Compiling architecture Behave of alu
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/PE.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/PE.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -191,11 +191,11 @@
 # -- Loading package datapathComponents
 # -- Compiling entity PE
 # -- Compiling architecture behave of PE
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/dataMemory.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/dataMemory.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -205,11 +205,11 @@
 # -- Loading package mem_package
 # -- Compiling entity dataMemory
 # -- Compiling architecture Behave of dataMemory
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/Comparator.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/Comparator.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -217,11 +217,11 @@
 # -- Loading package datapathComponents
 # -- Compiling entity Comparator
 # -- Compiling architecture Behave of Comparator
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -230,11 +230,11 @@
 # -- Loading package datapathComponents
 # -- Compiling entity Datapath_RISC
 # -- Compiling architecture Build of DataPath_RISC
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/regFile.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/regFile.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -243,11 +243,11 @@
 # -- Loading package datapathComponents
 # -- Compiling entity regFile
 # -- Compiling architecture Behave of regFile
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/RISC2.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/RISC2.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -256,12 +256,12 @@
 # -- Loading package datapathComponents
 # -- Compiling entity RISC2
 # -- Compiling architecture Struct of RISC2
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {/home/virtualgod/Altera/RISC2/testbench_full.vhd}
 # Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # vcom -reportprogress 300 -93 -work work /home/virtualgod/Altera/RISC2/testbench_full.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -269,12 +269,12 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity Testbench_full
 # -- Compiling architecture Behave of Testbench_full
-# End time: 00:18:56 on Nov 29,2016, Elapsed time: 0:00:00
+# End time: 11:06:05 on Nov 29,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  Testbench_full
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" Testbench_full 
-# Start time: 00:18:56 on Nov 29,2016
+# Start time: 11:06:05 on Nov 29,2016
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -322,31 +322,5 @@
 #    Time: 0 ps  Iteration: 0  Instance: /testbench_full/dut/dp/instr_mem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 10 ns  Iteration: 0  Instance: /testbench_full/dut/dp/rf
-add wave -position insertpoint  \
-sim:/testbench_full/dut/dp/rf/reg
-restart
-log -r *
-run -all
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_full/dut/dp/data_mem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_full/dut/dp/rf
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_full/dut/dp/rf
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_full/dut/dp/rf
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_full/dut/dp/rf
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_full/dut/dp/instr_mem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 10 ns  Iteration: 0  Instance: /testbench_full/dut/dp/rf
-add wave -position insertpoint  \
-sim:/testbench_full/dut/MLoop2
-add wave -position insertpoint  \
-sim:/testbench_full/dut/dp/pr1_enc/inp \
-sim:/testbench_full/dut/dp/pr1_enc/v \
-sim:/testbench_full/dut/dp/pr1_enc/a \
-sim:/testbench_full/dut/dp/pr1_enc/d
-# End time: 00:21:05 on Nov 29,2016, Elapsed time: 0:02:09
-# Errors: 0, Warnings: 14
+# End time: 11:06:31 on Nov 29,2016, Elapsed time: 0:00:26
+# Errors: 0, Warnings: 7

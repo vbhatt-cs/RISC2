@@ -23,9 +23,9 @@ VzjlzM3ja5jYo>D]RCjVLP3
 !s100 :QR`mjlNJOEio@mja2l5H2
 Z8 OV;C;10.4b;61
 31
-Z9 !s110 1480358936
+Z9 !s110 1480397765
 !i10b 1
-Z10 !s108 1480358936.000000
+Z10 !s108 1480397765.000000
 Z11 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/alu.vhd|
 Z12 !s107 /home/virtualgod/Altera/RISC2/alu.vhd|
 !i113 1
@@ -144,11 +144,11 @@ Vdaam4fo3f4HPGY75XakBC3
 !s100 HN`=c]VI7Ikoik<A?;0f:3
 R8
 31
-R9
+Z28 !s110 1480397764
 !i10b 1
-R10
-Z28 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/dataHazard.vhd|
-Z29 !s107 /home/virtualgod/Altera/RISC2/dataHazard.vhd|
+Z29 !s108 1480397764.000000
+Z30 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/dataHazard.vhd|
+Z31 !s107 /home/virtualgod/Altera/RISC2/dataHazard.vhd|
 !i113 1
 R13
 R14
@@ -162,24 +162,24 @@ V`1RNI><MOAXZM2OKIl=e`0
 !s100 1;@OeifT=5[nKfdL`gMk_2
 R8
 31
-R9
-!i10b 1
-R10
 R28
+!i10b 1
 R29
+R30
+R31
 !i113 1
 R13
 R14
 Edatamemory
-Z30 w1480329904
-Z31 DPx4 work 11 mem_package 0 22 6nbd7<I_h2FNEmkQ7Jn2d3
+Z32 w1480329904
+Z33 DPx4 work 11 mem_package 0 22 hk5WiV<aWbm]Mk34[i6eH1
 R2
 R3
 R4
 R5
 R0
-Z32 8/home/virtualgod/Altera/RISC2/dataMemory.vhd
-Z33 F/home/virtualgod/Altera/RISC2/dataMemory.vhd
+Z34 8/home/virtualgod/Altera/RISC2/dataMemory.vhd
+Z35 F/home/virtualgod/Altera/RISC2/dataMemory.vhd
 l0
 L8
 V=cho3IM<nmdfnZ[Ui4lJe0
@@ -189,13 +189,13 @@ R8
 R9
 !i10b 1
 R10
-Z34 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/dataMemory.vhd|
-Z35 !s107 /home/virtualgod/Altera/RISC2/dataMemory.vhd|
+Z36 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/dataMemory.vhd|
+Z37 !s107 /home/virtualgod/Altera/RISC2/dataMemory.vhd|
 !i113 1
 R13
 R14
 Abehave
-R31
+R33
 R2
 R3
 R4
@@ -210,31 +210,31 @@ R8
 R9
 !i10b 1
 R10
-R34
-R35
+R36
+R37
 !i113 1
 R13
 R14
 Edatapath_risc
-Z36 w1480358198
+Z38 w1480396948
 R2
 R3
 R4
 R5
 R0
-Z37 8/home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd
-Z38 F/home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd
+Z39 8/home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd
+Z40 F/home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd
 l0
 L7
-VV8A52ZF;_URW@aFTW`g3B0
-!s100 DF@lKd]2ZJJ^^>9M46KUM1
+VI4d>91c5TFVPSCzGBd`LX0
+!s100 ]3>J:oU_c<]OgSShdC`[72
 R8
 31
 R9
 !i10b 1
 R10
-Z39 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd|
-Z40 !s107 /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd|
+Z41 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd|
+Z42 !s107 /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd|
 !i113 1
 R13
 R14
@@ -243,18 +243,18 @@ R2
 R3
 R4
 R5
-DEx4 work 13 datapath_risc 0 22 V8A52ZF;_URW@aFTW`g3B0
+DEx4 work 13 datapath_risc 0 22 I4d>91c5TFVPSCzGBd`LX0
 l42
 L22
-VcI0L6S98J51bLQgP`=WP43
-!s100 cmC;7<n0S;Lb>@1AhPeUo3
+V3`1iL56]PknA5bj751F4H1
+!s100 ld082`__?9L?TgJEB;f8H1
 R8
 31
 R9
 !i10b 1
 R10
-R39
-R40
+R41
+R42
 !i113 1
 R13
 R14
@@ -271,22 +271,22 @@ VMQ>4^dGkW[II9:`hgl8:;0
 !s100 MYbGjKmJX7VHVLI9ifHzO0
 R8
 31
-R9
+R28
 !i10b 1
-R10
+R29
 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/datapathComponents.vhd|
 !s107 /home/virtualgod/Altera/RISC2/datapathComponents.vhd|
 !i113 1
 R13
 R14
 Edataregister
-Z41 w1480325043
+Z43 w1480325043
 R2
 R4
 R5
 R0
-Z42 8/home/virtualgod/Altera/RISC2/dataRegister.vhd
-Z43 F/home/virtualgod/Altera/RISC2/dataRegister.vhd
+Z44 8/home/virtualgod/Altera/RISC2/dataRegister.vhd
+Z45 F/home/virtualgod/Altera/RISC2/dataRegister.vhd
 l0
 L6
 VTFPj;f9PDX`DfV;a`I=lQ2
@@ -296,8 +296,8 @@ R8
 R9
 !i10b 1
 R10
-Z44 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/dataRegister.vhd|
-Z45 !s107 /home/virtualgod/Altera/RISC2/dataRegister.vhd|
+Z46 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/dataRegister.vhd|
+Z47 !s107 /home/virtualgod/Altera/RISC2/dataRegister.vhd|
 !i113 1
 R13
 R14
@@ -315,18 +315,18 @@ R8
 R9
 !i10b 1
 R10
-R44
-R45
+R46
+R47
 !i113 1
 R13
 R14
 Edecode
-Z46 w1480248490
+Z48 w1480248490
 R4
 R5
 R0
-Z47 8/home/virtualgod/Altera/RISC2/decode.vhd
-Z48 F/home/virtualgod/Altera/RISC2/decode.vhd
+Z49 8/home/virtualgod/Altera/RISC2/decode.vhd
+Z50 F/home/virtualgod/Altera/RISC2/decode.vhd
 l0
 L4
 VDbVon3IBPYCd2g11@e=<90
@@ -336,8 +336,8 @@ R8
 R9
 !i10b 1
 R10
-Z49 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/decode.vhd|
-Z50 !s107 /home/virtualgod/Altera/RISC2/decode.vhd|
+Z51 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/decode.vhd|
+Z52 !s107 /home/virtualgod/Altera/RISC2/decode.vhd|
 !i113 1
 R13
 R14
@@ -354,57 +354,57 @@ R8
 R9
 !i10b 1
 R10
-R49
-R50
+R51
+R52
 !i113 1
 R13
 R14
 Eexecute
-Z51 w1480350983
+Z53 w1480394659
 R4
 R5
 R0
-Z52 8/home/virtualgod/Altera/RISC2/execute.vhd
-Z53 F/home/virtualgod/Altera/RISC2/execute.vhd
+Z54 8/home/virtualgod/Altera/RISC2/execute.vhd
+Z55 F/home/virtualgod/Altera/RISC2/execute.vhd
 l0
 L4
-VOmJ9;4856C0YNnJZZ2UfS0
-!s100 cQ[GZz`[m?O;Gg>eB2gEI0
+VMVFlCm`3eWWLhlP;VkLmR3
+!s100 `_foW7go0Adk>ISB1dNYG1
 R8
 31
-R9
+R28
 !i10b 1
-R10
-Z54 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/execute.vhd|
-Z55 !s107 /home/virtualgod/Altera/RISC2/execute.vhd|
+R29
+Z56 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/execute.vhd|
+Z57 !s107 /home/virtualgod/Altera/RISC2/execute.vhd|
 !i113 1
 R13
 R14
 Abehaviour
 R4
 R5
-DEx4 work 7 execute 0 22 OmJ9;4856C0YNnJZZ2UfS0
+DEx4 work 7 execute 0 22 MVFlCm`3eWWLhlP;VkLmR3
 l14
 L12
-V`XOP=me`X5gGW@c5NHLDZ3
-!s100 z7z?bMJhQ6@4ido4CaE8W2
+VQAW^9:UIi1MR<ZV;YoQ;23
+!s100 GT=HJNc5hRZ1LeWOBl3a<0
 R8
 31
-R9
+R28
 !i10b 1
-R10
-R54
-R55
+R29
+R56
+R57
 !i113 1
 R13
 R14
 Efetch
-Z56 w1480327124
+Z58 w1480327124
 R4
 R5
 R0
-Z57 8/home/virtualgod/Altera/RISC2/fetch.vhd
-Z58 F/home/virtualgod/Altera/RISC2/fetch.vhd
+Z59 8/home/virtualgod/Altera/RISC2/fetch.vhd
+Z60 F/home/virtualgod/Altera/RISC2/fetch.vhd
 l0
 L4
 VzRXc<GBkbJY1i[dm7D50R1
@@ -414,8 +414,8 @@ R8
 R9
 !i10b 1
 R10
-Z59 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/fetch.vhd|
-Z60 !s107 /home/virtualgod/Altera/RISC2/fetch.vhd|
+Z61 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/fetch.vhd|
+Z62 !s107 /home/virtualgod/Altera/RISC2/fetch.vhd|
 !i113 1
 R13
 R14
@@ -432,40 +432,40 @@ R8
 R9
 !i10b 1
 R10
-R59
-R60
+R61
+R62
 !i113 1
 R13
 R14
 Pfinalcomponents
 R4
 R5
-w1480357883
+w1480389769
 R0
 8/home/virtualgod/Altera/RISC2/finalComponents.vhd
 F/home/virtualgod/Altera/RISC2/finalComponents.vhd
 l0
 L4
-V]2QiQ67JcNOZ7gK[C30@Z1
-!s100 cZkUN^>oiSM9Kdmm:kg=m2
+VKNc0[kOjS<?HDfdjd<2WA3
+!s100 Kdl8`_WmE:1b_6@b?lJMG0
 R8
 31
-R9
+R28
 !i10b 1
-R10
+R29
 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/finalComponents.vhd|
 !s107 /home/virtualgod/Altera/RISC2/finalComponents.vhd|
 !i113 1
 R13
 R14
 Eflipflop
-Z61 w1480325035
+Z63 w1480325035
 R2
 R4
 R5
 R0
-Z62 8/home/virtualgod/Altera/RISC2/flipFlop.vhd
-Z63 F/home/virtualgod/Altera/RISC2/flipFlop.vhd
+Z64 8/home/virtualgod/Altera/RISC2/flipFlop.vhd
+Z65 F/home/virtualgod/Altera/RISC2/flipFlop.vhd
 l0
 L6
 VQRHf1?D?PG4LaIAci>AS52
@@ -475,8 +475,8 @@ R8
 R9
 !i10b 1
 R10
-Z64 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/flipFlop.vhd|
-Z65 !s107 /home/virtualgod/Altera/RISC2/flipFlop.vhd|
+Z66 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/flipFlop.vhd|
+Z67 !s107 /home/virtualgod/Altera/RISC2/flipFlop.vhd|
 !i113 1
 R13
 R14
@@ -494,21 +494,21 @@ R8
 R9
 !i10b 1
 R10
-R64
-R65
+R66
+R67
 !i113 1
 R13
 R14
 Einstrmemory
-Z66 w1480354901
-R31
+Z68 w1480354901
+R33
 R2
 R3
 R4
 R5
 R0
-Z67 8/home/virtualgod/Altera/RISC2/instrMemory.vhd
-Z68 F/home/virtualgod/Altera/RISC2/instrMemory.vhd
+Z69 8/home/virtualgod/Altera/RISC2/instrMemory.vhd
+Z70 F/home/virtualgod/Altera/RISC2/instrMemory.vhd
 l0
 L8
 VYLma<]nzG;>BjX>8kG0B72
@@ -518,13 +518,13 @@ R8
 R9
 !i10b 1
 R10
-Z69 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/instrMemory.vhd|
-Z70 !s107 /home/virtualgod/Altera/RISC2/instrMemory.vhd|
+Z71 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/instrMemory.vhd|
+Z72 !s107 /home/virtualgod/Altera/RISC2/instrMemory.vhd|
 !i113 1
 R13
 R14
 Abehave
-R31
+R33
 R2
 R3
 R4
@@ -539,39 +539,39 @@ R8
 R9
 !i10b 1
 R10
-R69
-R70
+R71
+R72
 !i113 1
 R13
 R14
 Pmem_package
 R4
 R5
-w1480355247
+w1480393650
 R0
 8/home/virtualgod/Altera/RISC2/memPackage.vhd
 F/home/virtualgod/Altera/RISC2/memPackage.vhd
 l0
 L3
-V6nbd7<I_h2FNEmkQ7Jn2d3
-!s100 3LNmCIEjLWb7ida`C9QcB3
+Vhk5WiV<aWbm]Mk34[i6eH1
+!s100 i65eFOfU:eXXa^0Aed:W43
 R8
 31
-R9
+R28
 !i10b 1
-R10
+R29
 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/memPackage.vhd|
 !s107 /home/virtualgod/Altera/RISC2/memPackage.vhd|
 !i113 1
 R13
 R14
 Ememaccess
-Z71 w1480320974
+Z73 w1480397654
 R4
 R5
 R0
-Z72 8/home/virtualgod/Altera/RISC2/memAccess.vhd
-Z73 F/home/virtualgod/Altera/RISC2/memAccess.vhd
+Z74 8/home/virtualgod/Altera/RISC2/memAccess.vhd
+Z75 F/home/virtualgod/Altera/RISC2/memAccess.vhd
 l0
 L4
 VQM3l8N[aBP9^g17B0g4120
@@ -581,8 +581,8 @@ R8
 R9
 !i10b 1
 R10
-Z74 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/memAccess.vhd|
-Z75 !s107 /home/virtualgod/Altera/RISC2/memAccess.vhd|
+Z76 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/memAccess.vhd|
+Z77 !s107 /home/virtualgod/Altera/RISC2/memAccess.vhd|
 !i113 1
 R13
 R14
@@ -592,27 +592,27 @@ R5
 DEx4 work 9 memaccess 0 22 QM3l8N[aBP9^g17B0g4120
 l13
 L11
-V^nz>0>]PEz:5Hj362z]>f0
-!s100 IGJ9J99@@QKc:bGD;8QVM0
+V9Pi;@>]ik=GBPcJ5;ANCR2
+!s100 _NG[C8^hHlYF?CbZ:N]=L2
 R8
 31
 R9
 !i10b 1
 R10
-R74
-R75
+R76
+R77
 !i113 1
 R13
 R14
 Epe
-Z76 w1480170149
+Z78 w1480170149
 R2
 R3
 R4
 R5
 R0
-Z77 8/home/virtualgod/Altera/RISC2/PE.vhd
-Z78 F/home/virtualgod/Altera/RISC2/PE.vhd
+Z79 8/home/virtualgod/Altera/RISC2/PE.vhd
+Z80 F/home/virtualgod/Altera/RISC2/PE.vhd
 l0
 L7
 V^OJHi6Uhgg9`b0ZdjnMTk3
@@ -622,8 +622,8 @@ R8
 R9
 !i10b 1
 R10
-Z79 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/PE.vhd|
-Z80 !s107 /home/virtualgod/Altera/RISC2/PE.vhd|
+Z81 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/PE.vhd|
+Z82 !s107 /home/virtualgod/Altera/RISC2/PE.vhd|
 !i113 1
 R13
 R14
@@ -642,20 +642,20 @@ R8
 R9
 !i10b 1
 R10
-R79
-R80
+R81
+R82
 !i113 1
 R13
 R14
 Eregfile
-Z81 w1480170151
+Z83 w1480170151
 R2
 R3
 R4
 R5
 R0
-Z82 8/home/virtualgod/Altera/RISC2/regFile.vhd
-Z83 F/home/virtualgod/Altera/RISC2/regFile.vhd
+Z84 8/home/virtualgod/Altera/RISC2/regFile.vhd
+Z85 F/home/virtualgod/Altera/RISC2/regFile.vhd
 l0
 L7
 VWR5DmSeVZZOdfHihdbzz@2
@@ -665,8 +665,8 @@ R8
 R9
 !i10b 1
 R10
-Z84 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/regFile.vhd|
-Z85 !s107 /home/virtualgod/Altera/RISC2/regFile.vhd|
+Z86 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/regFile.vhd|
+Z87 !s107 /home/virtualgod/Altera/RISC2/regFile.vhd|
 !i113 1
 R13
 R14
@@ -685,29 +685,29 @@ R8
 R9
 !i10b 1
 R10
-R84
-R85
+R86
+R87
 !i113 1
 R13
 R14
 Eregread
-Z86 w1480330410
+Z88 w1480330410
 R4
 R5
 R0
-Z87 8/home/virtualgod/Altera/RISC2/regRead.vhd
-Z88 F/home/virtualgod/Altera/RISC2/regRead.vhd
+Z89 8/home/virtualgod/Altera/RISC2/regRead.vhd
+Z90 F/home/virtualgod/Altera/RISC2/regRead.vhd
 l0
 L4
 VG^mbXg:Md:;2S;K7eW[>41
 !s100 ^TcHTJ]N7ibe8>zLcCn1l2
 R8
 31
-R9
+R28
 !i10b 1
-R10
-Z89 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/regRead.vhd|
-Z90 !s107 /home/virtualgod/Altera/RISC2/regRead.vhd|
+R29
+Z91 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/regRead.vhd|
+Z92 !s107 /home/virtualgod/Altera/RISC2/regRead.vhd|
 !i113 1
 R13
 R14
@@ -721,21 +721,21 @@ VGdZf4mESnd_61lSKRdB^e1
 !s100 ReYaTSj`29PNh@[dKJZRX3
 R8
 31
-R9
+R28
 !i10b 1
-R10
-R89
-R90
+R29
+R91
+R92
 !i113 1
 R13
 R14
 Eregwrite
-Z91 w1480358894
+Z93 w1480396144
 R4
 R5
 R0
-Z92 8/home/virtualgod/Altera/RISC2/regWrite.vhd
-Z93 F/home/virtualgod/Altera/RISC2/regWrite.vhd
+Z94 8/home/virtualgod/Altera/RISC2/regWrite.vhd
+Z95 F/home/virtualgod/Altera/RISC2/regWrite.vhd
 l0
 L4
 VJ1gFaBUC5BIMA<1?K@ZCD1
@@ -744,9 +744,9 @@ R8
 31
 R9
 !i10b 1
-R10
-Z94 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/regWrite.vhd|
-Z95 !s107 /home/virtualgod/Altera/RISC2/regWrite.vhd|
+R29
+Z96 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/regWrite.vhd|
+Z97 !s107 /home/virtualgod/Altera/RISC2/regWrite.vhd|
 !i113 1
 R13
 R14
@@ -754,29 +754,29 @@ Abehaviour
 R4
 R5
 DEx4 work 8 regwrite 0 22 J1gFaBUC5BIMA<1?K@ZCD1
-l15
+l14
 L13
-V40PfkSe>9@G@S4Y2m5?B]2
-!s100 <ZRhA>6F;[Hg^g<c2;?Ca2
+VIXJhoCEZ;N8J]9aKa3dX92
+!s100 cXBea5?G:lhfC=bdc?<fT1
 R8
 31
 R9
 !i10b 1
-R10
-R94
-R95
+R29
+R96
+R97
 !i113 1
 R13
 R14
 Erisc2
-Z96 w1480357915
+Z98 w1480389706
 R2
-Z97 DPx4 work 15 finalcomponents 0 22 ]2QiQ67JcNOZ7gK[C30@Z1
+Z99 DPx4 work 15 finalcomponents 0 22 KNc0[kOjS<?HDfdjd<2WA3
 R4
 R5
 R0
-Z98 8/home/virtualgod/Altera/RISC2/RISC2.vhd
-Z99 F/home/virtualgod/Altera/RISC2/RISC2.vhd
+Z100 8/home/virtualgod/Altera/RISC2/RISC2.vhd
+Z101 F/home/virtualgod/Altera/RISC2/RISC2.vhd
 l0
 L7
 VZzTZ?B@TnXj<PIR0:z;b73
@@ -786,39 +786,39 @@ R8
 R9
 !i10b 1
 R10
-Z100 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/RISC2.vhd|
-Z101 !s107 /home/virtualgod/Altera/RISC2/RISC2.vhd|
+Z102 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/RISC2.vhd|
+Z103 !s107 /home/virtualgod/Altera/RISC2/RISC2.vhd|
 !i113 1
 R13
 R14
 Astruct
 R2
-R97
+R99
 R4
 R5
 DEx4 work 5 risc2 0 22 ZzTZ?B@TnXj<PIR0:z;b73
 l26
 L12
-VhKK6;aC2o3?d9W]I9lAPI0
-!s100 h;5h:^;?W@zD[IoiBC`V<1
+VHL_>Oj0:Gho3iBIHnSfUX0
+!s100 f<j36i@VD[HV4j2oRI=KY1
 R8
 31
 R9
 !i10b 1
 R10
-R100
-R101
+R102
+R103
 !i113 1
 R13
 R14
 Etestbench_full
-Z102 w1480271391
+Z104 w1480271391
 R3
 R4
 R5
 R0
-Z103 8/home/virtualgod/Altera/RISC2/testbench_full.vhd
-Z104 F/home/virtualgod/Altera/RISC2/testbench_full.vhd
+Z105 8/home/virtualgod/Altera/RISC2/testbench_full.vhd
+Z106 F/home/virtualgod/Altera/RISC2/testbench_full.vhd
 l0
 L5
 VFnofXY4mnn7LN[51:Jm;a2
@@ -828,8 +828,8 @@ R8
 R9
 !i10b 1
 R10
-Z105 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/testbench_full.vhd|
-Z106 !s107 /home/virtualgod/Altera/RISC2/testbench_full.vhd|
+Z107 !s90 -reportprogress|300|-93|-work|work|/home/virtualgod/Altera/RISC2/testbench_full.vhd|
+Z108 !s107 /home/virtualgod/Altera/RISC2/testbench_full.vhd|
 !i113 1
 R13
 R14
@@ -847,8 +847,8 @@ R8
 R9
 !i10b 1
 R10
-R105
-R106
+R107
+R108
 !i113 1
 R13
 R14

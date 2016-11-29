@@ -1,5 +1,5 @@
 Analysis & Elaboration report for RISC2
-Tue Nov 29 00:18:42 2016
+Tue Nov 29 11:04:36 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -64,7 +64,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Tue Nov 29 00:18:42 2016       ;
+; Analysis & Elaboration Status      ; Successful - Tue Nov 29 11:04:36 2016       ;
 ; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
 ; Revision Name                      ; RISC2                                       ;
 ; Top-level Entity Name              ; RISC2                                       ;
@@ -463,7 +463,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Tue Nov 29 00:18:27 2016
+    Info: Processing started: Tue Nov 29 11:04:23 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC2 -c RISC2 --analysis_and_elaboration
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file dataHazard.vhd
@@ -527,36 +527,36 @@ Info (12021): Found 2 design units, including 1 entities, in source file control
     Info (12022): Found design unit 1: controlHazard-Behave File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 13
     Info (12023): Found entity 1: controlHazard File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 4
 Info (12127): Elaborating entity "RISC2" for the top level hierarchy
-Info (12128): Elaborating entity "Datapath_RISC" for hierarchy "Datapath_RISC:dp" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 31
-Info (10041): Inferred latch for "T2_RE_in[0]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[1]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[2]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[3]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[4]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[5]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[6]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[7]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[8]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[9]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[10]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[11]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[12]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[13]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[14]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
-Info (10041): Inferred latch for "T2_RE_in[15]" at DataPath_RISC2.vhd(144) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 144
+Info (12128): Elaborating entity "Datapath_RISC" for hierarchy "Datapath_RISC:dp" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 32
+Info (10041): Inferred latch for "T2_RE_in[0]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[1]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[2]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[3]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[4]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[5]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[6]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[7]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[8]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[9]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[10]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[11]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[12]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[13]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[14]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
+Info (10041): Inferred latch for "T2_RE_in[15]" at DataPath_RISC2.vhd(149) File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 149
 Info (12128): Elaborating entity "flipFlop" for hierarchy "Datapath_RISC:dp|flipFlop:ncdr" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 45
-Info (12128): Elaborating entity "PE" for hierarchy "Datapath_RISC:dp|PE:pr1_enc" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 66
-Info (12128): Elaborating entity "dataRegister" for hierarchy "Datapath_RISC:dp|dataRegister:pc_fd" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 78
-Info (12128): Elaborating entity "alu" for hierarchy "Datapath_RISC:dp|alu:incrementer1" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 88
-Info (12128): Elaborating entity "instrMemory" for hierarchy "Datapath_RISC:dp|instrMemory:instr_mem" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 93
-Info (12128): Elaborating entity "regFile" for hierarchy "Datapath_RISC:dp|regFile:rf" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 129
+Info (12128): Elaborating entity "PE" for hierarchy "Datapath_RISC:dp|PE:pr1_enc" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 71
+Info (12128): Elaborating entity "dataRegister" for hierarchy "Datapath_RISC:dp|dataRegister:pc_fd" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 83
+Info (12128): Elaborating entity "alu" for hierarchy "Datapath_RISC:dp|alu:incrementer1" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 93
+Info (12128): Elaborating entity "instrMemory" for hierarchy "Datapath_RISC:dp|instrMemory:instr_mem" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 98
+Info (12128): Elaborating entity "regFile" for hierarchy "Datapath_RISC:dp|regFile:rf" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 134
 Warning (10492): VHDL Process Statement warning at regFile.vhd(29): signal "a3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regFile.vhd Line: 29
-Info (12128): Elaborating entity "Comparator" for hierarchy "Datapath_RISC:dp|Comparator:comp1" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 157
-Info (12128): Elaborating entity "dataMemory" for hierarchy "Datapath_RISC:dp|dataMemory:data_mem" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 219
-Info (12128): Elaborating entity "fetch" for hierarchy "fetch:f" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 50
+Info (12128): Elaborating entity "Comparator" for hierarchy "Datapath_RISC:dp|Comparator:comp1" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 162
+Info (12128): Elaborating entity "dataMemory" for hierarchy "Datapath_RISC:dp|dataMemory:data_mem" File: /home/virtualgod/Altera/RISC2/DataPath_RISC2.vhd Line: 224
+Info (12128): Elaborating entity "fetch" for hierarchy "fetch:f" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 51
 Warning (10492): VHDL Process Statement warning at fetch.vhd(24): signal "Ctrl_forwarding_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/fetch.vhd Line: 24
-Info (12128): Elaborating entity "decode" for hierarchy "decode:d" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 54
-Info (12128): Elaborating entity "regRead" for hierarchy "regRead:r" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 58
+Info (12128): Elaborating entity "decode" for hierarchy "decode:d" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 55
+Info (12128): Elaborating entity "regRead" for hierarchy "regRead:r" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 59
 Warning (10492): VHDL Process Statement warning at regRead.vhd(37): signal "NC_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 37
 Warning (10492): VHDL Process Statement warning at regRead.vhd(38): signal "data_forward1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 38
 Warning (10492): VHDL Process Statement warning at regRead.vhd(40): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 40
@@ -566,23 +566,23 @@ Warning (10492): VHDL Process Statement warning at regRead.vhd(59): signal "IR_D
 Warning (10492): VHDL Process Statement warning at regRead.vhd(61): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 61
 Warning (10492): VHDL Process Statement warning at regRead.vhd(64): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 64
 Warning (10492): VHDL Process Statement warning at regRead.vhd(66): signal "IR_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regRead.vhd Line: 66
-Info (12128): Elaborating entity "execute" for hierarchy "execute:e" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 64
-Warning (10492): VHDL Process Statement warning at execute.vhd(38): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 38
-Warning (10492): VHDL Process Statement warning at execute.vhd(39): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 39
-Warning (10492): VHDL Process Statement warning at execute.vhd(46): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 46
-Warning (10492): VHDL Process Statement warning at execute.vhd(52): signal "PE2_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at execute.vhd(55): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 55
-Warning (10492): VHDL Process Statement warning at execute.vhd(62): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 62
-Warning (10492): VHDL Process Statement warning at execute.vhd(69): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 69
-Warning (10492): VHDL Process Statement warning at execute.vhd(76): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 76
-Warning (10492): VHDL Process Statement warning at execute.vhd(82): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 82
-Warning (10492): VHDL Process Statement warning at execute.vhd(88): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 88
-Warning (10492): VHDL Process Statement warning at execute.vhd(95): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 95
+Info (12128): Elaborating entity "execute" for hierarchy "execute:e" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 65
+Warning (10492): VHDL Process Statement warning at execute.vhd(40): signal "NC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 40
+Warning (10492): VHDL Process Statement warning at execute.vhd(41): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at execute.vhd(50): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at execute.vhd(56): signal "PE2_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 56
+Warning (10492): VHDL Process Statement warning at execute.vhd(59): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at execute.vhd(66): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 66
+Warning (10492): VHDL Process Statement warning at execute.vhd(73): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 73
+Warning (10492): VHDL Process Statement warning at execute.vhd(80): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 80
+Warning (10492): VHDL Process Statement warning at execute.vhd(86): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at execute.vhd(92): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 92
 Warning (10492): VHDL Process Statement warning at execute.vhd(99): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 99
-Warning (10492): VHDL Process Statement warning at execute.vhd(99): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 99
 Warning (10492): VHDL Process Statement warning at execute.vhd(103): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 103
-Warning (10492): VHDL Process Statement warning at execute.vhd(103): signal "Zeff" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 103
-Info (12128): Elaborating entity "memAccess" for hierarchy "memAccess:m" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 70
+Warning (10492): VHDL Process Statement warning at execute.vhd(103): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 103
+Warning (10492): VHDL Process Statement warning at execute.vhd(107): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 107
+Warning (10492): VHDL Process Statement warning at execute.vhd(107): signal "Zeff" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/execute.vhd Line: 107
+Info (12128): Elaborating entity "memAccess" for hierarchy "memAccess:m" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 71
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(37): signal "NC_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 37
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(38): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 38
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(48): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 48
@@ -590,16 +590,16 @@ Warning (10492): VHDL Process Statement warning at memAccess.vhd(56): signal "IR
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(68): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 68
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(75): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 75
 Warning (10492): VHDL Process Statement warning at memAccess.vhd(87): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/memAccess.vhd Line: 87
-Info (12128): Elaborating entity "regWrite" for hierarchy "regWrite:w" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 76
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(31): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 31
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(32): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 32
+Info (12128): Elaborating entity "regWrite" for hierarchy "regWrite:w" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(30): signal "NC_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(31): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at regWrite.vhd(41): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 41
 Warning (10492): VHDL Process Statement warning at regWrite.vhd(47): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 47
 Warning (10492): VHDL Process Statement warning at regWrite.vhd(53): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 53
 Warning (10492): VHDL Process Statement warning at regWrite.vhd(59): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 59
 Warning (10492): VHDL Process Statement warning at regWrite.vhd(65): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 65
 Warning (10492): VHDL Process Statement warning at regWrite.vhd(71): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 71
-Warning (10492): VHDL Process Statement warning at regWrite.vhd(77): signal "IR_MW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/regWrite.vhd Line: 77
-Info (12128): Elaborating entity "controlHazard" for hierarchy "controlHazard:ch" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 80
+Info (12128): Elaborating entity "controlHazard" for hierarchy "controlHazard:ch" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 81
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(26): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 26
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(26): signal "NC_EM_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 26
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(27): signal "IR_EM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 27
@@ -627,7 +627,7 @@ Warning (10492): VHDL Process Statement warning at controlHazard.vhd(83): signal
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(90): signal "IR_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 90
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(91): signal "RF_pco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 91
 Warning (10492): VHDL Process Statement warning at controlHazard.vhd(91): signal "PC_RE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/controlHazard.vhd Line: 91
-Info (12128): Elaborating entity "Data_Hazard_Detector" for hierarchy "Data_Hazard_Detector:dh" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 86
+Info (12128): Elaborating entity "Data_Hazard_Detector" for hierarchy "Data_Hazard_Detector:dh" File: /home/virtualgod/Altera/RISC2/RISC2.vhd Line: 87
 Warning (10492): VHDL Process Statement warning at dataHazard.vhd(27): signal "NC_RE_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 27
 Warning (10492): VHDL Process Statement warning at dataHazard.vhd(36): signal "NC_RE_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 36
 Warning (10492): VHDL Process Statement warning at dataHazard.vhd(49): signal "NC_DR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 49
@@ -719,9 +719,9 @@ Warning (10631): VHDL Process Statement warning at dataHazard.vhd(39): inferring
 Info (10041): Inferred latch for "re_stall[0]" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Info (10041): Inferred latch for "re_stall[1]" at dataHazard.vhd(39) File: /home/virtualgod/Altera/RISC2/dataHazard.vhd Line: 39
 Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 156 warnings
-    Info: Peak virtual memory: 1512 megabytes
-    Info: Processing ended: Tue Nov 29 00:18:42 2016
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:37
+    Info: Peak virtual memory: 1510 megabytes
+    Info: Processing ended: Tue Nov 29 11:04:36 2016
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:31
 
 

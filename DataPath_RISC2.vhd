@@ -9,7 +9,7 @@ entity Datapath_RISC is
         M2,M10,M13,M14,M15,M18,M19,MLoop1,MLoop2,M5,M9,
         PC_FD_En,T3_FD_En,T3_DR_En,PC_DR_En,IR_DR_En,Z1_En,T1_RE_En,T2_RE_En,T3_RE_En,T4_RE_En,IR_RE_En,PC_RE_En,PC_RE2_En,
         T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,
-        PC_MW_En,IR_MW_En,PC_MW2_En,RegWr,PCWr,Alu_op,MemWr: in std_logic;
+        PC_MW_En,IR_MW_En,PC_MW2_En,RegWr,PCWr,Alu_op,MemWr,NC_RE_En: in std_logic;
         M3,M4,M6,M7,M8,M16,M17: in std_logic_vector(1 downto 0);
         M21,M20,M22: in std_logic_vector(2 downto 0);
         C,ZEff,PE1_V,PE2_V,Z1: out std_logic;
@@ -34,8 +34,8 @@ architecture Build of DataPath_RISC is
     signal PE1_A,PE2_A,RF_A1,RF_A2,RF_A3,RF_A4: std_logic_vector(2 downto 0);
     signal PE1_valid,PE2_valid,Comp1_out,Comp2_out,Alu_C,Z,
         NC_DR_out,NC_RE_out,NC_EM_out,NC_MW_out,NC_DR_in1,NC_RE_in1,NC_EM_in1,NC_MW_in1,
-        IR_RE_En1,PC_RE_En1,T2_RE_En1,T3_RE_En1,T4_RE_En1,
-        IR_EM_En1,PC_EM_En1,T2_EM_En1,T3_EM_En1,T4_EM_En1: std_logic;
+        IR_RE_En1,PC_RE_En1,T2_RE_En1,T3_RE_En1,T4_RE_En1,NC_MW_En,NC_RE_En1,
+        IR_EM_En1,PC_EM_En1,T2_EM_En1,T3_EM_En1,T4_EM_En1,NC_EM_En: std_logic;
     constant one: std_logic_vector(15 downto 0) := "0000000000000001";
     constant zero: std_logic_vector(15 downto 0) := "0000000000000000";
 
@@ -46,19 +46,24 @@ begin
         (Din => NC_DR_in1, Dout => NC_DR_out, enable => IR_DR_En, clk => clk, reset => reset);
     NC_DR <= NC_DR_out;
         
-    NC_RE_in1 <= NC_RE_in or NC_DR_out;
+    NC_RE_in1 <= (NC_RE_in or NC_DR_out) when (MLoop1='0') else
+                    NC_EM_out;
+    NC_RE_En1 <= NC_RE_En or IR_RE_En or MLoop1;
     ncre: flipFlop port map
-        (Din => NC_RE_in1, Dout => NC_RE_out, enable => IR_RE_En, clk => clk, reset => reset);
+        (Din => NC_RE_in1, Dout => NC_RE_out, enable => NC_RE_En1, clk => clk, reset => reset);
     NC_RE <= NC_RE_out;
         
-    NC_EM_in1 <= NC_EM_in or NC_RE_out;
+    NC_EM_in1 <= (NC_EM_in or NC_RE_out or MLoop1) when (MLoop2='0') else
+                    NC_MW_out;
+    NC_EM_En <= IR_EM_En or MLoop2;
     ncem: flipFlop port map
-        (Din => NC_EM_in1, Dout => NC_EM_out, enable => IR_EM_En, clk => clk, reset => reset);
+        (Din => NC_EM_in1, Dout => NC_EM_out, enable => NC_EM_En, clk => clk, reset => reset);
     NC_EM <= NC_EM_out;  
         
-    NC_MW_in1 <= NC_EM_out;
+    NC_MW_in1 <= NC_EM_out or MLoop2;
+    NC_MW_En <= IR_MW_En or MLoop2;
     ncmw: flipFlop port map
-        (Din => NC_MW_in1, Dout => NC_MW_out, enable => IR_MW_En, clk => clk, reset => reset);
+        (Din => NC_MW_in1, Dout => NC_MW_out, enable => NC_MW_En, clk => clk, reset => reset);
     NC_MW <= NC_MW_out;
         
     --Priority Encoder1  -- Doubt
@@ -68,7 +73,7 @@ begin
     PE1_V <= PE1_valid;
 
     --Priority Encoder2  -- Doubt
-    PE2_in <= T4_MW_out;
+    PE2_in <= T4_RE_out;
     pr2_enc: PE
     	port map(inp=>PE2_in,v=>PE2_valid,a=>PE2_A,d=>PE2_D);
     PE2_V <= PE2_valid;

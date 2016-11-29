@@ -57,11 +57,11 @@ begin
                 M15_var := '0';
                 M9_var := '1';
                 M13_var := '0';
-                Mem_Wr_var := '1';
                 T2_MW_En_var := '1';
                 PC_MW2_En_var := '0';
                 
                 if(PE2_V='1') then
+                    Mem_Wr_var := '1';
                     MLoop1_var := '1';
                     stall_M_var := '1';
                 end if;

@@ -11,9 +11,8 @@ entity regWrite is
 end entity;
   
 architecture behaviour of regWrite is
-    signal MLoopState: std_logic := '0';
 begin  
-    process (clk,reset,PE1_V,MLoopState)
+    process (clk,reset,PE1_V)
         variable M16_var,M17_var: std_logic_vector(1 downto 0);  
         variable M18_var,stall_W_var,MLoop2_var: std_logic := '0';
         variable Reg_Wr_var,PC_Wr_var: std_logic;
@@ -33,16 +32,11 @@ begin
                 M17_var := "00";
                 M16_var := "11";
                 M18_var := '0';
-                Reg_Wr_var := '1';
+                
                 if(PE1_V='1') then
+                    Reg_Wr_var := '1';
                     stall_W_var := '1';
-                    if(MLoopState='0') then
-                        MLoop2_var := '1';
-                    else
-                        MLoop2_var := '0';
-                    end if;
-                else
-                    MLoop2_var := '0';
+                    MLoop2_var := '1';
                 end if;
             elsif (IR_MW(15 downto 13) = "100") then --JAL,JLR
                 M17_var := "10";
@@ -84,13 +78,9 @@ begin
                 M17_var := "00";
                 M16_var := "01";
                 M18_var := '0';
-                Reg_Wr_var := '1';
+                Reg_Wr_var := '0';
                 MLoop2_var := '0';
             end if;
-        end if;
-        
-        if(clk'event and clk='1') then
-            MLoopState <= MLoop2_var;
         end if;
 
         M16 <= M16_var;
@@ -101,7 +91,7 @@ begin
         Reg_Wr <= Reg_Wr_var;
         PC_Wr <= PC_Wr_var;
         stall_W <= stall_W_var;
-        MLoop2 <= MLoopState;
+        MLoop2 <= MLoop2_var;
             
     end process;  
 end behaviour;

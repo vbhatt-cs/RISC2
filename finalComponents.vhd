@@ -7,7 +7,7 @@ package finalComponents is
             M2,M10,M13,M14,M15,M18,M19,M5,MLoop1,MLoop2,M9,
             PC_FD_En,T3_FD_En,T3_DR_En,PC_DR_En,IR_DR_En,Z1_En,T1_RE_En,T2_RE_En,T3_RE_En,T4_RE_En,
             IR_RE_En,PC_RE_En,PC_RE2_En,T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,
-            C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,PC_MW_En,IR_MW_En,PC_MW2_En,
+            C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,PC_MW_En,IR_MW_En,PC_MW2_En,NC_RE_En,
             RegWr,PCWr,Alu_op,MemWr: in std_logic;
             M3,M4,M6,M7,M8,M16,M17: in std_logic_vector(1 downto 0);
             M21,M20,M22: in std_logic_vector(2 downto 0);
@@ -45,7 +45,7 @@ package finalComponents is
         port (IR_RE: in std_logic_vector(15 downto 0);
             clk,reset,PE2_V,NC_RE,C,Zeff : in std_logic;
             M6,M7,M8: out std_logic_vector(1 downto 0);  
-            M10,stall_E,NC_EM_in: out std_logic;
+            M10,stall_E,NC_EM_in,NC_RE_in,NC_RE_En: out std_logic;
             T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Alu_op: out std_logic);  
     end component;
     
