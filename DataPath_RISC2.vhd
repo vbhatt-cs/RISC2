@@ -10,8 +10,9 @@ entity Datapath_RISC is
         PC_FD_En,T3_FD_En,T3_DR_En,PC_DR_En,IR_DR_En,Z1_En,T1_RE_En,T2_RE_En,T3_RE_En,T4_RE_En,IR_RE_En,PC_RE_En,PC_RE2_En,
         T2_EM_En,T3_EM_En,T4_EM_En,PC_EM_En,IR_EM_En,PC_EM2_En,C_En,Z_En,T3_MW_En,T4_MW_En,T2_MW_En,
         PC_MW_En,IR_MW_En,PC_MW2_En,RegWr,PCWr,Alu_op,MemWr,NC_RE_En: in std_logic;
-        M3,M4,M6,M7,M8,M16,M17: in std_logic_vector(1 downto 0);
-        M21,M20,M22: in std_logic_vector(2 downto 0);
+        M3,M4,M6,M7,M8,M16,M17,M24: in std_logic_vector(1 downto 0);
+        M21,M20,M22,M23: in std_logic_vector(2 downto 0);
+        PE2_A_out: out std_logic_vector(2 downto 0);
         C,ZEff,PE1_V,PE2_V,Z1: out std_logic;
         NC_DR_in,NC_RE_in,NC_EM_in: in std_logic;
         NC_DR,NC_RE,NC_EM,NC_MW: out std_logic;
@@ -28,7 +29,7 @@ architecture Build of DataPath_RISC is
         PC_MW_in,PC_MW_out,PC_EM2_in,PC_EM2_out,PC_MW2_in,PC_MW2_out,
 	    Data_Mem_A,Data_Mem_Din,Data_Mem_dout,Instr_Mem_A,Instr_Mem_out,
 	    pc_alu1,pc_alu_out,op_alu1,op_alu2,op_alu_out,op2_alu1,op2_alu_out,
-	    Comp1_D1,Comp1_D2,Comp2_D1,SE_out,USE_out,forward1,forward2,ctrl_for,
+	    Comp1_D1,Comp1_D2,Comp2_D1,SE_out,USE_out,forward1,forward2,forward3,ctrl_for,
         IR_FD_in,IR_FD_out,IR_DR_in,IR_RE_in,IR_EM_in,IR_MW_in,IR_DR_out,IR_RE_out,
         IR_EM_out,IR_MW_out: std_logic_vector(15 downto 0);
     signal PE1_A,PE2_A,RF_A1,RF_A2,RF_A3,RF_A4: std_logic_vector(2 downto 0);
@@ -77,6 +78,7 @@ begin
     pr2_enc: PE
     	port map(inp=>PE2_in,v=>PE2_valid,a=>PE2_A,d=>PE2_D);
     PE2_V <= PE2_valid;
+    PE2_A_out <= PE2_A;
 	
     --PC_FD         PC_FD_in <= pc_alu_out when (M1='0') else BHT_BrOut;
     PC_FD_in <= pc_alu_out;	
@@ -228,7 +230,9 @@ begin
     --T3_EM
     T3_EM_in <= T3_MW_out when (MLoop2='1') else
         OP_ALU_OUT when (M8="00") else 
-        T1_RE_out when (M8="01") else RF_D4;
+        T1_RE_out when (M8="01") else
+        RF_D4 when (M24="00") else
+		forward3 when (M24="01") else PC_MW_out;
     T3_EM_En1 <= T3_EM_En or MLoop2;
     t3_em : dataRegister generic map (data_width => 16)
 	 port map (Din => T3_EM_in, Dout => T3_EM_out, enable => T3_EM_En1,clk => clk, reset => reset);  
@@ -315,6 +319,7 @@ begin
     forward1 <= op_alu_out when (M20 ="000") else
 		Data_Mem_dout when (M20 ="010") else 
         RF_D3 when (M20="100") else
+        T3_EM_out when (M20="110") else
         T4_RE_out when (M20="001") else
         T4_EM_out when (M20="011") else
         T4_MW_out;
@@ -322,8 +327,17 @@ begin
     forward2 <= op_alu_out when (M22 ="000") else
 		Data_Mem_dout when (M22 ="010") else 
         RF_D3 when (M22="100") else
+        T3_EM_out when (M22="110") else
         T4_RE_out when (M22="001") else
         T4_EM_out when (M22="011") else
+        T4_MW_out;
+    
+    forward3 <= op_alu_out when (M23 ="000") else
+		Data_Mem_dout when (M23 ="010") else 
+        RF_D3 when (M23="100") else
+        T3_EM_out when (M23="110") else
+        T4_RE_out when (M23="001") else
+        T4_EM_out when (M23="011") else
         T4_MW_out;
 
 	--control forwarding data

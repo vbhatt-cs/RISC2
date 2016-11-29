@@ -29,7 +29,7 @@ begin
     
 	process
 	begin
-	    for i in 1 to 100 loop
+	    for i in 1 to 1000 loop
 	        wait until clk='1';
 	    end loop;
 	    
