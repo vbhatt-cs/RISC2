@@ -1,16 +1,16 @@
-Fitter Status : Successful - Mon Nov 28 14:33:59 2016
+Fitter Status : Successful - Tue Nov 29 21:01:23 2016
 Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 Revision Name : RISC2
 Top-level Entity Name : RISC2
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 6,126 / 22,320 ( 27 % )
-    Total combinational functions : 3,992 / 22,320 ( 18 % )
-    Dedicated logic registers : 4,605 / 22,320 ( 21 % )
-Total registers : 4605
+Total logic elements : 9,031 / 22,320 ( 40 % )
+    Total combinational functions : 5,630 / 22,320 ( 25 % )
+    Dedicated logic registers : 6,683 / 22,320 ( 30 % )
+Total registers : 6683
 Total pins : 3 / 154 ( 2 % )
 Total virtual pins : 0
-Total memory bits : 4,112 / 608,256 ( < 1 % )
+Total memory bits : 280,576 / 608,256 ( 46 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
 Total PLLs : 0 / 4 ( 0 % )

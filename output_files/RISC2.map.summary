@@ -1,14 +1,14 @@
-Analysis & Elaboration Status : Successful - Tue Nov 29 18:50:34 2016
+Analysis & Synthesis Status : Successful - Tue Nov 29 21:00:20 2016
 Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 Revision Name : RISC2
 Top-level Entity Name : RISC2
 Family : Cyclone IV E
-Total logic elements : N/A until Partition Merge
-    Total combinational functions : N/A until Partition Merge
-    Dedicated logic registers : N/A until Partition Merge
-Total registers : N/A until Partition Merge
-Total pins : N/A until Partition Merge
-Total virtual pins : N/A until Partition Merge
-Total memory bits : N/A until Partition Merge
-Embedded Multiplier 9-bit elements : N/A until Partition Merge
-Total PLLs : N/A until Partition Merge
+Total logic elements : 11,293
+    Total combinational functions : 5,628
+    Dedicated logic registers : 6,683
+Total registers : 6683
+Total pins : 3
+Total virtual pins : 0
+Total memory bits : 280,576
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

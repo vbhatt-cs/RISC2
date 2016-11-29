@@ -70,8 +70,8 @@ package finalComponents is
     --Control hazard block
     component controlHazard is
         port(
-            PC_RE,PC_EM,IR_RE,IR_EM,T4_RE,T1_RE,memDout,aluOut,RF_pco: in std_logic_vector(15 downto 0);
-            C,Z,Z1,NC_RE_out,NC_EM_out,stall: in std_logic;
+            PC_RE,PC_EM,IR_RE,IR_EM,IR_MW,T4_RE,T1_RE,memDout,aluOut,RF_pco: in std_logic_vector(15 downto 0);
+            C,Z,Z1,NC_RE_out,NC_EM_out,stall,NC_MW: in std_logic;
             Ctrl_forwarding_V,NC_EM_in,NC_DR_in,NC_RE_in: out std_logic;
             M21: out std_logic_vector(2 downto 0);
             clk,reset: in std_logic);

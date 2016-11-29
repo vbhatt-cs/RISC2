@@ -32,6 +32,7 @@ begin
                 M17_var := "00";
                 M16_var := "11";
                 M18_var := '0';
+                PC_Wr_var := '0';
                 
                 if(PE1_V='1') then
                     Reg_Wr_var := '1';
@@ -81,6 +82,8 @@ begin
                 Reg_Wr_var := '0';
                 MLoop2_var := '0';
             end if;
+        elsif(IR_MW(15 downto 12) = "0110") then --LM
+            PC_Wr_var := '0';
         end if;
 
         M16 <= M16_var;

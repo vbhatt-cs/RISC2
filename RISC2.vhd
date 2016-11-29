@@ -81,6 +81,7 @@ begin
         
     ch: controlHazard port map
         (PC_RE=>PC_RE,PC_EM=>PC_EM,IR_RE=>IR_RE,IR_EM=>IR_EM,T4_RE=>T4_RE,T1_RE=>T1_RE,
+        IR_MW=>IR_MW,NC_MW=>NC_MW,
         memDout=>memDout,aluOut=>aluOut,RF_pco=>r7,C=>C,Z=>ZEff,Z1=>Z1,NC_RE_out=>NC_RE,
         NC_EM_out=>NC_EM,stall=>stall,Ctrl_forwarding_V=>Ctrl_forwarding_V,NC_EM_in=>NC_EM_in1,
         NC_DR_in=>NC_DR_in,NC_RE_in=>NC_RE_in1,M21=>M21,clk=>clk,reset=>reset);
