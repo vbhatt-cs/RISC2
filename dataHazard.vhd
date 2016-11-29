@@ -36,8 +36,9 @@
             NC_RE <= NC_RE_var or NC_RE_out;
         end process;
 	
-        process(IR,IR_OLD1,IR_OLD2,IR_OLD3,clk, re_stall)
+        process(IR,IR_OLD1,IR_OLD2,IR_OLD3,clk,re_stall)
             variable hazard1_var,hazard2_var: std_logic_vector(2 downto 0);
+            variable re_stall_var : std_logic_vector(1 downto 0);
             variable stall_var : std_logic := '0';
             variable forwarding2_var,forwarding1_var : std_logic := '0';
         begin
@@ -46,22 +47,15 @@
             stall_var := '0';
             forwarding2_var := '0';
             forwarding1_var := '0';
+            re_stall_var := "00";
+            
             if(NC_DR='0') then
                 ----CASE1 (Alu type)
                 if(IR(15 downto 12)="0010" or IR(15 downto 12)="0000") then
-                    if(IR_OLD1(15 downto 12)="0000" or IR_OLD1(15 downto 12)="0010" or IR_OLD2(15 downto 12)="0000" or IR_OLD2(15 
-                    downto 12)="0010" or IR_OLD3(15 downto 12)="0000" or IR_OLD3(15 downto 12)="0010") then
+                    if(IR_OLD1(15 downto 12)="0000" or IR_OLD1(15 downto 12)="0010") then
                         if(IR_OLD1(5 downto 3)=IR(11 downto 9) and NC_RE='0') then
                             hazard2_var :="000";
                             stall_var:='0';
-                            forwarding2_var := '1';
-                        elsif(IR_OLD2(5 downto 3)=IR(11 downto 9) and NC_EM='0') then
-                            hazard2_var :="010";
-                            stall_var:='0';
-                            forwarding2_var := '1';
-                        elsif(IR_OLD3(5 downto 3)=IR(11 downto 9) and NC_MW='0') then
-                            hazard2_var := "100";
-                            stall_var := '0';
                             forwarding2_var := '1';
                         end if;
                         
@@ -69,11 +63,31 @@
                             hazard1_var :="000";
                             stall_var:='0'; 
                             forwarding1_var := '1';
-                        elsif(IR_OLD2(5 downto 3)=IR(8 downto 6) and NC_EM='0') then
+                        end if;
+                    end if;
+                    
+                    if(IR_OLD2(15 downto 12)="0000" or IR_OLD2(15 downto 12)="0010") then
+                        if(IR_OLD2(5 downto 3)=IR(11 downto 9) and NC_EM='0') then
+                            hazard2_var :="010";
+                            stall_var:='0';
+                            forwarding2_var := '1';
+                        end if;
+                        
+                        if(IR_OLD2(5 downto 3)=IR(8 downto 6) and NC_EM='0') then
                             hazard1_var :="010";
                             stall_var:='0';
                             forwarding1_var := '1';
-                        elsif(IR_OLD3(5 downto 3)=IR(8 downto 6) and NC_MW='0') then
+                        end if;
+                    end if;
+                    
+                    if(IR_OLD3(15 downto 12)="0000" or IR_OLD3(15 downto 12)="0010") then
+                        if(IR_OLD3(5 downto 3)=IR(11 downto 9) and NC_MW='0') then
+                            hazard2_var := "100";
+                            stall_var := '0';
+                            forwarding2_var := '1';
+                        end if;
+                        
+                        if(IR_OLD3(5 downto 3)=IR(8 downto 6) and NC_MW='0') then
                             hazard1_var :="100";
                             stall_var:='0';
                             forwarding1_var := '1';
@@ -117,8 +131,9 @@
                         if(IR_OLD1(11 downto 9)=IR(11 downto 9) and NC_RE='0') then
                             if(re_stall = "00") then
                                 stall_var:='1';
-                                re_stall <= "01";
-                            else     
+                                re_stall_var := "01";
+                            else
+                                re_stall_var := "00";
                                 hazard2_var :="010";
                                 forwarding2_var := '1';
                             end if;  
@@ -135,8 +150,9 @@
                         if(IR_OLD1(11 downto 9)=IR(8 downto 6) and NC_RE='0') then
                             if(re_stall = "00") then
                                 stall_var:='1';
-                                re_stall <= "01";
-                            else     
+                                re_stall_var := "01";
+                            else
+                                re_stall_var := "00";
                                 hazard1_var :="010";
                                 forwarding1_var := '1';
                             end if; 
@@ -217,10 +233,10 @@
                         if (IR_OLD1 (11 downto 9)=IR(11 downto 9) and NC_RE='0') then 
                             if(re_stall = "00") then
                                 stall_var:='1';
-                                re_stall <= "01";
+                                re_stall_var := "01";
                             else    
                                 hazard2_var :="010";
-                                re_stall <= "00";
+                                re_stall_var:= "00";
                                 forwarding2_var := '1';
                             end if;
                         elsif (IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then 
@@ -280,10 +296,10 @@
                         if (IR_OLD1 (11 downto 9)=IR(8 downto 6) and NC_RE='0') then 
                             if(re_stall = "00") then
                                 stall_var:='1';
-                                re_stall <= "01";
+                                re_stall_var := "01";
                             else    
                                 hazard1_var :="010";
-                                re_stall <= "00";
+                                re_stall_var := "00";
                                 forwarding1_var := '1';
                             end if;
                         elsif (IR_OLD2(11 downto 9)=IR(8 downto 6) and NC_EM='0') then 
@@ -366,10 +382,10 @@
                         if (IR_OLD1 (11 downto 9)=IR(8 downto 6) and NC_RE='0') then 
                             if(re_stall = "00") then
                                 stall_var:='1';
-                                re_stall <= "01";
+                                re_stall_var := "01";
                             else    
                                 hazard1_var :="010";
-                                re_stall <= "00";
+                                re_stall_var := "00";
                                 forwarding1_var := '1';
                             end if;
                         elsif (IR_OLD2(11 downto 9)=IR(8 downto 6) and NC_EM='0') then 
@@ -383,10 +399,10 @@
                         if (IR_OLD1 (11 downto 9)=IR(11 downto 9) and NC_RE='0') then 
                             if(re_stall = "00") then
                                 stall_var:='1';
-                                re_stall <= "01";
+                                re_stall_var := "01";
                             else    
                                 hazard2_var :="010";
-                                re_stall <= "00";
+                                re_stall_var := "00";
                                 forwarding2_var := '1';
                             end if;
                         elsif (IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then 
@@ -457,10 +473,10 @@
                         if (IR_OLD1 (11 downto 9)=IR(11 downto 9) and NC_RE='0') then 
                             if(re_stall = "00") then
                                 stall_var:='1';
-                                re_stall <= "01";
+                                re_stall_var := "01";
                             else    
                                 hazard2_var :="010";
-                                re_stall <= "00";
+                                re_stall_var := "00";
                                 forwarding2_var := '1';
                             end if;
                         elsif (IR_OLD2(11 downto 9)=IR(11 downto 9) and NC_EM='0') then 
@@ -485,7 +501,11 @@
                         end if;
                     end if;
                 end if;
-            end if;	
+            end if;
+           
+            if(rising_edge(clk)) then
+                re_stall <= re_stall_var;
+            end if;
             
             hazard1 <= hazard1_var;
             hazard2 <= hazard2_var;

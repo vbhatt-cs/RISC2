@@ -12,7 +12,7 @@ end entity;
 
 architecture Behave of controlHazard is
 begin
-    process(clk,reset,aluOut,Z,stall)
+    process(clk,reset,aluOut,C,Z1,Z,stall,memDout,RF_pco)
         variable Ctrl_forwarding_V_var,NC_EM_var,NC_DR_var,NC_RE_var: std_logic;
         variable M21_var: std_logic_vector(2 downto 0);
     begin

@@ -11,7 +11,7 @@ end entity;
 architecture behaviour of fetch is 
   
 begin  
-    process (clk,reset,stall) 
+    process (clk,reset,stall,Ctrl_forwarding_V) 
         variable M2_var,T3_FD_En_var,PC_FD_En_var: std_logic;
 
     begin

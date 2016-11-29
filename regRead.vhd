@@ -13,7 +13,7 @@ end entity;
 architecture behaviour of regRead is
   
 begin  
-    process (clk,reset,stall)
+    process (clk,reset,stall,data_forward1,data_forward2)
         variable M3_var,M4_var: std_logic_vector(1 downto 0);  
         variable M19_var,M5_var: std_logic;
         variable Z1_En_var,T1_RE_En_var,T2_RE_En_var,T3_RE_En_var,T4_RE_En_var,

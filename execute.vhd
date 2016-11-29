@@ -12,7 +12,7 @@ end entity;
 architecture behaviour of execute is
   
 begin  
-    process (clk,reset)
+    process (clk,reset,PE2_V,C,Zeff)
         variable M6_var,M7_var,M8_var: std_logic_vector(1 downto 0);  
         variable M10_var,stall_E_var: std_logic;
         variable T2_EM_En_var,T3_EM_En_var,T4_EM_En_var,PC_EM_En_var,NC_RE_En_var,NC_RE_in_var,
